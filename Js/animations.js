@@ -82,6 +82,48 @@ class ScrollAnimations {
     }
 }
 
+// ===== ANIMACIONES PARA SERVICIOS =====
+class ServiceCardsAnimation {
+    constructor() {
+        this.cards = [];
+        this.observer = null;
+        this.init();
+    }
+
+    init() {
+        this.cards = document.querySelectorAll('.service__card');
+        this.createObserver();
+    }
+
+    createObserver() {
+        this.observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    // Animación escalonada para cada card
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 100);
+                    
+                    this.observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        this.cards.forEach(card => {
+            // Estilos iniciales
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            
+            this.observer.observe(card);
+        });
+    }
+}
+
 // ===== CONTADORES ANIMADOS =====
 class AnimatedCounters {
     constructor() {
@@ -136,6 +178,7 @@ class AnimatedCounters {
 document.addEventListener('DOMContentLoaded', function() {
     new ScrollAnimations();
     new AnimatedCounters();
+    new ServiceCardsAnimation();
 });
 
 // ===== UTILIDADES DE PERFORMANCE =====
@@ -156,4 +199,5 @@ class PerformanceUtils {
 // ===== EXPORTAR PARA USO GLOBAL =====
 window.ScrollAnimations = ScrollAnimations;
 window.AnimatedCounters = AnimatedCounters;
+window.ServiceCardsAnimation = ServiceCardsAnimation;
 window.PerformanceUtils = PerformanceUtils;
