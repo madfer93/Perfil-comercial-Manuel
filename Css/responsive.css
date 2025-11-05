@@ -59,3 +59,91 @@
         min-height: 380px;
     }
 }
+/* ===== RESPONSIVE PARA NUEVO PROYECTO ===== */
+
+/* Tablets */
+@media (max-width: 1199px) and (min-width: 768px) {
+    .projects__grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-6);
+    }
+    
+    .project__services {
+        padding: var(--space-4);
+    }
+    
+    .services-list li {
+        font-size: var(--font-size-xs);
+    }
+}
+
+/* Móviles grandes */
+@media (max-width: 767px) and (min-width: 481px) {
+    .projects__grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-6);
+    }
+    
+    .project__header {
+        flex-direction: column;
+        gap: var(--space-3);
+        align-items: flex-start;
+    }
+    
+    .project__status {
+        align-self: flex-start;
+    }
+}
+
+/* Móviles pequeños */
+@media (max-width: 480px) {
+    .projects__grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-5);
+    }
+    
+    .project__card {
+        padding: var(--space-6);
+    }
+    
+    .project__metrics {
+        flex-direction: column;
+        gap: var(--space-4);
+    }
+    
+    .project__services {
+        padding: var(--space-4);
+    }
+    
+    .services-list {
+        gap: var(--space-2);
+    }
+    
+    .services-list li {
+        font-size: var(--font-size-xs);
+        padding: var(--space-2) 0;
+    }
+    
+    .services-list li i {
+        font-size: var(--font-size-xs);
+    }
+}
+
+/* Ajustes para alturas específicas */
+@media (max-height: 700px) and (min-width: 1200px) {
+    .project__card {
+        min-height: 420px;
+    }
+}
+
+/* Soporte para modo oscuro si lo implementas después */
+@media (prefers-color-scheme: dark) {
+    .project__services {
+        background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(126, 34, 206, 0.1));
+        border-color: var(--gray-700);
+    }
+    
+    .services-list li {
+        border-bottom-color: var(--gray-700);
+    }
+}
