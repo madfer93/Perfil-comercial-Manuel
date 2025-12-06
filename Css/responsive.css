@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /* ===== RESPONSIVE DESIGN MEJORADO ===== */
 
 /* ===== OPTIMIZACIONES GLOBALES ===== */
@@ -70,99 +69,16 @@ img {
     
     /* Services Grid */
     .services__grid {
-=======
-/* ===== FIX PARA GRID DE SERVICIOS ===== */
-
-/* Asegurar que siempre haya 4 columnas en desktop */
-@media (min-width: 1200px) {
-    .services__grid {
-        grid-template-columns: repeat(4, 1fr);
-    }
-}
-
-/* Tablets: 2 columnas */
-@media (max-width: 1199px) and (min-width: 768px) {
-    .services__grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-/* Móviles: 1 columna */
-@media (max-width: 767px) {
-    .services__grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .service__card {
-        min-height: auto;
-    }
-}
-
-/* Prevenir desbordamiento en zoom 100% */
-@media (min-width: 1400px) {
-    .services__grid {
-        gap: 2rem;
-    }
-    
-    .service__card {
-        min-height: 340px;
-    }
-}
-
-/* Ajustes específicos para diferentes niveles de zoom */
-@media (min-width: 1600px) {
-    .container {
-        max-width: 1500px;
-    }
-    
-    .services__grid {
-        gap: 2.5rem;
-    }
-}
-
-/* Ajuste fino para alturas en diferentes pantallas */
-@media (max-height: 800px) and (min-width: 1200px) {
-    .service__card {
-        min-height: 350px;
-    }
-}
-
-@media (max-height: 700px) and (min-width: 1200px) {
-    .service__card {
-        min-height: 380px;
-    }
-}
-/* ===== RESPONSIVE PARA NUEVO PROYECTO ===== */
-
-/* Tablets */
-@media (max-width: 1199px) and (min-width: 768px) {
-    .projects__grid {
->>>>>>> 2af032e0ea1f4ed34263ac9f65fb00ef058477b3
         grid-template-columns: repeat(2, 1fr);
         gap: var(--space-6);
     }
     
-<<<<<<< HEAD
     /* Projects Grid */
-=======
-    .project__services {
-        padding: var(--space-4);
-    }
-    
-    .services-list li {
-        font-size: var(--font-size-xs);
-    }
-}
-
-/* Móviles grandes */
-@media (max-width: 767px) and (min-width: 481px) {
->>>>>>> 2af032e0ea1f4ed34263ac9f65fb00ef058477b3
     .projects__grid {
         grid-template-columns: 1fr;
         gap: var(--space-6);
     }
     
-<<<<<<< HEAD
     /* Footer */
     .footer__content {
         grid-template-columns: 1fr;
@@ -307,31 +223,12 @@ img {
     /* Projects */
     .projects {
         padding: var(--space-16) 0;
-=======
-    .project__header {
-        flex-direction: column;
-        gap: var(--space-3);
-        align-items: flex-start;
-    }
-    
-    .project__status {
-        align-self: flex-start;
-    }
-}
-
-/* Móviles pequeños */
-@media (max-width: 480px) {
-    .projects__grid {
-        grid-template-columns: 1fr;
-        gap: var(--space-5);
->>>>>>> 2af032e0ea1f4ed34263ac9f65fb00ef058477b3
     }
     
     .project__card {
         padding: var(--space-6);
     }
     
-<<<<<<< HEAD
     .project__badge {
         top: -12px;
         right: 15px;
@@ -339,14 +236,11 @@ img {
         font-size: 0.65rem;
     }
     
-=======
->>>>>>> 2af032e0ea1f4ed34263ac9f65fb00ef058477b3
     .project__metrics {
         flex-direction: column;
         gap: var(--space-4);
     }
     
-<<<<<<< HEAD
     .project__links {
         flex-direction: column;
     }
@@ -825,41 +719,5 @@ img {
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         text-rendering: optimizeLegibility;
-=======
-    .project__services {
-        padding: var(--space-4);
-    }
-    
-    .services-list {
-        gap: var(--space-2);
-    }
-    
-    .services-list li {
-        font-size: var(--font-size-xs);
-        padding: var(--space-2) 0;
-    }
-    
-    .services-list li i {
-        font-size: var(--font-size-xs);
-    }
-}
-
-/* Ajustes para alturas específicas */
-@media (max-height: 700px) and (min-width: 1200px) {
-    .project__card {
-        min-height: 420px;
-    }
-}
-
-/* Soporte para modo oscuro si lo implementas después */
-@media (prefers-color-scheme: dark) {
-    .project__services {
-        background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(126, 34, 206, 0.1));
-        border-color: var(--gray-700);
-    }
-    
-    .services-list li {
-        border-bottom-color: var(--gray-700);
->>>>>>> 2af032e0ea1f4ed34263ac9f65fb00ef058477b3
     }
 }
