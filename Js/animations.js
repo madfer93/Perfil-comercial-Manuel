@@ -82,7 +82,53 @@ class ScrollAnimations {
     }
 }
 
+<<<<<<< HEAD
 // ===== CONTADORES ANIMADOS MEJORADOS =====
+=======
+// ===== ANIMACIONES PARA SERVICIOS =====
+class ServiceCardsAnimation {
+    constructor() {
+        this.cards = [];
+        this.observer = null;
+        this.init();
+    }
+
+    init() {
+        this.cards = document.querySelectorAll('.service__card');
+        this.createObserver();
+    }
+
+    createObserver() {
+        this.observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    // Animación escalonada para cada card
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 100);
+                    
+                    this.observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        this.cards.forEach(card => {
+            // Estilos iniciales
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            
+            this.observer.observe(card);
+        });
+    }
+}
+
+// ===== CONTADORES ANIMADOS =====
+>>>>>>> 2af032e0ea1f4ed34263ac9f65fb00ef058477b3
 class AnimatedCounters {
     constructor() {
         this.counters = [];
@@ -109,6 +155,7 @@ class AnimatedCounters {
     }
 
     animateCounter(counter) {
+<<<<<<< HEAD
         const target = parseInt(counter.getAttribute('data-target'));
         const duration = 2000;
         const increment = target / (duration / 16);
@@ -124,12 +171,39 @@ class AnimatedCounters {
             }
         }, 16);
     }
+=======
+        const target = this.getCounterTarget(counter.textContent);
+        const duration = 1500;
+        const step = target / (duration / 16);
+        let current = 0;
+
+        const timer = setInterval(() => {
+            current += step;
+            if (current >= target) {
+                counter.textContent = target + (counter.textContent.includes('%') ? '%' : '');
+                clearInterval(timer);
+            } else {
+                counter.textContent = Math.floor(current) + (counter.textContent.includes('%') ? '%' : '');
+            }
+        }, 16);
+    }
+
+    getCounterTarget(text) {
+        if (text.includes('+')) return parseInt(text.replace('+', ''));
+        if (text.includes('%')) return parseInt(text.replace('%', ''));
+        return parseInt(text);
+    }
+>>>>>>> 2af032e0ea1f4ed34263ac9f65fb00ef058477b3
 }
 
 // ===== INICIALIZACIÓN =====
 document.addEventListener('DOMContentLoaded', function() {
     new ScrollAnimations();
     new AnimatedCounters();
+<<<<<<< HEAD
+=======
+    new ServiceCardsAnimation();
+>>>>>>> 2af032e0ea1f4ed34263ac9f65fb00ef058477b3
 });
 
 // ===== UTILIDADES DE PERFORMANCE =====
@@ -145,6 +219,7 @@ class PerformanceUtils {
             timeout = setTimeout(later, wait);
         };
     }
+<<<<<<< HEAD
 
     static throttle(func, limit) {
         let inThrottle;
@@ -158,9 +233,15 @@ class PerformanceUtils {
             }
         }
     }
+=======
+>>>>>>> 2af032e0ea1f4ed34263ac9f65fb00ef058477b3
 }
 
 // ===== EXPORTAR PARA USO GLOBAL =====
 window.ScrollAnimations = ScrollAnimations;
 window.AnimatedCounters = AnimatedCounters;
+<<<<<<< HEAD
+=======
+window.ServiceCardsAnimation = ServiceCardsAnimation;
+>>>>>>> 2af032e0ea1f4ed34263ac9f65fb00ef058477b3
 window.PerformanceUtils = PerformanceUtils;
