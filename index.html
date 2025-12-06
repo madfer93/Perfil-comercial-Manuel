@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manuel Madrid - Consultor en Automatización & IA</title>
+    <meta name="description" content="Consultor especializado en automatización de procesos, chatbots inteligentes y transformación digital para empresas y emprendedores">
+    <link rel="stylesheet" href="Css/style.css">
+    <link rel="stylesheet" href="Css/responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header y Navegación -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav__logo">
+                <div class="logo-container">
+                    <img src="assets/VariedadesJyM.jpg" alt="Variedades JyM - Soluciones en IA" class="logo">
+                    <div class="logo-text">
+                        <h2>Manuel Madrid</h2>
+                        <span>Consultor en Automatización</span>
+                    </div>
+                </div>
+            </div>
+            <ul class="nav__menu">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="#sobre-mi">Sobre Mí</a></li>
+                <li><a href="#contacto" class="btn btn--primary">Contactar</a></li>
+            </ul>
+            <div class="nav__toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Sección Hero -->
+    <section id="inicio" class="hero">
+        <div class="hero__content container">
+            <div class="hero__text">
+                <h1 class="hero__title">
+                    Transformo <span class="text--gradient">Negocios</span> con 
+                    <span class="text--gradient">Automatización</span> e 
+                    <span class="text--gradient">Inteligencia Artificial</span>
+                </h1>
+                <p class="hero__description">
+                    Ayudo a empresas y emprendedores a optimizar sus procesos, reducir costos 
+                    y aumentar su productividad mediante soluciones de automatización inteligente.
+                </p>
+                <div class="hero__buttons">
+                    <a href="https://wa.link/ou9cak" class="btn btn--primary btn--large" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        Probar SOFI
+                    </a>
+                    <a href="#servicios" class="btn btn--secondary btn--large">
+                        <i class="fas fa-rocket"></i>
+                        Ver Servicios
+                    </a>
+                </div>
+                <div class="hero__stats">
+                    <div class="stat">
+                        <span class="stat__number" data-target="300">0</span><span class="stat__symbol">+%</span>
+                        <span class="stat__label">Leads Calificados</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat__number" data-target="40">0</span><span class="stat__symbol">%</span>
+                        <span class="stat__label">Menos Tiempo</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat__number" data-target="24">0</span><span class="stat__symbol">/7</span>
+                        <span class="stat__label">Atención</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero__visual">
+                <div class="floating-card card--ai">
+                    <i class="fas fa-robot"></i>
+                    <span>Chatbots IA</span>
+                </div>
+                <div class="floating-card card--automation">
+                    <i class="fas fa-cogs"></i>
+                    <span>Automatización</span>
+                </div>
+                <div class="floating-card card--analytics">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Análisis</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Servicios -->
+    <section id="servicios" class="services">
+        <div class="container">
+            <h2 class="section__title">Servicios Especializados</h2>
+            <div class="services__grid">
+                <div class="service__card" data-animate="fade-up">
+                    <div class="service__icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Automatización Inteligente</h3>
+                    <ul>
+                        <li>Chatbots avanzados con personalidad</li>
+                        <li>Flujos automatizados WhatsApp/Telegram</li>
+                        <li>Sistemas de atención 24/7</li>
+                        <li>Procesamiento automático de imágenes</li>
+                    </ul>
+                </div>
+
+                <div class="service__card" data-animate="fade-up">
+                    <div class="service__icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Sector Educativo</h3>
+                    <ul>
+                        <li>Asistentes virtuales para instituciones</li>
+                        <li>Automatización de admisiones</li>
+                        <li>Chatbots informativos 24/7</li>
+                        <li>Integración con plataformas educativas</li>
+                    </ul>
+                </div>
+
+                <div class="service__card" data-animate="fade-up">
+                    <div class="service__icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>Sector Salud & Farmacéutico</h3>
+                    <ul>
+                        <li>Control automatizado de inventario</li>
+                        <li>Recordatorios inteligentes de tratamientos</li>
+                        <li>Chatbots especializados en farmacia</li>
+                        <li>Gestión automatizada de citas</li>
+                    </ul>
+                </div>
+
+                <div class="service__card" data-animate="fade-up">
+                    <div class="service__icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>Comercio & E-commerce</h3>
+                    <ul>
+                        <li>Validación automática de pagos</li>
+                        <li>Generación automática de facturas</li>
+                        <li>Sistemas de cartera automatizados</li>
+                        <li>Gestión inteligente de inventarios</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Proyectos -->
+    <section id="proyectos" class="projects">
+        <div class="container">
+            <h2 class="section__title">Casos de Éxito</h2>
+            <div class="projects__grid">
+                
+                <!-- PROYECTO DESTACADO 1 - SYSPRO -->
+                <div class="project__card project__card--featured" data-animate="fade-up">
+                    <div class="project__badge project__badge--gold">
+                        <i class="fas fa-star"></i>
+                        <span>DESTACADO</span>
+                    </div>
+                    <div class="project__header">
+                        <h3>Corporación Syspro - Asistente IA Educativo</h3>
+                        <span class="project__status status--completed">Completado</span>
+                    </div>
+                    <p>Primera institución educativa en Villavicencio con asistente virtual IA 24/7. Chatbot inteligente integrado en WhatsApp para atención a aspirantes, con información sobre programas técnicos, inscripciones y admisiones.</p>
+                    <div class="project__metrics">
+                        <div class="metric">
+                            <strong>24/7</strong>
+                            <span>Atención continua</span>
+                        </div>
+                        <div class="metric">
+                            <strong>+10</strong>
+                            <span>Programas cubiertos</span>
+                        </div>
+                        <div class="metric">
+                            <strong>100%</strong>
+                            <span>Automatizado</span>
+                        </div>
+                    </div>
+                    <div class="project__tech">
+                        <span class="tech-tag">Botpress</span>
+                        <span class="tech-tag">WhatsApp API</span>
+                        <span class="tech-tag">IA Conversacional</span>
+                        <span class="tech-tag">Meta Business</span>
+                    </div>
+                    <div class="project__services">
+                        <h4>Servicios Implementados:</h4>
+                        <ul class="services-list">
+                            <li><i class="fas fa-check-circle"></i> Chatbot IA en WhatsApp Business</li>
+                            <li><i class="fas fa-check-circle"></i> Información automatizada de programas</li>
+                            <li><i class="fas fa-check-circle"></i> Atención 24/7 a aspirantes</li>
+                            <li><i class="fas fa-check-circle"></i> Integración con 3 sedes</li>
+                            <li><i class="fas fa-check-circle"></i> Sistema de derivación inteligente</li>
+                        </ul>
+                    </div>
+                    <div class="project__links">
+                        <a href="https://www.syspro.edu.co" class="btn btn--outline" target="_blank">
+                            <i class="fas fa-external-link-alt"></i>
+                            Ver Sitio Web
+                        </a>
+                        <a href="https://wa.me/573103410809?text=Hola,%20quiero%20información%20sobre%20los%20programas%20de%20Syspro" class="btn btn--whatsapp" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                            Probar Asistente
+                        </a>
+                    </div>
+                </div>
+
+                <!-- PROYECTO DESTACADO 2 - NEFRO VITAL -->
+                <div class="project__card project__card--featured" data-animate="fade-up">
+                    <div class="project__badge project__badge--gold">
+                        <i class="fas fa-star"></i>
+                        <span>DESTACADO</span>
+                    </div>
+                    <div class="project__header">
+                        <h3>Nefro Vital - Plataforma de Salud Renal</h3>
+                        <span class="project__status status--active">Activo</span>
+                    </div>
+                    <p>Plataforma especializada en seguimiento de pacientes renales con recordatorios inteligentes, monitoreo continuo y chatbot médico especializado disponible 24/7.</p>
+                    <div class="project__metrics">
+                        <div class="metric">
+                            <strong>60%</strong>
+                            <span>Mejora seguimiento</span>
+                        </div>
+                        <div class="metric">
+                            <strong>24/7</strong>
+                            <span>Monitoreo</span>
+                        </div>
+                        <div class="metric">
+                            <strong>100%</strong>
+                            <span>Adherencia</span>
+                        </div>
+                    </div>
+                    <div class="project__tech">
+                        <span class="tech-tag">WhatsApp API</span>
+                        <span class="tech-tag">Google Sheets</span>
+                        <span class="tech-tag">Make.com</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">IA Médica</span>
+                    </div>
+                    <div class="project__services">
+                        <h4>Servicios Implementados:</h4>
+                        <ul class="services-list">
+                            <li><i class="fas fa-check-circle"></i> Recordatorios inteligentes de medicación</li>
+                            <li><i class="fas fa-check-circle"></i> Seguimiento personalizado de pacientes</li>
+                            <li><i class="fas fa-check-circle"></i> Chatbot especializado en salud renal</li>
+                            <li><i class="fas fa-check-circle"></i> Reportes automáticos para médicos</li>
+                            <li><i class="fas fa-check-circle"></i> Integración con historias clínicas</li>
+                        </ul>
+                    </div>
+                    <div class="project__links">
+                        <a href="https://nefro-vital.com" class="btn btn--outline" target="_blank">
+                            <i class="fas fa-external-link-alt"></i>
+                            Ver Sitio Web
+                        </a>
+                    </div>
+                </div>
+
+                <!-- SOFI -->
+                <div class="project__card" data-animate="fade-up">
+                    <div class="project__header">
+                        <h3>SOFI - Asistente Virtual Inteligente</h3>
+                        <span class="project__status status--active">Activo</span>
+                    </div>
+                    <p>Sistema de captación y cualificación automática de leads con visión artificial y scoring automático.</p>
+                    <div class="project__metrics">
+                        <div class="metric">
+                            <strong>+300%</strong>
+                            <span>Leads calificados</span>
+                        </div>
+                        <div class="metric">
+                            <strong>24/7</strong>
+                            <span>Atención</span>
+                        </div>
+                    </div>
+                    <div class="project__tech">
+                        <span class="tech-tag">Botpress</span>
+                        <span class="tech-tag">Make.com</span>
+                        <span class="tech-tag">Google Sheets</span>
+                        <span class="tech-tag">Visión IA</span>
+                    </div>
+                    <a href="https://wa.link/ou9cak" class="btn btn--outline" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        Probar SOFI
+                    </a>
+                </div>
+
+                <!-- Farmacia Virtual JyM -->
+                <div class="project__card" data-animate="fade-up">
+                    <div class="project__header">
+                        <h3>Farmacia Virtual JyM</h3>
+                        <span class="project__status status--development">En Desarrollo</span>
+                    </div>
+                    <p>Plataforma de atención farmacéutica 24/7 con gestión de inventario y derivación inteligente.</p>
+                    <div class="project__metrics">
+                        <div class="metric">
+                            <strong>40%</strong>
+                            <span>Menos tiempo</span>
+                        </div>
+                        <div class="metric">
+                            <strong>100%</strong>
+                            <span>Automatizado</span>
+                        </div>
+                    </div>
+                    <div class="project__tech">
+                        <span class="tech-tag">WhatsApp API</span>
+                        <span class="tech-tag">Google Sheets</span>
+                        <span class="tech-tag">Make.com</span>
+                    </div>
+                </div>
+
+                <!-- PagosBot PRO -->
+                <div class="project__card" data-animate="fade-up">
+                    <div class="project__header">
+                        <h3>PagosBot PRO</h3>
+                        <span class="project__status status--active">Activo</span>
+                    </div>
+                    <p>Sistema automatizado de pagos y control de accesos con validación instantánea y facturación automática.</p>
+                    <div class="project__metrics">
+                        <div class="metric">
+                            <strong>100%</strong>
+                            <span>Automatizado</span>
+                        </div>
+                        <div class="metric">
+                            <strong>0</strong>
+                            <span>Errores</span>
+                        </div>
+                    </div>
+                    <div class="project__tech">
+                        <span class="tech-tag">Stripe</span>
+                        <span class="tech-tag">Wompi</span>
+                        <span class="tech-tag">Google Sheets</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Sobre Mí -->
+    <section id="sobre-mi" class="about">
+        <div class="container">
+            <div class="about__content">
+                <div class="about__text">
+                    <h2 class="section__title">Sobre Mí</h2>
+                    <p>
+                        Soy <strong>consultor especializado en automatización de procesos</strong> con experiencia 
+                        en el sector farmacéutico, educativo y transformación digital. Combino conocimientos técnicos 
+                        avanzados con comprensión profunda de las necesidades empresariales.
+                    </p>
+                    
+                    <div class="about__features">
+                        <div class="feature" data-animate="fade-left">
+                            <i class="fas fa-graduation-cap"></i>
+                            <div>
+                                <h4>Auxiliar de Farmacia Certificado</h4>
+                                <p>Con experiencia práctica en el sector salud</p>
+                            </div>
+                        </div>
+                        <div class="feature" data-animate="fade-left">
+                            <i class="fas fa-code"></i>
+                            <div>
+                                <h4>Desarrollador Full Stack</h4>
+                                <p>Especializado en soluciones automatizadas</p>
+                            </div>
+                        </div>
+                        <div class="feature" data-animate="fade-left">
+                            <i class="fas fa-brain"></i>
+                            <div>
+                                <h4>Especialista en IA</h4>
+                                <p>Chatbots inteligentes y automatización</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about__cta">
+                        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3qKKHUwFIyRokbhRI4ImUv3w80CfjTEGjcW8GUL3gD2VsrvTIaBUnbbSouOjG5zP7tGkJHlKR9" 
+                           class="btn btn--primary" target="_blank">
+                            <i class="fas fa-calendar-alt"></i>
+                            Agendar Consultoría
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="about__visual">
+                    <div class="certification__card" data-animate="fade-right">
+                        <i class="fas fa-certificate"></i>
+                        <h4>Certificaciones</h4>
+                        <ul>
+                            <li>Auxiliar de Farmacia</li>
+                            <li>Botpress & Automatización</li>
+                            <li>Make.com & Procesos</li>
+                            <li>SQL Server & Bases de Datos</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Contacto -->
+    <section id="contacto" class="contact">
+        <div class="container">
+            <h2 class="section__title">¿Listo para Transformar tu Negocio?</h2>
+            <div class="contact__content">
+                <div class="contact__info">
+                    <div class="contact__method" data-animate="fade-up">
+                        <div class="contact__icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div class="contact__details">
+                            <h4>Prueba SOFI</h4>
+                            <p>Nuestro asistente virtual inteligente</p>
+                            <a href="https://wa.link/ou9cak" class="btn btn--whatsapp" target="_blank">
+                                <i class="fab fa-whatsapp"></i>
+                                Iniciar Chat con SOFI
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="contact__method" data-animate="fade-up">
+                        <div class="contact__icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <div class="contact__details">
+                            <h4>Agenda Consultoría</h4>
+                            <p>Presencial en Villavicencio o Virtual</p>
+                            <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3qKKHUwFIyRokbhRI4ImUv3w80CfjTEGjcW8GUL3gD2VsrvTIaBUnbbSouOjG5zP7tGkJHlKR9" 
+                               class="btn btn--primary" target="_blank">
+                                <i class="fas fa-calendar-alt"></i>
+                                Agendar Reunión
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="contact__method" data-animate="fade-up">
+                        <div class="contact__icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact__details">
+                            <h4>Email Directo</h4>
+                            <p>Respuesta en menos de 24 horas</p>
+                            <a href="mailto:madfer1993@gmail.com" class="btn btn--outline">
+                                <i class="fas fa-envelope"></i>
+                                madfer1993@gmail.com
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact__message" data-animate="fade-left">
+                    <h4>🚀 ¡Comienza Hoy Mismo!</h4>
+                    <div class="message-box">
+                        <p><strong>¿Listo para automatizar tu negocio?</strong></p>
+                        <p>Haz clic en "Iniciar Chat con SOFI" y descubre cómo la automatización puede transformar tus procesos en solo minutos.</p>
+                        <div class="benefits-list">
+                            <div class="benefit">
+                                <i class="fas fa-clock"></i>
+                                <span>Consulta gratuita de 15 min</span>
+                            </div>
+                            <div class="benefit">
+                                <i class="fas fa-rocket"></i>
+                                <span>Implementación rápida</span>
+                            </div>
+                            <div class="benefit">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Resultados medibles</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__brand">
+                    <h3>Manuel Madrid</h3>
+                    <p>Consultor en Automatización & Transformación Digital</p>
+                    <div class="footer__social">
+                        <a href="https://wa.me/573045788873" aria-label="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="mailto:madfer1993@gmail.com" aria-label="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer__quote">
+                    <blockquote>
+                        "La verdadera automatización no elimina el factor humano, sino que potencia 
+                        su capacidad para crear y conectar."
+                    </blockquote>
+                    <p>— Manuel Fernando Madrid</p>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2024 Manuel Madrid. Todos los derechos reservados.</p>
+                <p>Villavicencio, Colombia</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="Js/animations.js"></script>
+    <script src="Js/script.js"></script>
+</body>
+</html>
