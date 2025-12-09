@@ -1,210 +1,80 @@
-// ===== ANIMACIONES AVANZADAS MEJORADAS =====
+// ===== ANIMACIONES DE SCROLL =====
 class ScrollAnimations {
     constructor() {
-        this.elements = [];
-        this.observer = null;
+        this.elements = document.querySelectorAll('[data-animate]');
         this.init();
     }
 
     init() {
-        this.createObserver();
-        this.registerElements();
-    }
-
-    createObserver() {
-        this.observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    this.animateElement(entry.target);
-                    this.observer.unobserve(entry.target);
-                }
+        if ('IntersectionObserver' in window) {
+            this.observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        this.animateElement(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '50px'
             });
-        }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        });
-    }
 
-    registerElements() {
-        const animatedElements = document.querySelectorAll('[data-animate]');
-        animatedElements.forEach(element => {
-            const animationType = element.getAttribute('data-animate');
-            this.setInitialStyles(element, animationType);
-            
-            this.elements.push(element);
-            this.observer.observe(element);
-        });
-    }
-
-    setInitialStyles(element, animationType) {
-        switch(animationType) {
-            case 'fade-up':
-                element.style.opacity = '0';
-                element.style.transform = 'translateY(30px)';
-                break;
-            case 'fade-left':
-                element.style.opacity = '0';
-                element.style.transform = 'translateX(-30px)';
-                break;
-            case 'fade-right':
-                element.style.opacity = '0';
-                element.style.transform = 'translateX(30px)';
-                break;
-            case 'scale':
-                element.style.opacity = '0';
-                element.style.transform = 'scale(0.8)';
-                break;
-            default:
-                element.style.opacity = '0';
-                element.style.transform = 'translateY(30px)';
+            this.elements.forEach(el => this.observer.observe(el));
+        } else {
+            // Fallback para navegadores antiguos
+            this.elements.forEach(el => this.animateElement(el));
         }
-        
-        element.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
     }
 
     animateElement(element) {
-        const animationType = element.getAttribute('data-animate');
-        
+        const animation = element.dataset.animate;
+        element.classList.add('animate-' + animation);
         element.style.opacity = '1';
-        
-        switch(animationType) {
-            case 'fade-up':
-            case 'fade-left':
-            case 'fade-right':
-                element.style.transform = 'translate(0)';
-                break;
-            case 'scale':
-                element.style.transform = 'scale(1)';
-                break;
-            default:
-                element.style.transform = 'translateY(0)';
-        }
+        element.style.transform = 'translateY(0)';
     }
 }
 
-<<<<<<< HEAD
-// ===== CONTADORES ANIMADOS MEJORADOS =====
-=======
-// ===== ANIMACIONES PARA SERVICIOS =====
-class ServiceCardsAnimation {
-    constructor() {
-        this.cards = [];
-        this.observer = null;
-        this.init();
-    }
-
-    init() {
-        this.cards = document.querySelectorAll('.service__card');
-        this.createObserver();
-    }
-
-    createObserver() {
-        this.observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
-                if (entry.isIntersecting) {
-                    // Animación escalonada para cada card
-                    setTimeout(() => {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }, index * 100);
-                    
-                    this.observer.unobserve(entry.target);
-                }
-            });
-        }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        });
-
-        this.cards.forEach(card => {
-            // Estilos iniciales
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(30px)';
-            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            
-            this.observer.observe(card);
-        });
-    }
-}
-
-// ===== CONTADORES ANIMADOS =====
->>>>>>> 2af032e0ea1f4ed34263ac9f65fb00ef058477b3
+// ===== CONTADOR ANIMADO =====
 class AnimatedCounters {
     constructor() {
-        this.counters = [];
-        this.observer = null;
+        this.counters = document.querySelectorAll('.stat__value');
         this.init();
     }
 
     init() {
-        this.counters = document.querySelectorAll('.stat__number');
-        this.createObserver();
-    }
-
-    createObserver() {
-        this.observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    this.animateCounter(entry.target);
-                    this.observer.unobserve(entry.target);
-                }
+        if ('IntersectionObserver' in window) {
+            this.observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        this.animateCounter(entry.target);
+                        this.observer.unobserve(entry.target);
+                    }
+                });
             });
-        }, { threshold: 0.5 });
 
-        this.counters.forEach(counter => this.observer.observe(counter));
+            this.counters.forEach(counter => this.observer.observe(counter));
+        }
     }
 
-    animateCounter(counter) {
-<<<<<<< HEAD
-        const target = parseInt(counter.getAttribute('data-target'));
+    animateCounter(element) {
+        const target = parseInt(element.innerText.replace(/\D/g, ''));
+        const suffix = element.innerText.replace(/\d/g, '');
         const duration = 2000;
         const increment = target / (duration / 16);
         let current = 0;
 
-        const timer = setInterval(() => {
+        const updateCounter = () => {
             current += increment;
-            if (current >= target) {
-                counter.textContent = target;
-                clearInterval(timer);
+            if (current < target) {
+                element.innerText = Math.floor(current) + suffix;
+                requestAnimationFrame(updateCounter);
             } else {
-                counter.textContent = Math.floor(current);
+                element.innerText = target + suffix;
             }
-        }, 16);
-    }
-=======
-        const target = this.getCounterTarget(counter.textContent);
-        const duration = 1500;
-        const step = target / (duration / 16);
-        let current = 0;
+        };
 
-        const timer = setInterval(() => {
-            current += step;
-            if (current >= target) {
-                counter.textContent = target + (counter.textContent.includes('%') ? '%' : '');
-                clearInterval(timer);
-            } else {
-                counter.textContent = Math.floor(current) + (counter.textContent.includes('%') ? '%' : '');
-            }
-        }, 16);
+        updateCounter();
     }
-
-    getCounterTarget(text) {
-        if (text.includes('+')) return parseInt(text.replace('+', ''));
-        if (text.includes('%')) return parseInt(text.replace('%', ''));
-        return parseInt(text);
-    }
->>>>>>> 2af032e0ea1f4ed34263ac9f65fb00ef058477b3
 }
-
-// ===== INICIALIZACIÓN =====
-document.addEventListener('DOMContentLoaded', function() {
-    new ScrollAnimations();
-    new AnimatedCounters();
-<<<<<<< HEAD
-=======
-    new ServiceCardsAnimation();
->>>>>>> 2af032e0ea1f4ed34263ac9f65fb00ef058477b3
-});
 
 // ===== UTILIDADES DE PERFORMANCE =====
 class PerformanceUtils {
@@ -219,7 +89,6 @@ class PerformanceUtils {
             timeout = setTimeout(later, wait);
         };
     }
-<<<<<<< HEAD
 
     static throttle(func, limit) {
         let inThrottle;
@@ -231,17 +100,17 @@ class PerformanceUtils {
                 inThrottle = true;
                 setTimeout(() => inThrottle = false, limit);
             }
-        }
+        };
     }
-=======
->>>>>>> 2af032e0ea1f4ed34263ac9f65fb00ef058477b3
 }
 
-// ===== EXPORTAR PARA USO GLOBAL =====
+// ===== INICIALIZACIÓN =====
+document.addEventListener('DOMContentLoaded', () => {
+    new ScrollAnimations();
+    new AnimatedCounters();
+});
+
+// ===== EXPORTAR =====
 window.ScrollAnimations = ScrollAnimations;
 window.AnimatedCounters = AnimatedCounters;
-<<<<<<< HEAD
-=======
-window.ServiceCardsAnimation = ServiceCardsAnimation;
->>>>>>> 2af032e0ea1f4ed34263ac9f65fb00ef058477b3
 window.PerformanceUtils = PerformanceUtils;

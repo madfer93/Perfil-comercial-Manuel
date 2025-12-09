@@ -1,16 +1,9 @@
 // ===== CONFIGURACIÓN INICIAL =====
 document.addEventListener('DOMContentLoaded', function() {
-<<<<<<< HEAD
     initNavigation();
     initSmoothScrolling();
     initScrollEffects();
     initLazyLoading();
-=======
-    // Inicializar todas las funcionalidades
-    initNavigation();
-    initSmoothScrolling();
-    initScrollEffects();
->>>>>>> 2af032e0ea1f4ed34263ac9f65fb00ef058477b3
 });
 
 // ===== NAVEGACIÓN MÓVIL =====
@@ -18,16 +11,11 @@ function initNavigation() {
     const navToggle = document.querySelector('.nav__toggle');
     const navMenu = document.querySelector('.nav__menu');
     const header = document.querySelector('.header');
-<<<<<<< HEAD
     
-=======
-
->>>>>>> 2af032e0ea1f4ed34263ac9f65fb00ef058477b3
     if (navToggle) {
         navToggle.addEventListener('click', function() {
             navMenu.classList.toggle('active');
             navToggle.classList.toggle('active');
-<<<<<<< HEAD
             
             // Animación del toggle
             const spans = navToggle.querySelectorAll('span');
@@ -43,22 +31,18 @@ function initNavigation() {
         });
     }
     
-=======
-        });
-    }
-
->>>>>>> 2af032e0ea1f4ed34263ac9f65fb00ef058477b3
     // Cerrar menú al hacer clic en un enlace
     const navLinks = document.querySelectorAll('.nav__menu a');
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
-            navMenu.classList.remove('active');
-            navToggle.classList.remove('active');
-<<<<<<< HEAD
-            const spans = navToggle.querySelectorAll('span');
-            spans[0].style.transform = 'none';
-            spans[1].style.opacity = '1';
-            spans[2].style.transform = 'none';
+            if (navToggle && navMenu) {
+                navMenu.classList.remove('active');
+                navToggle.classList.remove('active');
+                const spans = navToggle.querySelectorAll('span');
+                spans[0].style.transform = 'none';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'none';
+            }
         });
     });
     
@@ -68,20 +52,11 @@ function initNavigation() {
         const currentScroll = window.pageYOffset;
         
         if (currentScroll > 100) {
-=======
-        });
-    });
-
-    // Header con efecto scroll
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 100) {
->>>>>>> 2af032e0ea1f4ed34263ac9f65fb00ef058477b3
             header.classList.add('scrolled');
         } else {
             header.classList.remove('scrolled');
         }
-<<<<<<< HEAD
-        
+
         // Auto-hide en scroll down (solo en móviles)
         if (window.innerWidth <= 768) {
             if (currentScroll > lastScroll && currentScroll > 500) {
@@ -91,8 +66,6 @@ function initNavigation() {
             }
         }
         lastScroll = currentScroll;
-=======
->>>>>>> 2af032e0ea1f4ed34263ac9f65fb00ef058477b3
     });
 }
 
@@ -124,7 +97,6 @@ function initSmoothScrolling() {
 // ===== EFECTOS DE SCROLL =====
 function initScrollEffects() {
     // Efecto parallax para elementos flotantes
-<<<<<<< HEAD
     let ticking = false;
     
     window.addEventListener('scroll', function() {
@@ -170,18 +142,6 @@ function initLazyLoading() {
             img.removeAttribute('data-src');
         });
     }
-=======
-    window.addEventListener('scroll', function() {
-        const scrolled = window.pageYOffset;
-        const floatingCards = document.querySelectorAll('.floating-card');
-        
-        floatingCards.forEach((card, index) => {
-            const speed = 0.5 + (index * 0.1);
-            const yPos = -(scrolled * speed);
-            card.style.transform = `translateY(${yPos}px)`;
-        });
-    });
->>>>>>> 2af032e0ea1f4ed34263ac9f65fb00ef058477b3
 }
 
 // ===== MANEJO DE ERRORES =====
@@ -189,7 +149,6 @@ window.addEventListener('error', function(e) {
     console.error('Error en la aplicación:', e.error);
 });
 
-<<<<<<< HEAD
 // ===== PERFORMANCE OPTIMIZATIONS =====
 const debounce = (func, wait) => {
     let timeout;
@@ -214,24 +173,4 @@ if (!('IntersectionObserver' in window)) {
 window.initNavigation = initNavigation;
 window.initSmoothScrolling = initSmoothScrolling;
 window.initScrollEffects = initScrollEffects;
-=======
-// ===== OPTIMIZACIONES DE RENDIMIENTO =====
-let scrollTimeout;
-window.addEventListener('scroll', function() {
-    if (!scrollTimeout) {
-        scrollTimeout = setTimeout(function() {
-            scrollTimeout = null;
-            // Código que se ejecuta después de que el scroll se detiene
-        }, 100);
-    }
-});
-
-// ===== COMPATIBILIDAD =====
-// Polyfill para IntersectionObserver si es necesario
-if (!('IntersectionObserver' in window)) {
-    // Cargar polyfill dinámicamente
-    const script = document.createElement('script');
-    script.src = 'https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver';
-    document.head.appendChild(script);
-}
->>>>>>> 2af032e0ea1f4ed34263ac9f65fb00ef058477b3
+window.initLazyLoading = initLazyLoading;
