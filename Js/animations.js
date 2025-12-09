@@ -33,10 +33,11 @@ class ScrollAnimations {
     }
 }
 
-// ===== CONTADOR ANIMADO =====
+// ===== CONTADOR ANIMADO - VERSIÓN CORREGIDA =====
 class AnimatedCounters {
     constructor() {
-        this.counters = document.querySelectorAll('.stat__value');
+        this.counters = document.querySelectorAll('.stat__number');
+        this.animated = new Set();
         this.init();
     }
 
@@ -44,34 +45,48 @@ class AnimatedCounters {
         if ('IntersectionObserver' in window) {
             this.observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
-                    if (entry.isIntersecting) {
+                    if (entry.isIntersecting && !this.animated.has(entry.target)) {
                         this.animateCounter(entry.target);
-                        this.observer.unobserve(entry.target);
+                        this.animated.add(entry.target);
                     }
                 });
+            }, {
+                threshold: 0.5
             });
 
             this.counters.forEach(counter => this.observer.observe(counter));
+        } else {
+            // Fallback para navegadores sin IntersectionObserver
+            this.counters.forEach(counter => this.animateCounter(counter));
         }
     }
 
     animateCounter(element) {
-        const target = parseInt(element.innerText.replace(/\D/g, ''));
-        const suffix = element.innerText.replace(/\d/g, '');
-        const duration = 2000;
+        // CLAVE: Leer data-target primero
+        const target = parseInt(element.getAttribute('data-target'));
+        
+        if (isNaN(target) || target === 0) {
+            console.warn('⚠️ Contador sin data-target válido:', element);
+            return;
+        }
+        
+        const duration = 2000; // 2 segundos
         const increment = target / (duration / 16);
         let current = 0;
 
         const updateCounter = () => {
             current += increment;
+            
             if (current < target) {
-                element.innerText = Math.floor(current) + suffix;
+                element.innerText = Math.floor(current);
                 requestAnimationFrame(updateCounter);
             } else {
-                element.innerText = target + suffix;
+                element.innerText = target;
             }
         };
 
+        // Iniciar desde 0
+        element.innerText = '0';
         updateCounter();
     }
 }
@@ -108,6 +123,9 @@ class PerformanceUtils {
 document.addEventListener('DOMContentLoaded', () => {
     new ScrollAnimations();
     new AnimatedCounters();
+    
+    console.log('✅ Animaciones inicializadas');
+    console.log('🔢 Contadores encontrados:', document.querySelectorAll('.stat__number').length);
 });
 
 // ===== EXPORTAR =====
