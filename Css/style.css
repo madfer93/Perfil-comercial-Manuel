@@ -1342,3 +1342,103 @@ body {
 .demo__badge {
     z-index: 20;
 }
+/* ===== DEMOS - MEJORAS RESPONSIVE ===== */
+
+/* Badge "Próximamente" más visible */
+/* ===== BADGES MEJORADOS - MÁXIMO CONTRASTE ===== */
+.demo__badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 0.65rem 1.2rem;
+    border-radius: var(--radius-lg);
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    z-index: 10;
+    /* Sombra MUY fuerte */
+    box-shadow: 
+        0 8px 20px rgba(0, 0, 0, 0.6),
+        0 4px 10px rgba(0, 0, 0, 0.4),
+        inset 0 1px 2px rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(8px);
+}
+
+/* Badge NUEVO - Rojo brillante */
+.demo__badge--nuevo {
+    background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+    color: #0d0d0d;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* Badge PRÓXIMAMENTE - Azul brillante */
+.demo__badge--proximamente {
+    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+    color: #f00a0a;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Animación pulse mejorada */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 
+            0 8px 20px rgba(0, 0, 0, 0.6),
+            0 4px 10px rgba(0, 0, 0, 0.4);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 
+            0 12px 30px rgba(220, 38, 38, 0.5),
+            0 6px 15px rgba(0, 0, 0, 0.5);
+    }
+}
+
+/* Botones demos mejorados */
+.demo__buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.demo__buttons .btn {
+    flex: 1;
+    min-width: 0; /* Importante para flexbox */
+    padding: 0.875rem 1.5rem;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    text-align: center;
+}
+
+/* Ajustes responsive */
+@media (max-width: 768px) {
+    .demo__buttons {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    
+    .demo__buttons .btn {
+        width: 100%;
+    }
+}
+
+/* Mejorar features tags */
+.demo__features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.demo__feature {
+    background: rgba(37, 99, 235, 0.1);
+    color: #3b82f6;
+    padding: 0.4rem 0.8rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.8rem;
+    font-weight: 600;
+    border: 1px solid rgba(37, 99, 235, 0.2);
+}
