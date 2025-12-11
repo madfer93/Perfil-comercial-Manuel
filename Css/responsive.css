@@ -1011,3 +1011,320 @@ img {
 .btn i {
     flex-shrink: 0;
 }
+/* ===== DEMOS - BOTONES RESPONSIVE ===== */
+
+/* Desktop grande (1025px+) */
+@media (min-width: 1025px) {
+    .demo__buttons {
+        display: flex;
+        gap: 0.75rem;
+    }
+    
+    .demo__buttons .btn {
+        flex: 1;
+        font-size: 0.75rem;
+        padding: 0.75rem 0.5rem;
+        min-width: 0;
+    }
+}
+
+/* Tablets (768px - 1024px) */
+@media (max-width: 1024px) {
+    .demo__buttons {
+        gap: 0.65rem;
+    }
+    
+    .demo__buttons .btn {
+        font-size: 0.7rem;
+        padding: 0.7rem 0.5rem;
+    }
+}
+
+/* Móviles (hasta 768px) */
+@media (max-width: 768px) {
+    .demo__buttons {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    
+    .demo__buttons .btn {
+        width: 100%;
+        font-size: 0.85rem;
+        padding: 0.875rem 1rem;
+    }
+}
+/* ===== DEMOS PREMIUM RESPONSIVE - ESTILOS ADICIONALES ===== */
+/* Agregar al FINAL de responsive.css */
+
+/* ===== TABLETS (768px - 1024px) ===== */
+@media (max-width: 1024px) {
+    .demos__grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-6);
+    }
+    
+    .demo__content {
+        padding: var(--space-5);
+    }
+    
+    .demo__buttons .btn {
+        font-size: 0.8rem;
+        padding: var(--space-3) var(--space-3);
+    }
+    
+    .footer__simple-content {
+        flex-direction: column;
+        gap: var(--space-6);
+        text-align: center;
+    }
+    
+    .footer__links-simple {
+        flex-direction: column;
+        gap: var(--space-3);
+    }
+}
+
+/* ===== MÓVILES GRANDES (576px - 768px) ===== */
+@media (max-width: 768px) {
+    .breadcrumb {
+        padding: var(--space-3) 0;
+    }
+    
+    .breadcrumb__item a,
+    .breadcrumb__item--active {
+        font-size: 0.75rem;
+    }
+    
+    .demos {
+        padding: var(--space-16) 0;
+    }
+    
+    .demos__grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-8);
+    }
+    
+    .demo__card {
+        max-width: 100%;
+    }
+    
+    .demo__image {
+        height: 200px;
+    }
+    
+    .demo__content {
+        padding: var(--space-6);
+    }
+    
+    .demo__content h3 {
+        font-size: var(--font-size-lg);
+    }
+    
+    .demo__description {
+        font-size: 0.85rem;
+    }
+    
+    .demo__features {
+        gap: var(--space-2);
+    }
+    
+    .demo__feature {
+        font-size: 0.7rem;
+        padding: var(--space-1) var(--space-2);
+    }
+    
+    .demo__buttons {
+        flex-direction: column;
+        gap: var(--space-3);
+    }
+    
+    .demo__buttons .btn {
+        width: 100%;
+        font-size: 0.9rem;
+        padding: var(--space-3) var(--space-4);
+    }
+    
+    .demo__badge {
+        top: 12px;
+        right: 12px;
+        padding: var(--space-2) var(--space-3);
+        font-size: 0.7rem;
+    }
+    
+    .demos__cta {
+        padding: var(--space-8);
+    }
+    
+    .cta__title {
+        font-size: var(--font-size-xl);
+    }
+    
+    .cta__text {
+        font-size: var(--font-size-base);
+    }
+    
+    .modal__content {
+        padding: var(--space-6);
+        width: 95%;
+    }
+    
+    .modal__title {
+        font-size: var(--font-size-xl);
+    }
+}
+
+/* ===== MÓVILES PEQUEÑOS (hasta 576px) ===== */
+@media (max-width: 576px) {
+    .breadcrumb__list {
+        gap: var(--space-1);
+    }
+    
+    .breadcrumb__item i {
+        display: none;
+    }
+    
+    .demo__content h3 {
+        font-size: var(--font-size-base);
+    }
+    
+    .demo__description {
+        font-size: 0.8rem;
+    }
+    
+    .demo__meta {
+        flex-direction: column;
+        gap: var(--space-2);
+    }
+    
+    .demo__meta-item {
+        font-size: 0.75rem;
+    }
+    
+    .demo__tech-stack {
+        gap: var(--space-1);
+    }
+    
+    .tech-badge {
+        font-size: 0.65rem;
+        padding: var(--space-1) var(--space-2);
+    }
+    
+    .demo__buttons .btn {
+        padding: var(--space-3) var(--space-3);
+        font-size: 0.85rem;
+    }
+    
+    .demo__badge {
+        font-size: 0.65rem;
+        padding: var(--space-1) var(--space-2);
+    }
+    
+    .cta__icon {
+        font-size: 2rem;
+    }
+    
+    .cta__title {
+        font-size: var(--font-size-lg);
+    }
+    
+    .cta__text {
+        font-size: var(--font-size-sm);
+    }
+    
+    .modal__content {
+        padding: var(--space-5);
+    }
+    
+    .modal__icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+    
+    .footer__links-simple {
+        width: 100%;
+    }
+    
+    .footer__link {
+        justify-content: center;
+    }
+}
+
+/* ===== FIX GRID EN DESKTOP (asegurar 4 columnas) ===== */
+@media (min-width: 1025px) {
+    .demos__grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--space-8);
+    }
+    
+    .demo__card {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+    
+    .demo__content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .demo__description {
+        flex: 1;
+        min-height: 80px;
+    }
+    
+    .demo__buttons {
+        margin-top: auto;
+    }
+}
+
+/* ===== PANTALLAS GRANDES (1440px+) ===== */
+@media (min-width: 1440px) {
+    .demos__grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--space-10);
+    }
+    
+    .demo__image {
+        height: 240px;
+    }
+}
+
+/* ===== LANDSCAPE EN MÓVILES ===== */
+@media (max-height: 500px) and (orientation: landscape) {
+    .modal__content {
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+}
+
+/* ===== TOUCH DEVICES ===== */
+@media (hover: none) and (pointer: coarse) {
+    .demo__buttons .btn {
+        min-height: 44px;
+    }
+}
+
+/* ===== MODO MOVIMIENTO REDUCIDO ===== */
+@media (prefers-reduced-motion: reduce) {
+    .demo__card--active {
+        animation: none;
+    }
+    
+    .demo__badge--nuevo {
+        animation: none;
+    }
+    
+    .cta__icon {
+        animation: none;
+    }
+    
+    .coming-soon-content i {
+        animation: none;
+    }
+    
+    .modal__content {
+        animation: none;
+    }
+}
