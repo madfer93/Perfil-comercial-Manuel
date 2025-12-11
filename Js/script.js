@@ -168,7 +168,6 @@ if (!('IntersectionObserver' in window)) {
     script.src = 'https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver';
     document.head.appendChild(script);
 }
-
 // ===== EXPORTAR FUNCIONES =====
 window.initNavigation = initNavigation;
 window.initSmoothScrolling = initSmoothScrolling;

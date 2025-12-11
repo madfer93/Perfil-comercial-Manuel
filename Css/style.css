@@ -2125,3 +2125,163 @@ body {
 .footer__link i {
     font-size: var(--font-size-base);
 }
+/* Teaser de Proyectos en Index (5 tarjetas) */
+.projects__subtitle {
+    text-align: center;
+    color: var(--gray-400);
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+}
+
+.projects__teaser-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.teaser__card {
+    background: var(--gray-800);
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+    transition: transform 0.3s ease;
+    position: relative;
+}
+
+.teaser__card:hover {
+    transform: translateY(-10px);
+}
+
+.teaser__badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 2rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+    z-index: 2;
+}
+
+.teaser__badge--completado { background: #22c55e; color: white; }
+.teaser__badge--activo { background: #3b82f6; color: white; }
+.teaser__badge--desarrollo { background: #f59e0b; color: white; }
+
+.teaser__image img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+}
+
+.teaser__content {
+    padding: 1.2rem;
+    text-align: center;
+}
+
+.teaser__content h3 {
+    color: white;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.teaser__content p {
+    color: var(--gray-400);
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+.teaser__metrics {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.8rem;
+    margin: 1rem 0;
+    font-size: 0.9rem;
+    color: #60a5fa;
+    font-weight: bold;
+}
+
+.btn--small {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+.projects__cta-teaser {
+    text-align: center;
+    margin-top: 2rem;
+}
+/* FAQ Acordeón - Estilos completos */
+.faq__item {
+    background: var(--gray-800);
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    margin-bottom: 1rem;
+}
+
+.faq__question {
+    padding: 1.5rem;
+    background: var(--gray-700);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.3s;
+    user-select: none;
+}
+
+.faq__question:hover {
+    background: var(--gray-600);
+}
+
+.faq__question h4 {
+    color: white;
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+.faq__question i {
+    color: var(--primary);
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.faq__item.active .faq__question i {
+    transform: rotate(180deg);
+}
+
+.faq__answer {
+    padding: 0 1.5rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+}
+
+.faq__item.active .faq__answer {
+    padding: 1.5rem;
+    max-height: 500px; /* Ajusta si tienes respuestas muy largas */
+}
+
+.faq__answer p {
+    color: var(--gray-300);
+    margin: 0;
+}
+
+.faq__answer a {
+    color: var(--primary);
+    text-decoration: underline;
+}
+
+/* CTA de la FAQ */
+.faq__cta {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.faq__cta p {
+    color: var(--gray-400);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}

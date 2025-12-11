@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyectos y Casos de Éxito - Manuel Madrid</title>
+    <link rel="icon" type="image/x-icon" href="assets/VariedadesJyM.jpg">
+    <link rel="stylesheet" href="css/proyectos.css">
+    <link rel="stylesheet" href="css/responsive-proyectos.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header (igual que demos.html) -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav__logo">
+                <a href="index.html" class="logo-container">
+                    <img src="assets/VariedadesJyM.jpg" alt="Manuel Madrid" class="logo">
+                    <div class="logo-text">
+                        <h2>Manuel Madrid</h2>
+                        <span>Consultor en Automatización & IA</span>
+                    </div>
+                </a>
+            </div>
+            <ul class="nav__menu">
+                <li><a href="index.html#inicio">Inicio</a></li>
+                <li><a href="index.html#servicios">Servicios</a></li>
+                <li><a href="index.html#proyectos">Proyectos</a></li>
+                <li><a href="demos.html">Demos</a></li>
+                <li><a href="index.html#sobre-mi">Sobre Mí</a></li>
+                <li><a href="https://wa.link/ou9cak" class="btn btn--primary">Contactar</a></li>
+            </ul>
+            <div class="nav__toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb__list">
+                    <li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
+                    <li><i class="fas fa-chevron-right"></i></li>
+                    <li><i class="fas fa-briefcase"></i> Proyectos</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Sección Principal -->
+    <section class="proyectos">
+        <div class="container">
+            <h1 class="section__title">📈 Proyectos y Casos de Éxito</h1>
+            <p class="proyectos__subtitle">
+                Proyectos reales implementados con IA y automatización que generan resultados medibles. <br>
+                Explora los detalles y ve cómo podemos transformar tu negocio.
+            </p>
+
+            <div class="proyectos__grid">
+                <!-- Proyecto 1: Corporación Syspro -->
+                <div class="proyecto__card">
+                    <div class="proyecto__badge proyecto__badge--completado">COMPLETADO</div>
+                    <div class="proyecto__image">
+                        <img src="assets/syspro.png" alt="Corporación Syspro" loading="lazy"> <!-- Cambia por tu imagen real -->
+                    </div>
+                    <div class="proyecto__content">
+                        <h3>Corporación Syspro - Asistente IA Educativo</h3>
+                        <p class="proyecto__description">
+                            Primera institución educativa en Villavicencio con asistente virtual IA 24/7 integrado en WhatsApp.
+                        </p>
+                        <div class="proyecto__metrics">
+                            <span>24/7 Atención</span>
+                            <span>+10 Programas cubiertos</span>
+                            <span>100% Automatizado</span>
+                        </div>
+                        <ul class="proyecto__features">
+                            <li>Chatbot IA en WhatsApp Business</li>
+                            <li>Información automatizada de programas</li>
+                            <li>Atención 24/7 a aspirantes</li>
+                            <li>Integración con 3 sedes</li>
+                            <li>Sistema de derivación inteligente</li>
+                        </ul>
+                        <div class="proyecto__tech">
+                            <span class="tech-badge">Botpress</span>
+                            <span class="tech-badge">WhatsApp API</span>
+                            <span class="tech-badge">IA Conversacional</span>
+                            <span class="tech-badge">Meta Business</span>
+                        </div>
+                        <div class="proyecto__buttons">
+                            <a href="https://wa.link/ou9cak" class="btn btn--primary">Implementar Similar</a>
+                            <button class="btn btn--outline proyecto__btn-contact" data-proyecto="Syspro">Más Detalles</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 2: Nefro Vital -->
+                <div class="proyecto__card">
+                    <div class="proyecto__badge proyecto__badge--activo">ACTIVO</div>
+                    <div class="proyecto__image">
+                        <img src="assets/nefrovital.jpg" alt="Nefro Vital" loading="lazy">
+                    </div>
+                    <div class="proyecto__content">
+                        <h3>Nefro Vital - Plataforma de Salud Renal</h3>
+                        <p class="proyecto__description">
+                            Plataforma especializada en seguimiento de pacientes renales con recordatorios y chatbot médico 24/7.
+                        </p>
+                        <div class="proyecto__metrics">
+                            <span>60% Mejora seguimiento</span>
+                            <span>24/7 Monitoreo</span>
+                            <span>100% Adherencia</span>
+                        </div>
+                        <ul class="proyecto__features">
+                            <li>Recordatorios inteligentes de medicación</li>
+                            <li>Seguimiento personalizado</li>
+                            <li>Chatbot especializado en salud renal</li>
+                            <li>Reportes automáticos para médicos</li>
+                        </ul>
+                        <div class="proyecto__tech">
+                            <span class="tech-badge">WhatsApp API</span>
+                            <span class="tech-badge">Google Sheets</span>
+                            <span class="tech-badge">Make.com</span>
+                            <span class="tech-badge">Node.js</span>
+                            <span class="tech-badge">IA Médica</span>
+                        </div>
+                        <div class="proyecto__buttons">
+                            <a href="https://wa.link/ou9cak" class="btn btn--primary">Implementar Similar</a>
+                            <button class="btn btn--outline proyecto__btn-contact" data-proyecto="Nefro Vital">Más Detalles</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 3: SOFI -->
+                <div class="proyecto__card">
+                    <div class="proyecto__badge proyecto__badge--activo">ACTIVO</div>
+                    <div class="proyecto__image">
+                        <img src="assets/sofi.jpg" alt="SOFI" loading="lazy">
+                    </div>
+                    <div class="proyecto__content">
+                        <h3>SOFI - Asistente Virtual Inteligente</h3>
+                        <p class="proyecto__description">
+                            Sistema de captación y cualificación automática de leads con visión artificial y scoring.
+                        </p>
+                        <div class="proyecto__metrics">
+                            <span>+300% Leads calificados</span>
+                            <span>24/7 Atención</span>
+                        </div>
+                        <ul class="proyecto__features">
+                            <li>Cualificación automática de leads</li>
+                            <li>Visión artificial y scoring</li>
+                            <li>Integración con CRM</li>
+                        </ul>
+                        <div class="proyecto__tech">
+                            <span class="tech-badge">Botpress</span>
+                            <span class="tech-badge">Make.com</span>
+                            <span class="tech-badge">Google Sheets</span>
+                            <span class="tech-badge">Visión IA</span>
+                        </div>
+                        <div class="proyecto__buttons">
+                            <a href="https://wa.link/ou9cak" class="btn btn--primary">Implementar Similar</a>
+                            <button class="btn btn--outline proyecto__btn-contact" data-proyecto="SOFI">Más Detalles</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 4: Farmacia Virtual JyM -->
+                <div class="proyecto__card">
+                    <div class="proyecto__badge proyecto__badge--desarrollo">EN DESARROLLO</div>
+                    <div class="proyecto__image">
+                        <img src="assets/farmacia.jpg" alt="Farmacia Virtual JyM" loading="lazy">
+                    </div>
+                    <div class="proyecto__content">
+                        <h3>Farmacia Virtual JyM</h3>
+                        <p class="proyecto__description">
+                            Plataforma de atención farmacéutica 24/7 con gestión de inventario y derivación inteligente.
+                        </p>
+                        <div class="proyecto__metrics">
+                            <span>40% Menos tiempo</span>
+                            <span>100% Automatizado</span>
+                        </div>
+                        <ul class="proyecto__features">
+                            <li>Gestión de inventario inteligente</li>
+                            <li>Derivación automática</li>
+                            <li>Atención 24/7</li>
+                        </ul>
+                        <div class="proyecto__tech">
+                            <span class="tech-badge">WhatsApp API</span>
+                            <span class="tech-badge">Google Sheets</span>
+                            <span class="tech-badge">Make.com</span>
+                        </div>
+                        <div class="proyecto__buttons">
+                            <button class="btn btn--outline proyecto__btn-notify" data-proyecto="Farmacia Virtual">Notificarme cuando esté listo</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Final -->
+            <div class="proyectos__cta">
+                <div class="cta__icon"><i class="fas fa-lightbulb"></i></div>
+                <h3 class="cta__title">¿Quieres un proyecto similar para tu negocio?</h3>
+                <p class="cta__text">
+                    Implementamos soluciones personalizadas con IA y automatización. Cuéntanos tu idea.
+                </p>
+                <div class="cta__buttons">
+                    <a href="https://wa.link/ou9cak" class="btn btn--whatsapp btn--large">
+                        <i class="fab fa-whatsapp"></i> Escríbeme por WhatsApp
+                    </a>
+                    <a href="https://calendar.google.com/calendar/u/0/appointments/..." class="btn btn--primary btn--large">
+                        <i class="fas fa-calendar-check"></i> Agendar Cita
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal para contacto/notificación -->
+    <div id="contactModal" class="modal">
+        <div class="modal__overlay"></div>
+        <div class="modal__content">
+            <button class="modal__close"><i class="fas fa-times"></i></button>
+            <div class="modal__icon"><i class="fas fa-envelope"></i></div>
+            <h3 class="modal__title">¡Te contacto pronto!</h3>
+            <p class="modal__subtitle">Déjame tus datos para hablar de este proyecto</p>
+            <form id="contactForm" class="notify-form">
+                <input type="hidden" id="proyectoName" value="">
+                <div class="form-group">
+                    <label for="userName">Nombre</label>
+                    <input type="text" id="userName" required>
+                </div>
+                <div class="form-group">
+                    <label for="userEmail">Email</label>
+                    <input type="email" id="userEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="userPhone">WhatsApp</label>
+                    <input type="tel" id="userPhone">
+                </div>
+                <button type="submit" class="btn btn--primary btn--block">Enviar</button>
+            </form>
+            <div id="successMessage" style="display:none;">¡Enviado! Te contacto pronto.</div>
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="container">
+        <div class="footer__content">
+            <div class="footer__brand">
+                <h3>Manuel Madrid</h3>
+                <p>Consultor en Automatización & IA</p>
+            </div>
+            <div class="footer__links">
+                <a href="index.html">Inicio</a>
+                <a href="demos.html">Demos</a>
+                <a href="proyectos.html">Proyectos</a>
+                <a href="https://wa.link/ou9cak">WhatsApp</a>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p>&copy; 2025 Manuel Madrid. Todos los derechos reservados.</p>
+        </div>
+    </div>
+</footer>
+
+    <script src="js/proyectos.js"></script>
+</body>
+</html>

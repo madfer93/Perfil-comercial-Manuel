@@ -1,0 +1,12 @@
+@media (max-width: 768px) {
+    .proyectos__grid {
+        grid-template-columns: 1fr;
+    }
+    .proyecto__metrics {
+        flex-direction: column;
+        text-align: center;
+    }
+    .proyecto__buttons {
+        flex-direction: column;
+    }
+}
