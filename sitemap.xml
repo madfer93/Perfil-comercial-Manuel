@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <!-- Página Principal -->
+    <url>
+        <loc>https://madfer93.github.io/Perfil-comercial-Manuel/</loc>
+        <lastmod>2025-01-06</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+    
+    <!-- Página de Proyectos -->
+    <url>
+        <loc>https://madfer93.github.io/Perfil-comercial-Manuel/proyectos.html</loc>
+        <lastmod>2025-01-06</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- Página de Demos -->
+    <url>
+        <loc>https://madfer93.github.io/Perfil-comercial-Manuel/demos.html</loc>
+        <lastmod>2025-01-06</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- Página de Testimonios -->
+    <url>
+        <loc>https://madfer93.github.io/Perfil-comercial-Manuel/testimonios.html</loc>
+        <lastmod>2025-01-06</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+</urlset>

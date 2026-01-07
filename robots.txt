@@ -1,0 +1,19 @@
+# Robots.txt para Manuel Madrid - Consultor en Automatización & IA
+# https://madfer93.github.io/Perfil-comercial-Manuel/
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://madfer93.github.io/Perfil-comercial-Manuel/sitemap.xml
+
+# Páginas principales
+Allow: /index.html
+Allow: /proyectos.html
+Allow: /demos.html
+Allow: /testimonios.html
+
+# Recursos
+Allow: /assets/
+Allow: /Css/
+Allow: /Js/

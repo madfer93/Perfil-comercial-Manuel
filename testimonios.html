@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonios - Manuel Madrid</title>
+    <meta name="description"
+        content="Lo que dicen nuestros clientes sobre las soluciones de automatización e IA. Testimonios reales de empresas transformadas.">
+
+    <!-- Keywords SEO -->
+    <meta name="keywords"
+        content="testimonios automatización, opiniones chatbot, reseñas clientes, casos éxito IA, Syspro testimonios, Nefro Vital, clientes satisfechos, Villavicencio">
+    <meta name="author" content="Manuel Madrid">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://madfer93.github.io/Perfil-comercial-Manuel/testimonios.html">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Testimonios - Manuel Madrid">
+    <meta property="og:description"
+        content="Lo que dicen nuestros clientes sobre las soluciones de automatización e IA.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://madfer93.github.io/Perfil-comercial-Manuel/testimonios.html">
+    <meta property="og:image" content="https://madfer93.github.io/Perfil-comercial-Manuel/assets/VariedadesJyM.jpg">
+    <meta property="og:locale" content="es_CO">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="assets/VariedadesJyM.jpg">
+    <link rel="apple-touch-icon" href="assets/VariedadesJyM.jpg">
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="Css/style.css">
+    <link rel="stylesheet" href="Css/responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+    <style>
+        /* Estilos específicos para testimonios */
+        .testimonials {
+            padding: 120px 0 80px;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            min-height: 100vh;
+        }
+
+        .testimonials__subtitle {
+            text-align: center;
+            font-size: var(--font-size-lg);
+            color: #cbd5e1;
+            max-width: 700px;
+            margin: 0 auto var(--space-16);
+            line-height: 1.7;
+        }
+
+        .testimonials__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--space-8);
+            margin-bottom: var(--space-16);
+        }
+
+        .testimonial__card {
+            background: #1e293b;
+            padding: var(--space-8);
+            border-radius: var(--radius-lg);
+            border: 1px solid #334155;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .testimonial__card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            border-color: #60a5fa;
+        }
+
+        .testimonial__card::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 25px;
+            font-size: 80px;
+            color: rgba(96, 165, 250, 0.1);
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        .testimonial__stars {
+            color: #fbbf24;
+            font-size: var(--font-size-lg);
+            margin-bottom: var(--space-4);
+            letter-spacing: 2px;
+        }
+
+        .testimonial__text {
+            font-size: var(--font-size-lg);
+            color: #e2e8f0;
+            line-height: 1.8;
+            margin-bottom: var(--space-6);
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial__author {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+            padding-top: var(--space-4);
+            border-top: 1px solid #334155;
+        }
+
+        .testimonial__avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: var(--font-size-xl);
+            font-weight: 700;
+        }
+
+        .testimonial__info strong {
+            display: block;
+            color: #f8fafc;
+            font-size: var(--font-size-base);
+            margin-bottom: var(--space-1);
+        }
+
+        .testimonial__info span {
+            color: #94a3b8;
+            font-size: var(--font-size-sm);
+        }
+
+        .testimonial__badge {
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            padding: var(--space-2) var(--space-4);
+            border-radius: var(--radius);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        /* Stats section */
+        .testimonials__stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-8);
+            background: rgba(30, 41, 59, 0.8);
+            padding: var(--space-12);
+            border-radius: var(--radius-xl);
+            border: 1px solid #334155;
+            margin-bottom: var(--space-16);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-item__number {
+            font-size: var(--font-size-4xl);
+            font-weight: 800;
+            color: #60a5fa;
+            display: block;
+        }
+
+        .stat-item__label {
+            color: #94a3b8;
+            font-size: var(--font-size-sm);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* CTA */
+        .testimonials__cta {
+            text-align: center;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(126, 34, 206, 0.1));
+            padding: var(--space-12);
+            border-radius: var(--radius-xl);
+            border: 1px solid rgba(96, 165, 250, 0.2);
+        }
+
+        .testimonials__cta h3 {
+            font-size: var(--font-size-2xl);
+            color: #f8fafc;
+            margin-bottom: var(--space-4);
+        }
+
+        .testimonials__cta p {
+            color: #cbd5e1;
+            margin-bottom: var(--space-8);
+        }
+
+        .cta__buttons {
+            display: flex;
+            gap: var(--space-4);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            margin-top: 100px;
+            padding: var(--space-4) 0;
+            background: rgba(15, 23, 42, 0.8);
+        }
+
+        .breadcrumb__list {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            list-style: none;
+        }
+
+        .breadcrumb__list a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .breadcrumb__list a:hover {
+            color: #60a5fa;
+        }
+
+        .breadcrumb__list i {
+            color: #475569;
+            font-size: 0.8rem;
+        }
+
+        .breadcrumb__list li:last-child {
+            color: #e2e8f0;
+        }
+
+        @media (max-width: 768px) {
+            .testimonials__grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonial__text {
+                font-size: var(--font-size-base);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav__logo">
+                <a href="index.html" class="logo-container">
+                    <img src="assets/VariedadesJyM.jpg" alt="Manuel Madrid" class="logo">
+                    <div class="logo-text">
+                        <h2>Manuel Madrid</h2>
+                        <span>Consultor en Automatización & IA</span>
+                    </div>
+                </a>
+            </div>
+            <ul class="nav__menu">
+                <li><a href="index.html#inicio">Inicio</a></li>
+                <li><a href="index.html#servicios">Servicios</a></li>
+                <li><a href="index.html#faq">FAQ</a></li>
+                <li><a href="proyectos.html">Proyectos</a></li>
+                <li><a href="demos.html">Demos</a></li>
+                <li><a href="testimonios.html" class="active">Testimonios</a></li>
+                <li><a href="index.html#sobre-mi">Sobre Mí</a></li>
+                <li><a href="https://wa.me/573045788873?text=Hola%20Manuel%2C%20vi%20tu%20p%C3%A1gina%20web%20y%20me%20interesa%20saber%20m%C3%A1s%20sobre%20tus%20servicios%20de%20automatizaci%C3%B3n."
+                        class="btn btn--primary">Contactar</a></li>
+            </ul>
+            <div class="nav__toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb__list">
+                    <li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
+                    <li><i class="fas fa-chevron-right"></i></li>
+                    <li><i class="fas fa-star"></i> Testimonios</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Sección Testimonios -->
+    <section class="testimonials">
+        <div class="container">
+            <h1 class="section__title">⭐ Lo que dicen nuestros clientes</h1>
+            <p class="testimonials__subtitle">
+                Resultados reales de empresas que transformaron sus operaciones con automatización e IA.
+                Estos son testimonios de clientes satisfechos.
+            </p>
+
+            <!-- Stats -->
+            <div class="testimonials__stats">
+                <div class="stat-item">
+                    <span class="stat-item__number">98%</span>
+                    <span class="stat-item__label">Clientes Satisfechos</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-item__number">+50</span>
+                    <span class="stat-item__label">Proyectos Completados</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-item__number">40%</span>
+                    <span class="stat-item__label">Ahorro Promedio</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-item__number">24/7</span>
+                    <span class="stat-item__label">Soporte Activo</span>
+                </div>
+            </div>
+
+            <!-- Testimonials Grid -->
+            <div class="testimonials__grid">
+                <!-- Testimonial 1 -->
+                <div class="testimonial__card">
+                    <div class="testimonial__badge">Verificado</div>
+                    <div class="testimonial__stars">★★★★★</div>
+                    <p class="testimonial__text">
+                        "SOFI transformó completamente nuestra atención al cliente. Ahora respondemos consultas 24/7
+                        sin esfuerzo adicional. Los aspirantes reciben información inmediata sobre nuestros programas
+                        y el proceso de admisión es mucho más ágil."
+                    </p>
+                    <div class="testimonial__author">
+                        <div class="testimonial__avatar">CS</div>
+                        <div class="testimonial__info">
+                            <strong>Corporación Syspro</strong>
+                            <span>Institución Educativa • Villavicencio</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="testimonial__card">
+                    <div class="testimonial__badge">Verificado</div>
+                    <div class="testimonial__stars">★★★★★</div>
+                    <p class="testimonial__text">
+                        "El sistema de seguimiento de pacientes nos permite mantener adherencia del 100%
+                        en tratamientos críticos. Los recordatorios automáticos han mejorado significativamente
+                        la salud de nuestros pacientes renales."
+                    </p>
+                    <div class="testimonial__author">
+                        <div class="testimonial__avatar">NV</div>
+                        <div class="testimonial__info">
+                            <strong>Nefro Vital</strong>
+                            <span>Plataforma de Salud Renal</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="testimonial__card">
+                    <div class="testimonial__badge">Verificado</div>
+                    <div class="testimonial__stars">★★★★★</div>
+                    <p class="testimonial__text">
+                        "Gracias al e-commerce con pedidos por WhatsApp, nuestras ventas aumentaron un 150%.
+                        La sincronización entre las 3 sucursales es perfecta y el panel de administración
+                        es súper fácil de usar."
+                    </p>
+                    <div class="testimonial__author">
+                        <div class="testimonial__avatar">MS</div>
+                        <div class="testimonial__info">
+                            <strong>Moteros Sports Line</strong>
+                            <span>E-commerce • 3 Sucursales</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 4 -->
+                <div class="testimonial__card">
+                    <div class="testimonial__stars">★★★★★</div>
+                    <p class="testimonial__text">
+                        "El menú digital con ChefBot revolucionó nuestro negocio. Los clientes pueden
+                        ver el menú, hacer pedidos y recibir recomendaciones personalizadas directo por WhatsApp.
+                        ¡Increíble experiencia!"
+                    </p>
+                    <div class="testimonial__author">
+                        <div class="testimonial__avatar">PQ</div>
+                        <div class="testimonial__info">
+                            <strong>Piqueteadero Demo</strong>
+                            <span>Restaurante • Prueba Funcional</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 5 -->
+                <div class="testimonial__card">
+                    <div class="testimonial__stars">★★★★★</div>
+                    <p class="testimonial__text">
+                        "Manuel entendió exactamente lo que necesitábamos. No solo implementó la solución,
+                        sino que nos capacitó para administrarla nosotros mismos. El soporte post-implementación
+                        ha sido excelente."
+                    </p>
+                    <div class="testimonial__author">
+                        <div class="testimonial__avatar">JM</div>
+                        <div class="testimonial__info">
+                            <strong>Variedades JyM</strong>
+                            <span>Comercio General • Villavicencio</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 6 -->
+                <div class="testimonial__card">
+                    <div class="testimonial__stars">★★★★☆</div>
+                    <p class="testimonial__text">
+                        "La automatización del inventario nos ahorra al menos 10 horas semanales.
+                        Ahora sabemos exactamente qué productos reponer y cuándo. El ROI fue visible
+                        desde el primer mes."
+                    </p>
+                    <div class="testimonial__author">
+                        <div class="testimonial__avatar">FV</div>
+                        <div class="testimonial__info">
+                            <strong>Farmacia Virtual</strong>
+                            <span>Sector Farmacéutico</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="testimonials__cta">
+                <h3>¿Quieres ser nuestro próximo caso de éxito?</h3>
+                <p>Conversemos sobre cómo la automatización puede transformar tu negocio.</p>
+                <div class="cta__buttons">
+                    <a href="https://wa.me/573045788873?text=Hola%20Manuel%2C%20vi%20tu%20p%C3%A1gina%20web%20y%20me%20interesa%20saber%20m%C3%A1s%20sobre%20tus%20servicios%20de%20automatizaci%C3%B3n."
+                        class="btn btn--whatsapp btn--large" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Chatear con SOFI
+                    </a>
+                    <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3qKKHUwFIyRokbhRI4ImUv3w80CfjTEGjcW8GUL3gD2VsrvTIaBUnbbSouOjG5zP7tGkJHlKR9"
+                        class="btn btn--primary btn--large" target="_blank">
+                        <i class="fas fa-calendar-check"></i> Agendar Consulta
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer footer--simple">
+        <div class="container">
+            <div class="footer__simple-content">
+                <div class="footer__brand-simple">
+                    <h3>Manuel Madrid</h3>
+                    <p>Consultor en Automatización & IA</p>
+                </div>
+                <div class="footer__links-simple">
+                    <a href="index.html" class="footer__link">
+                        <i class="fas fa-home"></i> Inicio
+                    </a>
+                    <a href="https://wa.me/573045788873?text=Hola%20Manuel%2C%20vi%20tu%20p%C3%A1gina%20web%20y%20me%20interesa%20saber%20m%C3%A1s%20sobre%20tus%20servicios%20de%20automatizaci%C3%B3n."
+                        target="_blank" rel="noopener noreferrer" class="footer__link">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                    <a href="mailto:madfer1993@gmail.com" class="footer__link">
+                        <i class="fas fa-envelope"></i> Email
+                    </a>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2025 Manuel Madrid. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botón Flotante de WhatsApp -->
+    <div class="whatsapp-float">
+        <span class="whatsapp-float__tooltip">¡Escríbeme por WhatsApp!</span>
+        <a href="https://wa.me/573045788873?text=Hola%20Manuel%2C%20vi%20tu%20p%C3%A1gina%20web%20y%20me%20interesa%20saber%20m%C3%A1s%20sobre%20tus%20servicios%20de%20automatizaci%C3%B3n."
+            class="whatsapp-float__btn" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Scripts -->
+    <script src="Js/animations.js"></script>
+    <script src="Js/script.js"></script>
+</body>
+
+</html>
