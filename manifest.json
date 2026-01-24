@@ -1,6 +1,6 @@
 {
-  "name": "Manuel Madrid - Consultor IA",
-  "short_name": "Manuel Madrid",
+  "name": "Variedades JyM - Manuel Madrid",
+  "short_name": "Variedades JyM",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#0f172a",
@@ -8,13 +8,13 @@
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "assets/VariedadesJyM.jpg",
-      "type": "image/jpeg",
+      "src": "android-chrome-192x192.png",
+      "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "assets/VariedadesJyM.jpg",
-      "type": "image/jpeg",
+      "src": "android-chrome-512x512.png",
+      "type": "image/png",
       "sizes": "512x512"
     }
   ]
