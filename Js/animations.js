@@ -64,19 +64,19 @@ class AnimatedCounters {
     animateCounter(element) {
         // CLAVE: Leer data-target primero
         const target = parseInt(element.getAttribute('data-target'));
-        
+
         if (isNaN(target) || target === 0) {
             console.warn('⚠️ Contador sin data-target válido:', element);
             return;
         }
-        
+
         const duration = 2000; // 2 segundos
         const increment = target / (duration / 16);
         let current = 0;
 
         const updateCounter = () => {
             current += increment;
-            
+
             if (current < target) {
                 element.innerText = Math.floor(current);
                 requestAnimationFrame(updateCounter);
@@ -107,7 +107,7 @@ class PerformanceUtils {
 
     static throttle(func, limit) {
         let inThrottle;
-        return function() {
+        return function () {
             const args = arguments;
             const context = this;
             if (!inThrottle) {
@@ -123,9 +123,8 @@ class PerformanceUtils {
 document.addEventListener('DOMContentLoaded', () => {
     new ScrollAnimations();
     new AnimatedCounters();
-    
-    console.log('✅ Animaciones inicializadas');
-    console.log('🔢 Contadores encontrados:', document.querySelectorAll('.stat__number').length);
+
+    // Animaciones inicializadas satisfactoriamente
 });
 
 // ===== EXPORTAR =====

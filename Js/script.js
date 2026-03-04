@@ -1,5 +1,5 @@
 // ===== CONFIGURACIÓN INICIAL =====
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     initNavigation();
     initSmoothScrolling();
     initScrollEffects();
@@ -11,12 +11,12 @@ function initNavigation() {
     const navToggle = document.querySelector('.nav__toggle');
     const navMenu = document.querySelector('.nav__menu');
     const header = document.querySelector('.header');
-    
+
     if (navToggle) {
-        navToggle.addEventListener('click', function() {
+        navToggle.addEventListener('click', function () {
             navMenu.classList.toggle('active');
             navToggle.classList.toggle('active');
-            
+
             // Animación del toggle
             const spans = navToggle.querySelectorAll('span');
             if (navToggle.classList.contains('active')) {
@@ -30,7 +30,7 @@ function initNavigation() {
             }
         });
     }
-    
+
     // Cerrar menú al hacer clic en un enlace
     const navLinks = document.querySelectorAll('.nav__menu a');
     navLinks.forEach(link => {
@@ -45,12 +45,12 @@ function initNavigation() {
             }
         });
     });
-    
+
     // Header con efecto scroll
     let lastScroll = 0;
     window.addEventListener('scroll', () => {
         const currentScroll = window.pageYOffset;
-        
+
         if (currentScroll > 100) {
             header.classList.add('scrolled');
         } else {
@@ -72,19 +72,19 @@ function initNavigation() {
 // ===== SCROLL SUAVE =====
 function initSmoothScrolling() {
     const links = document.querySelectorAll('a[href^="#"]');
-    
+
     links.forEach(link => {
-        link.addEventListener('click', function(e) {
+        link.addEventListener('click', function (e) {
             e.preventDefault();
-            
+
             const targetId = this.getAttribute('href');
             if (targetId === '#') return;
-            
+
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
                 const headerHeight = document.querySelector('.header').offsetHeight;
                 const targetPosition = targetElement.offsetTop - headerHeight - 20;
-                
+
                 window.scrollTo({
                     top: targetPosition,
                     behavior: 'smooth'
@@ -98,19 +98,19 @@ function initSmoothScrolling() {
 function initScrollEffects() {
     // Efecto parallax para elementos flotantes
     let ticking = false;
-    
-    window.addEventListener('scroll', function() {
+
+    window.addEventListener('scroll', function () {
         if (!ticking) {
-            window.requestAnimationFrame(function() {
+            window.requestAnimationFrame(function () {
                 const scrolled = window.pageYOffset;
                 const floatingCards = document.querySelectorAll('.floating-card');
-                
+
                 floatingCards.forEach((card, index) => {
                     const speed = 0.3 + (index * 0.1);
                     const yPos = -(scrolled * speed);
                     card.style.transform = `translateY(${yPos}px)`;
                 });
-                
+
                 ticking = false;
             });
             ticking = true;
@@ -121,7 +121,7 @@ function initScrollEffects() {
 // ===== LAZY LOADING DE IMÁGENES =====
 function initLazyLoading() {
     const images = document.querySelectorAll('img[data-src]');
-    
+
     if ('IntersectionObserver' in window) {
         const imageObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
@@ -133,7 +133,7 @@ function initLazyLoading() {
                 }
             });
         });
-        
+
         images.forEach(img => imageObserver.observe(img));
     } else {
         // Fallback para navegadores sin IntersectionObserver
@@ -145,8 +145,7 @@ function initLazyLoading() {
 }
 
 // ===== MANEJO DE ERRORES =====
-window.addEventListener('error', function(e) {
-    console.error('Error en la aplicación:', e.error);
+window.addEventListener('error', function (e) {
 });
 
 // ===== PERFORMANCE OPTIMIZATIONS =====
