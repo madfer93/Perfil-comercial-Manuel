@@ -2626,3 +2626,79 @@ body {
     height: 40px;
   }
 }
+/* ===== INTEGRACIONES PREMIUM ===== */
+.service__card--premium {
+  position: relative;
+  border: 1px solid rgba(96, 165, 250, 0.2) !important;
+  background: linear-gradient(145deg, #1e293b 0%, #161e2e 100%) !important;
+  overflow: hidden;
+}
+
+.service__card--premium:hover {
+  border-color: #60a5fa !important;
+  box-shadow: 0 0 20px rgba(37, 99, 235, 0.2) !important;
+}
+
+.premium-badge {
+  position: absolute;
+  top: 15px;
+  right: -30px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  padding: 5px 35px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  transform: rotate(45deg);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  z-index: 5;
+}
+
+.premium-list {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+}
+
+.premium-list li {
+  color: #94a3b8;
+  font-size: 0.85rem;
+  margin-bottom: var(--space-2);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  transition: var(--transition);
+}
+
+.premium-list li:hover {
+  color: #f8fafc;
+  transform: translateX(5px);
+}
+
+.premium-list li i {
+  color: #10b981;
+  font-size: 0.9rem;
+}
+
+
+/* ===== SECCIÓN MARKETING ===== */
+.marketing-card {
+  transition: var(--transition);
+}
+
+.marketing-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+  border-color: var(--primary) !important;
+}
+
+.marketing-card img {
+  opacity: 0.8;
+  transition: var(--transition);
+}
+
+.marketing-card:hover img {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
