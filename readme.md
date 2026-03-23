@@ -5,39 +5,43 @@ markdown
 manuel-madrid-portfolio/
 │
 ├── index.html # Página principal
+├── proyectos.html # Casos de Estudio y Precios B2B
+├── marketing.html # Activos de marketing dinámicos
+├── contacto.html # Formulario de cualificación B2B
+├── superadmin.html # Dashboard y gestión CRM/IA
 ├── css/
-│ ├── style.css # Estilos principales
-│ └── responsive.css # Media queries y responsive
+│ ├── style.css # Estilos principales core
+│ ├── responsive.css # Media queries estructurales
+│ └── contacto.css # Estilos de formularios B2B
 ├── js/
-│ ├── script.js # Funcionalidad básica
-│ └── animations.js # Animaciones avanzadas
+│ ├── script.js # Interacción UI principal
+│ ├── contacto.js # Integración SDK backend forms
+│ └── supabase-master.js # SDK de conexión de Base de datos
+├── sw.js # Service Worker (PWA)
 ├── assets/
-│ ├── images/
-│ │ └── logo.png # Logo personalizado
-│ └── icons/ # Iconos y favicons
+│ ├── logo-chantilly.jpg
+│ └── VariedadesJyM.jpg # Logo B2B
 └── README.md # Documentación
 
 text
 
 ## Características
 
-- ✅ Diseño 100% responsive
-- ✅ Grid de servicios optimizado para todos los niveles de zoom
-- ✅ Animaciones avanzadas con Intersection Observer
-- ✅ Navegación suave y menú móvil funcional
-- ✅ Efectos visuales modernos (partículas, tarjetas flotantes)
-- ✅ Integración con WhatsApp Business API y Google Calendar
-- ✅ Código optimizado para SEO y performance
-- ✅ Compatible con todos los navegadores modernos
+- ✅ Diseño 100% responsive B2B
+- ✅ Superadmin Dashboard con renderizado de datos en vivo y Asistente IA
+- ✅ Gestión dinámica de Leads corporativos sincronizados con Supabase
+- ✅ Formularios UI/UX enfocados en cualificación Enterprise (Privacy-by-design)
+- ✅ Service Worker (PWA) con estrategia de Caché inteligente (Network First) adaptado a APIs.
+- ✅ Integración ImgBB API para gestión de archivos multimedia
+- ✅ Código optimizado para SEO, performance y Accesibilidad cruzada.
 
 ## Tecnologías Utilizadas
 
-- HTML5 semántico
-- CSS3 con variables CSS, Grid y Flexbox
-- JavaScript vanilla (ES6+)
-- Font Awesome para iconos
-- Google Fonts (Inter)
-- Intersection Observer API para animaciones
+- **Frontend**: HTML5 Semántico, CSS3 (Variables, Grid, Flexbox), JavaScript Vanilla (ES6+)
+- **Backend as a Service (BaaS)**: Supabase (PostgreSQL, Realtime, REST API)
+- **APIs**: Groq API (Inferencia LLM), ImgBB (Storage), Factus Sandbox (DIAN)
+- **Arquitectura**: PWA nativa, Integración de Service Workers
+- **Recursos**: Intersection Observer API, CSS modularizado, Framework Estratégico OBS.
 
 ## Mejoras Implementadas
 

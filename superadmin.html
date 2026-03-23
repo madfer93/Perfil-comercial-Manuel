@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SuperAdmin - Hub de Servicios Manuel Madrid</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: #f4f7fa;
+            color: #1e293b;
+        }
+
+        .header {
+            background: #1e293b;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 5px;
+        }
+
+        .tab-btn {
+            padding: 10px 20px;
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #64748b;
+            transition: all 0.3s;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .tab-btn.active {
+            color: #3b82f6;
+            background: white;
+            box-shadow: 0 -3px 0 #3b82f6 inset;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            margin-bottom: 25px;
+        }
+
+        .card h2 {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: #1e293b;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: #475569;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 0.95rem;
+        }
+
+        .btn {
+            background: #3b82f6;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .btn:hover { background: #2563eb; }
+        .btn:disabled { opacity: 0.6; cursor: not-allowed; }
+        .btn--success { background: #10b981; }
+        .btn--success:hover { background: #059669; }
+        .btn--danger { background: #ef4444; }
+        .btn--danger:hover { background: #dc2626; }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid #f1f5f9;
+            font-size: 0.9rem;
+        }
+
+        th { background: #f8fafc; color: #64748b; font-weight: 600; }
+
+        .badge {
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .badge--active { background: #dcfce3; color: #166534; }
+        .badge--inactive { background: #fee2e2; color: #991b1b; }
+
+        .auth-overlay {
+            position: fixed;
+            inset: 0;
+            background: #0f172a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .auth-card {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 12px 24px;
+            border-radius: 8px;
+            color: white;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s;
+            z-index: 2000;
+        }
+
+        .toast.show { transform: translateY(0); opacity: 1; }
+        .toast.success { background: #10b981; }
+        .toast.error { background: #ef4444; }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .stat-card {
+            background: #f8fafc;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+        }
+
+        .stat-value { font-size: 1.5rem; font-weight: 700; color: #3b82f6; }
+        .stat-label { font-size: 0.8rem; color: #64748b; }
+
+        /* Drop Zone Styles */
+        .drop-zone {
+            border: 2px dashed #cbd5e1;
+            border-radius: 8px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+            background: #f8fafc;
+            margin-bottom: 15px;
+        }
+
+        .drop-zone:hover, .drop-zone.drag-over {
+            border-color: #3b82f6;
+            background: #eff6ff;
+        }
+
+        .drop-zone i {
+            font-size: 2rem;
+            color: #64748b;
+            margin-bottom: 10px;
+        }
+
+        .preview-container {
+            display: none;
+            margin-top: 10px;
+            position: relative;
+        }
+
+        .preview-container img {
+            width: 100%;
+            max-height: 150px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        .upload-progress {
+            height: 4px;
+            background: #e2e8f0;
+            border-radius: 2px;
+            margin-top: 10px;
+            display: none;
+            overflow: hidden;
+        }
+
+        .upload-progress-fill {
+            height: 100%;
+            background: #3b82f6;
+            width: 0%;
+            transition: width 0.3s;
+        }
+
+        /* Leads & AI Chat Styles */
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+            height: 400px;
+            background: #f8fafc;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
+            margin-top: 15px;
+        }
+        .chat-messages {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .message {
+            max-width: 80%;
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+        .message.bot {
+            background: white;
+            border: 1px solid #e2e8f0;
+            align-self: flex-start;
+        }
+        .message.user {
+            background: #3b82f6;
+            color: white;
+            align-self: flex-end;
+        }
+        .chat-input {
+            display: flex;
+            padding: 10px;
+            background: white;
+            border-top: 1px solid #e2e8f0;
+        }
+        .chat-input input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Capa de Autenticación Segura -->
+    <div id="auth-layer" class="auth-overlay">
+        <div class="auth-card">
+            <h2 style="margin-bottom: 10px;">🛡️ Hub Maestro</h2>
+            <p style="color: #64748b; margin-bottom: 25px; font-size: 0.9rem;">Acceso restringido a Manuel Madrid</p>
+            <div class="form-group" style="text-align: left;">
+                <label>Clave de Acceso</label>
+                <input type="password" id="admin-secret" placeholder="Ingresa tu clave maestra" onkeyup="if(event.key === 'Enter') attemptLogin()">
+            </div>
+            <button class="btn" style="width: 100%;" onclick="attemptLogin()" id="login-btn">
+                <span>Ingresar al Hub</span>
+            </button>
+        </div>
+    </div>
+
+    <header class="header">
+        <h1><i class="fas fa-crown"></i> Hub Maestro - Manuel Madrid</h1>
+        <div style="display: flex; gap: 15px; align-items: center;">
+            <a href="index.html" target="_blank" style="color: white; font-size: 0.9rem; text-decoration: none;">
+                <i class="fas fa-external-link-alt"></i> Ver Web Principal
+            </a>
+            <button class="btn btn--danger" onclick="logout()" style="padding: 5px 15px; font-size: 0.8rem;">Salir</button>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Pestañas de Navegación -->
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab('portfolio')">🏠 Portafolio & Marketing</button>
+            <button class="tab-btn" onclick="switchTab('ai-engine')">🤖 JYM AI Engine</button>
+            <button class="tab-btn" onclick="switchTab('leads')">🎯 Leads B2B & IA Assistant</button>
+        </div>
+
+        <!-- CONTENIDO: PORTAFOLIO & MARKETING -->
+        <div id="tab-portfolio" class="tab-content active">
+            <div class="dashboard-grid">
+                <!-- Columna Izquierda: Formularios -->
+                <div class="column">
+                    <!-- Formulario de Clientes de Portafolio -->
+                    <div class="card">
+                        <h2><i class="fas fa-user-plus"></i> Nuevo Cliente Portafolio</h2>
+                        <form id="portfolio-client-form" onsubmit="handlePortfolioClient(event)">
+                            <div class="form-group">
+                                <label>Nombre del Negocio</label>
+                                <input type="text" id="p-client-name" required placeholder="Ej: Chantilly Gourmet">
+                            </div>
+                            <div class="form-group">
+                                <label>Slug Redirect (Ej: chantilly)</label>
+                                <input type="text" id="p-client-slug" required placeholder="Sin espacios ni símbolos">
+                            </div>
+                            <div class="form-group">
+                                <label>URL de Vercel (Destino)</label>
+                                <input type="url" id="p-client-url" required placeholder="https://mi-tienda.vercel.app">
+                            </div>
+                            <button type="submit" class="btn" style="width: 100%;">Guardar Cliente</button>
+                        </form>
+                    </div>
+
+                    <!-- Formulario de Marketing -->
+                    <div class="card">
+                        <h2><i class="fas fa-image"></i> Nuevo Activo Marketing</h2>
+                        <form id="marketing-asset-form" onsubmit="handleMarketingAsset(event)">
+                            <div class="form-group">
+                                <label>Título del Activo</label>
+                                <input type="text" id="m-asset-title" required placeholder="Ej: Flyer Verano">
+                            </div>
+                            <div class="form-group">
+                                <label>Imagen del Activo (Arrastra o haz clic)</label>
+                                <div id="drop-zone" class="drop-zone">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <p style="font-size: 0.8rem;">JPG, PNG o WEBP</p>
+                                    <input type="file" id="file-input" hidden accept="image/*">
+                                </div>
+                                <div id="upload-progress" class="upload-progress">
+                                    <div id="upload-progress-fill" class="upload-progress-fill"></div>
+                                </div>
+                                <div id="preview-container" class="preview-container">
+                                    <img id="image-preview" src="" alt="Vista previa">
+                                    <input type="hidden" id="m-asset-url">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Descripción</label>
+                                <textarea id="m-asset-desc" rows="2" placeholder="Opcional"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Enlace de Acción (WhatsApp o Web)</label>
+                                <input type="text" id="m-asset-redirect" placeholder="Ej: https://wa.me/573045788873 o https://tuweb.com">
+                                <small style="font-size: 0.75rem; color: #64748b;">Esto creará un botón clickable en la imagen.</small>
+                            </div>
+                            <button type="submit" class="btn btn--success" style="width: 100%;">Publicar</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Listas -->
+                <div class="column">
+                    <div class="card">
+                        <h2><i class="fas fa-list"></i> Clientes de Redirección</h2>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Negocio</th>
+                                    <th>Slug</th>
+                                    <th>Destino</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="portfolio-tbody"></tbody>
+                        </table>
+                    </div>
+
+                    <div class="card">
+                        <h2><i class="fas fa-images"></i> Galería Marketing</h2>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Imagen</th>
+                                    <th>Título</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="marketing-tbody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONTENIDO: AI ENGINE -->
+        <div id="tab-ai-engine" class="tab-content">
+            <div class="stats-grid" id="ai-stats">
+                <div class="stat-card"><div class="stat-value" id="s-total-clients">0</div><div class="stat-label">Clientes IA</div></div>
+                <div class="stat-card"><div class="stat-value" id="s-total-msgs">0</div><div class="stat-label">Mensajes Usados</div></div>
+                <div class="stat-card"><div class="stat-value" id="s-active-agents">0</div><div class="stat-label">Agentes Activos</div></div>
+            </div>
+
+            <div class="dashboard-grid">
+                <!-- Nuevo Agente IA -->
+                <div class="card">
+                    <h2><i class="fas fa-plus-circle"></i> Nuevo Agente IA</h2>
+                    <form id="ai-client-form" onsubmit="handleAIClient(event)">
+                        <div class="form-group">
+                            <label>Nombre del Negocio</label>
+                            <input type="text" id="ai-client-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Plan</label>
+                            <select id="ai-client-plan">
+                                <option value="basic">Básico (1,000 msgs)</option>
+                                <option value="pro">Pro (5,000 msgs)</option>
+                                <option value="enterprise">Enterprise (∞)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Límite Mensajes</label>
+                            <input type="number" id="ai-client-limit" value="1000">
+                        </div>
+                        <button type="submit" class="btn" style="width: 100%;">Crear Agente</button>
+                    </form>
+                </div>
+
+                <!-- Lista Agentes IA -->
+                <div class="card">
+                    <h2><i class="fas fa-microchip"></i> Gestión de Agentes</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Agente</th>
+                                <th>Plan</th>
+                                <th>Mensajes</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ai-tbody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONTENIDO: LEADS B2B & IA ASSISTANT -->
+        <div id="tab-leads" class="tab-content">
+            <div class="dashboard-grid">
+                <div class="column">
+                    <div class="card">
+                        <h2><i class="fas fa-users"></i> Leads B2B Recientes</h2>
+                        <div style="overflow-x:auto;">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Fecha</th>
+                                        <th>Empresa</th>
+                                        <th>Contacto</th>
+                                        <th>Presupuesto</th>
+                                        <th>Estado</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="leads-tbody"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="card">
+                        <h2><i class="fas fa-brain"></i> Asistente Groq IA</h2>
+                        <p style="font-size:0.85rem; color:#64748b;">Pregunta a la IA sobre cómo redactar correos para estos leads o analiza su caso de uso.</p>
+                        <div class="chat-container">
+                            <div class="chat-messages" id="chat-messages">
+                                <div class="message bot">Hola Manuel, soy tu asistente IA. ¿Cómo puedo ayudarte con los leads de hoy?</div>
+                            </div>
+                            <div class="chat-input">
+                                <input type="text" id="chat-input-text" placeholder="Ej: Redacta un correo para el lead de Empresa X..." onkeyup="if(event.key==='Enter') sendGroqMessage()">
+                                <button class="btn" onclick="sendGroqMessage()"><i class="fas fa-paper-plane"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast" class="toast"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="Js/supabase-master.js"></script>
+
+    <script>
+        // Determinar URL del backend dinámicamente
+        const API_BASE_URL = window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost' 
+            ? 'http://localhost:3000' 
+            : ''; // En producción usar paths relativos
+
+        let TOKEN = localStorage.getItem('master_hub_token') || '';
+        let portfolioClients = [];
+        let aiClients = [];
+        let marketingAssets = [];
+        let editingAssetId = null;
+
+        // --- AUTENTICACIÓN ---
+        async function attemptLogin() {
+            const secret = document.getElementById('admin-secret').value;
+            const btn = document.getElementById('login-btn');
+            
+            if (!secret) return showToast('Ingresa la clave', 'error');
+            
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Verificando...';
+
+            try {
+                // Usamos API_BASE_URL para conectar al puerto 3000 localmente
+                const res = await fetch(`${API_BASE_URL}/api/admin/verify`, {
+                    method: 'POST',
+                    headers: { 
+                        'Authorization': `Bearer ${secret}`,
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                if (res.ok) {
+                    TOKEN = secret;
+                    localStorage.setItem('master_hub_token', TOKEN);
+                    document.getElementById('auth-layer').style.display = 'none';
+                    showToast('Bienvenido, Manuel', 'success');
+                    initDashboard();
+                } else {
+                    showToast('Clave incorrecta o no autorizada', 'error');
+                }
+            } catch (err) {
+                showToast('Error de conexión con el servidor', 'error');
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = 'Ingresar al Hub';
+            }
+        }
+
+        function logout() {
+            localStorage.removeItem('master_hub_token');
+            location.reload();
+        }
+
+        // --- INICIALIZACIÓN ---
+        if (TOKEN) {
+            document.getElementById('auth-layer').style.display = 'none';
+            initDashboard();
+        }
+
+        function initDashboard() {
+            loadPortfolioData();
+            loadAIData();
+            loadMarketingAssets();
+            loadLeadsData();
+        }
+
+        // --- NAVEGACIÓN ---
+        function switchTab(tab) {
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            
+            event.target.classList.add('active');
+            document.getElementById(`tab-${tab}`).classList.add('active');
+        }
+
+        // --- LÓGICA PORTAFOLIO ---
+        async function loadPortfolioData() {
+            const tbody = document.getElementById('portfolio-tbody');
+            try {
+                // Filtramos por business_unit = 'portfolio'
+                const { data, error } = await supabaseMaster
+                    .from('clients')
+                    .select('*')
+                    .eq('business_unit', 'portfolio')
+                    .order('created_at', { ascending: false });
+
+                if (error) throw error;
+                portfolioClients = data || [];
+                
+                if (portfolioClients.length === 0) {
+                    tbody.innerHTML = '<tr><td colspan="4" style="text-align:center;">No hay clientes de portafolio.</td></tr>';
+                    return;
+                }
+
+                tbody.innerHTML = portfolioClients.map(c => `
+                    <tr>
+                        <td><strong>${c.name}</strong></td>
+                        <td><a href="/${c.slug}" target="_blank">/${c.slug}</a></td>
+                        <td><small>${c.vercel_url}</small></td>
+                        <td class="actions">
+                            <button class="delete" onclick="deleteClient('${c.id}', 'portfolio')"><i class="fas fa-trash"></i></button>
+                        </td>
+                    </tr>
+                `).join('');
+            } catch (err) {
+                tbody.innerHTML = '<tr><td colspan="4" style="color:red;">Error cargando datos.</td></tr>';
+            }
+        }
+
+        async function handlePortfolioClient(e) {
+            e.preventDefault();
+            const name = document.getElementById('p-client-name').value;
+            const slug = document.getElementById('p-client-slug').value.toLowerCase().trim();
+            const url = document.getElementById('p-client-url').value;
+
+            try {
+                const { error } = await supabaseMaster.from('clients').insert([{
+                    name, slug, vercel_url: url, business_unit: 'portfolio', is_active: true
+                }]);
+                if (error) throw error;
+                showToast('Cliente guardado', 'success');
+                e.target.reset();
+                loadPortfolioData();
+            } catch (err) {
+                showToast('Error: ' + err.message, 'error');
+            }
+        }
+
+        // --- LÓGICA AGENTES IA ---
+        async function loadAIData() {
+            const tbody = document.getElementById('ai-tbody');
+            try {
+                // Petición al backend para obtener clientes de IA con sus estadísticas
+                const res = await fetch(`${API_BASE_URL}/api/admin/clients?business_unit=ai_engine`, {
+                    headers: { 'Authorization': `Bearer ${TOKEN}` }
+                });
+                const { clients, error } = await res.json();
+                if (error) throw new Error(error);
+
+                aiClients = clients || [];
+                
+                // Actualizar Stats
+                document.getElementById('s-total-clients').textContent = aiClients.length;
+                document.getElementById('s-total-msgs').textContent = aiClients.reduce((acc, c) => acc + (c.messages_used || 0), 0);
+                document.getElementById('s-active-agents').textContent = aiClients.filter(c => c.is_active).length;
+
+                if (aiClients.length === 0) {
+                    tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;">No hay agentes de IA aún.</td></tr>';
+                    return;
+                }
+
+                tbody.innerHTML = aiClients.map(c => `
+                    <tr>
+                        <td><strong>${c.name}</strong><br><small style="font-size:10px; color:#64748b;">${c.id.substring(0,8)}</small></td>
+                        <td><span class="badge ${c.subscription_plan === 'pro' ? 'badge--active' : ''}">${c.subscription_plan.toUpperCase()}</span></td>
+                        <td>${c.messages_used || 0} / ${c.messages_limit || '∞'}</td>
+                        <td><span class="badge ${c.is_active ? 'badge--active' : 'badge--inactive'}">${c.is_active ? 'Activo' : 'Pausa'}</span></td>
+                        <td class="actions">
+                            <button class="delete" onclick="deleteClient('${c.id}', 'ai')"><i class="fas fa-trash"></i></button>
+                        </td>
+                    </tr>
+                `).join('');
+            } catch (err) {
+                tbody.innerHTML = '<tr><td colspan="5" style="color:red;">Error conectando con backend.</td></tr>';
+            }
+        }
+
+        async function handleAIClient(e) {
+            e.preventDefault();
+            const payload = {
+                name: document.getElementById('ai-client-name').value,
+                subscription_plan: document.getElementById('ai-client-plan').value,
+                messages_limit: parseInt(document.getElementById('ai-client-limit').value),
+                business_unit: 'ai_engine'
+            };
+
+            try {
+                const res = await fetch(`${API_BASE_URL}/api/admin/clients`, {
+                    method: 'POST',
+                    headers: { 
+                        'Authorization': `Bearer ${TOKEN}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
+                if (!res.ok) throw new Error('Error en backend');
+                showToast('Agente creado exitosamente', 'success');
+                e.target.reset();
+                loadAIData();
+            } catch (err) {
+                showToast(err.message, 'error');
+            }
+        }
+
+        // --- LÓGICA MARKETING ASSETS ---
+        async function loadMarketingAssets() {
+            const tbody = document.getElementById('marketing-tbody');
+            try {
+                const { data, error } = await supabaseMaster
+                    .from('marketing_assets')
+                    .select('*')
+                    .order('created_at', { ascending: false });
+
+                if (error) throw error;
+                marketingAssets = data || [];
+
+                tbody.innerHTML = marketingAssets.map(a => `
+                    <tr>
+                        <td><img src="${a.image_url}" style="width:40px; height:40px; object-fit:cover; border-radius:4px;"></td>
+                        <td><strong>${a.title}</strong></td>
+                        <td class="actions">
+                            <button class="edit" onclick='startEditAsset(${JSON.stringify(a)})'><i class="fas fa-edit"></i></button>
+                            <button class="delete" onclick="deleteAsset(${a.id})"><i class="fas fa-trash"></i></button>
+                        </td>
+                    </tr>
+                `).join('');
+            } catch (err) {}
+        }
+
+        async function handleMarketingAsset(e) {
+            e.preventDefault();
+            const payload = {
+                title: document.getElementById('m-asset-title').value,
+                image_url: document.getElementById('m-asset-url').value,
+                description: document.getElementById('m-asset-desc').value,
+                redirect_url: document.getElementById('m-asset-redirect').value
+            };
+
+            try {
+                let error;
+                if (editingAssetId) {
+                    const { error: err } = await supabaseMaster
+                        .from('marketing_assets')
+                        .update(payload)
+                        .eq('id', editingAssetId);
+                    error = err;
+                } else {
+                    const { error: err } = await supabaseMaster
+                        .from('marketing_assets')
+                        .insert([payload]);
+                    error = err;
+                }
+
+                if (error) throw error;
+                showToast(editingAssetId ? 'Activo actualizado' : 'Activo publicado', 'success');
+                cancelEditAsset(); // Limpiar formulario y estado
+            } catch (err) { showToast(err.message, 'error'); }
+        }
+
+        function startEditAsset(asset) {
+            editingAssetId = asset.id;
+            document.getElementById('m-asset-title').value = asset.title;
+            document.getElementById('m-asset-url').value = asset.image_url;
+            document.getElementById('m-asset-desc').value = asset.description || '';
+            document.getElementById('m-asset-redirect').value = asset.redirect_url || '';
+            
+            // UI Update
+            imagePreview.src = asset.image_url;
+            previewContainer.style.display = 'block';
+            dropZone.style.display = 'none';
+            
+            const submitBtn = document.querySelector('#marketing-asset-form button[type="submit"]');
+            submitBtn.textContent = 'Guardar Cambios';
+            submitBtn.classList.add('btn--primary');
+            submitBtn.classList.remove('btn--success');
+
+            // Mostrar botón cancelar si no existe
+            if (!document.getElementById('cancel-edit-btn')) {
+                const cancelBtn = document.createElement('button');
+                cancelBtn.type = 'button';
+                cancelBtn.id = 'cancel-edit-btn';
+                cancelBtn.className = 'btn btn--secondary';
+                cancelBtn.style.width = '100%';
+                cancelBtn.style.marginTop = '10px';
+                cancelBtn.textContent = 'Cancelar Edición';
+                cancelBtn.onclick = cancelEditAsset;
+                document.getElementById('marketing-asset-form').appendChild(cancelBtn);
+            }
+        }
+
+        function cancelEditAsset() {
+            editingAssetId = null;
+            document.getElementById('marketing-asset-form').reset();
+            
+            // Reset UI
+            previewContainer.style.display = 'none';
+            dropZone.style.display = 'block';
+            assetUrlInput.value = '';
+            
+            const submitBtn = document.querySelector('#marketing-asset-form button[type="submit"]');
+            submitBtn.textContent = 'Publicar';
+            submitBtn.classList.add('btn--success');
+            submitBtn.classList.remove('btn--primary');
+
+            const cancelBtn = document.getElementById('cancel-edit-btn');
+            if (cancelBtn) cancelBtn.remove();
+            
+            loadMarketingAssets();
+        }
+
+        async function deleteClient(id, type) {
+            if (!confirm('¿Seguro que quieres eliminar este registro?')) return;
+            try {
+                const { error } = await supabaseMaster.from('clients').delete().eq('id', id);
+                if (error) throw error;
+                showToast('Eliminado correctamente', 'success');
+                if (type === 'portfolio') loadPortfolioData();
+                else loadAIData();
+            } catch (err) { showToast(err.message, 'error'); }
+        }
+
+        async function deleteAsset(id) {
+            if (!confirm('¿Eliminar este activo?')) return;
+            try {
+                const { error } = await supabaseMaster.from('marketing_assets').delete().eq('id', id);
+                if (error) throw error;
+                showToast('Activo eliminado', 'success');
+                loadMarketingAssets();
+            } catch (err) { showToast(err.message, 'error'); }
+        }
+
+        // --- LÓGICA DE CARGA DE IMÁGENES (ImgBB) ---
+        const dropZone = document.getElementById('drop-zone');
+        const fileInput = document.getElementById('file-input');
+        const imagePreview = document.getElementById('image-preview');
+        const previewContainer = document.getElementById('preview-container');
+        const assetUrlInput = document.getElementById('m-asset-url');
+        const progressFill = document.getElementById('upload-progress-fill');
+        const progressContainer = document.getElementById('upload-progress');
+
+        dropZone.onclick = () => fileInput.click();
+
+        fileInput.onchange = (e) => handleFile(e.target.files[0]);
+
+        dropZone.ondragover = (e) => {
+            e.preventDefault();
+            dropZone.classList.add('drag-over');
+        };
+
+        dropZone.ondragleave = () => dropZone.classList.remove('drag-over');
+
+        dropZone.ondrop = (e) => {
+            e.preventDefault();
+            dropZone.classList.remove('drag-over');
+            handleFile(e.dataTransfer.files[0]);
+        };
+
+        async function handleFile(file) {
+            if (!file || !file.type.startsWith('image/')) {
+                return showToast('Por favor, selecciona una imagen válida', 'error');
+            }
+
+            // Mostrar progreso
+            progressContainer.style.display = 'block';
+            progressFill.style.width = '0%';
+            
+            const formData = new FormData();
+            formData.append('image', file);
+
+            try {
+                // API KEY de ImgBB del usuario
+                const apiKey = 'c7e73422915a1fd3ed20f83522caae88';
+                const response = await fetch(`https://api.imgbb.com/1/upload?key=${apiKey}`, {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    const url = result.data.url;
+                    assetUrlInput.value = url;
+                    imagePreview.src = url;
+                    previewContainer.style.display = 'block';
+                    dropZone.style.display = 'none';
+                    progressContainer.style.display = 'none';
+                    showToast('Imagen subida con éxito', 'success');
+                } else {
+                    throw new Error('Error al subir a ImgBB');
+                }
+            } catch (err) {
+                showToast('Error en la subida: ' + err.message, 'error');
+                progressContainer.style.display = 'none';
+            }
+        }
+
+        // --- LÓGICA LEADS Y GROQ API ---
+        let allLeads = [];
+        async function loadLeadsData() {
+            const tbody = document.getElementById('leads-tbody');
+            try {
+                const { data, error } = await supabaseMaster
+                    .from('leads')
+                    .select('*')
+                    .order('created_at', { ascending: false })
+                    .limit(50);
+
+                if (error) throw error;
+                allLeads = data || [];
+                
+                if (allLeads.length === 0) {
+                    tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;">No hay leads recientes.</td></tr>';
+                    return;
+                }
+
+                tbody.innerHTML = allLeads.map(l => `
+                    <tr>
+                        <td><small>${new Date(l.created_at).toLocaleDateString()}</small></td>
+                        <td><strong>${l.empresa}</strong><br><small>${l.tamano_empresa}</small></td>
+                        <td>${l.nombre}<br><a href="mailto:${l.email}">${l.email}</a></td>
+                        <td><span class="badge ${l.presupuesto.includes('Más') ? 'badge--active' : 'badge--inactive'}">${l.presupuesto}</span></td>
+                        <td><span class="badge">${l.estado}</span></td>
+                    </tr>
+                `).join('');
+            } catch (err) {
+                tbody.innerHTML = '<tr><td colspan="5" style="color:red;">Error cargando leads.</td></tr>';
+            }
+        }
+
+        async function sendGroqMessage() {
+            const input = document.getElementById('chat-input-text');
+            const messageText = input.value.trim();
+            if (!messageText) return;
+
+            const chatMessages = document.getElementById('chat-messages');
+            
+            // Add user message to UI
+            chatMessages.innerHTML += `<div class="message user">${messageText}</div>`;
+            input.value = '';
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+
+            // Optional: Include context of leads
+            const contextStr = allLeads.slice(0,5).map(l => `Empresa: ${l.empresa}, Caso: ${l.caso_uso}, Presupuesto: ${l.presupuesto}`).join(' | ');
+
+            const systemPrompt = "Eres un asistente B2B para Manuel Madrid (JyM Tech Solutions). Tienes este contexto de leads recientes: " + contextStr + ". Responde de forma concisa, profesional y en español.";
+
+            chatMessages.innerHTML += `<div class="message bot" id="loading-msg"><i class="fas fa-spinner fa-spin"></i> Escribiendo...</div>`;
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+
+            try {
+                // We use the Groq API directly with an assuming valid/demo key, or backend route
+                // If you have a specific Groq key, inject here. Hardcoding for demo purposes if backend isn't ready.
+                const GROQ_API_KEY = 'YOUR_GROQ_API_KEY_HERE'; // Reemplaza esto o usa el backend proxy
+                
+                const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${GROQ_API_KEY}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        model: "llama-3.3-70b-versatile",
+                        messages: [
+                            { role: "system", content: systemPrompt },
+                            { role: "user", content: messageText }
+                        ],
+                        temperature: 0.7
+                    })
+                });
+
+                if (!response.ok) throw new Error('Error limit API / Backend. Utiliza la clave Groq.');
+
+                const data = await response.json();
+                document.getElementById('loading-msg').remove();
+                chatMessages.innerHTML += `<div class="message bot">${data.choices[0].message.content.replace(/\n/g, '<br>')}</div>`;
+            } catch (err) {
+                document.getElementById('loading-msg').remove();
+                chatMessages.innerHTML += `<div class="message bot" style="color:red">Error en la IA: ${err.message}. ¿Has configurado tu token de Groq?</div>`;
+            }
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        // --- UTILS ---
+        function showToast(msg, type) {
+            const t = document.getElementById('toast');
+            t.textContent = msg;
+            t.className = `toast show ${type}`;
+            setTimeout(() => t.classList.remove('show'), 3000);
+        }
+    </script>
+</body>
+
+</html>

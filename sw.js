@@ -42,10 +42,15 @@ self.addEventListener('activate', (event) => {
 
 // Estrategia de Caché: Network First (intenta red, si falla usa caché)
 self.addEventListener('fetch', (event) => {
+  // Ignorar peticiones que no sean GET o que vayan a APIs externas (Supabase, ImgBB, etc.)
+  if (event.request.method !== 'GET' || event.request.url.includes('supabase.co') || event.request.url.includes('api.imgbb.com')) {
+    return; // El navegador maneja la petición nativamente
+  }
+
   event.respondWith(
     fetch(event.request)
       .then((response) => {
-        // Si la respuesta es válida, la clonamos al caché
+        // Clonar al caché si es válida
         if (!response || response.status !== 200 || response.type !== 'basic') {
           return response;
         }
@@ -56,9 +61,15 @@ self.addEventListener('fetch', (event) => {
           });
         return response;
       })
-      .catch(() => {
-        // En caso de fallo de red, devolver desde caché
-        return caches.match(event.request);
+      .catch((error) => {
+        // Fallo de red: intentar recuperar caché
+        return caches.match(event.request).then((cachedResponse) => {
+          if (cachedResponse) {
+            return cachedResponse;
+          }
+          // Si no hay caché, propagamos el error para no devolver undefined
+          throw error;
+        });
       })
   );
 });

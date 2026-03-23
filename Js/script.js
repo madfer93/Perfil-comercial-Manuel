@@ -1,3 +1,81 @@
+// ===== LÓGICA DE ENRUTAMIENTO SaaS (SuperAdmin Router) =====
+// Este script verifica si la URL fue requerida con un Subdirectorio (Slug)
+// Ej: variedadesjym.online/chantilly -> Busca "chantilly" en Supabase Maestro y redirige a su URL real
+(async function initSaaSRouter() {
+    const path = window.location.pathname; // ej: "/chantilly" o "/"
+
+    // Si estamos en la raiz o en paginas conocidas del portafolio, no hacemos nada
+    if (path === '/' || path.includes('.html') || path.includes('index.html')) {
+        return; // Cargar landing normalmente
+    }
+
+    // Extraer el slug quitando el string "/"
+    const slug = path.split('/')[1]?.toLowerCase();
+
+    if (slug) {
+        // Enlazar temporalmente Supabase SDK si no esta definido y hacer la consulta
+        if (typeof supabase === 'undefined') {
+            const script = document.createElement('script');
+            script.src = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2';
+            document.head.appendChild(script);
+
+            await new Promise(resolve => script.onload = resolve);
+
+            const localMasterScript = document.createElement('script');
+            localMasterScript.src = 'Js/supabase-master.js';
+            document.head.appendChild(localMasterScript);
+
+            await new Promise(resolve => localMasterScript.onload = resolve);
+        }
+
+        try {
+            // Mostrar estado de carga UX básico
+            document.body.innerHTML = `
+                <div style="height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#1e293b;color:white;font-family:sans-serif;">
+                    <div style="font-size:3rem;animation:pulse 1s infinite alternate;">🍔</div>
+                    <h2 style="margin-top:20px;">Redirigiendo a tu local...</h2>
+                    <style>@keyframes pulse { from {transform:scale(1)} to {transform:scale(1.2)} }</style>
+                </div>
+            `;
+
+            const { data, error } = await supabaseMaster
+                .from('clients')
+                .select('vercel_url, is_active')
+                .eq('slug', slug)
+                .single();
+
+            if (error || !data) {
+                document.body.innerHTML = `
+                    <div style="height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#1e293b;color:white;font-family:sans-serif;">
+                        <span style="font-size:3rem">⚠️</span>
+                        <h2 style="margin-top:20px;">Local no encontrado</h2>
+                        <a href="/" style="color:#3b82f6;margin-top:10px;text-decoration:none;">Volver a Inicio</a>
+                    </div>
+                `;
+                return;
+            }
+
+            if (!data.is_active) {
+                document.body.innerHTML = `
+                    <div style="height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#1e293b;color:white;font-family:sans-serif;">
+                        <span style="font-size:3rem">⚠️</span>
+                        <h2 style="margin-top:20px;">Esta tienda está temporalmente suspendida</h2>
+                        <a href="/" style="color:#3b82f6;margin-top:10px;text-decoration:none;">Volver a Inicio</a>
+                    </div>
+                `;
+                return;
+            }
+
+            // Redireccioón FINAL
+            window.location.replace(data.vercel_url);
+
+        } catch (err) {
+            console.error("Error Router:", err);
+            window.location.replace('/');
+        }
+    }
+})();
+
 // ===== CONFIGURACIÓN INICIAL =====
 document.addEventListener('DOMContentLoaded', function () {
     initNavigation();
