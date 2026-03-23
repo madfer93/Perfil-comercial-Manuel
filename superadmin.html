@@ -85,6 +85,8 @@
             padding: 25px;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
             margin-bottom: 25px;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
         }
 
         .card h2 {
@@ -678,14 +680,15 @@
         async function loadAIData() {
             const tbody = document.getElementById('ai-tbody');
             try {
-                // Petición al backend para obtener clientes de IA con sus estadísticas
-                const res = await fetch(`${API_BASE_URL}/api/admin/clients?business_unit=ai_engine`, {
-                    headers: { 'Authorization': `Bearer ${TOKEN}` }
-                });
-                const { clients, error } = await res.json();
-                if (error) throw new Error(error);
+                // Obtener clientes de IA directamente desde Supabase
+                const { data, error } = await supabaseMaster
+                    .from('clients')
+                    .select('*')
+                    .eq('business_unit', 'ai_engine')
+                    .order('created_at', { ascending: false });
 
-                aiClients = clients || [];
+                if (error) throw error;
+                aiClients = data || [];
                 
                 // Actualizar Stats
                 document.getElementById('s-total-clients').textContent = aiClients.length;
@@ -700,7 +703,7 @@
                 tbody.innerHTML = aiClients.map(c => `
                     <tr>
                         <td><strong>${c.name}</strong><br><small style="font-size:10px; color:#64748b;">${c.id.substring(0,8)}</small></td>
-                        <td><span class="badge ${c.subscription_plan === 'pro' ? 'badge--active' : ''}">${c.subscription_plan.toUpperCase()}</span></td>
+                        <td><span class="badge ${c.subscription_plan === 'pro' ? 'badge--active' : ''}">${(c.subscription_plan || 'base').toUpperCase()}</span></td>
                         <td>${c.messages_used || 0} / ${c.messages_limit || '∞'}</td>
                         <td><span class="badge ${c.is_active ? 'badge--active' : 'badge--inactive'}">${c.is_active ? 'Activo' : 'Pausa'}</span></td>
                         <td class="actions">
@@ -709,7 +712,7 @@
                     </tr>
                 `).join('');
             } catch (err) {
-                tbody.innerHTML = '<tr><td colspan="5" style="color:red;">Error conectando con backend.</td></tr>';
+                tbody.innerHTML = '<tr><td colspan="5" style="color:red;">Error cargando agentes IA.</td></tr>';
             }
         }
 
@@ -718,20 +721,16 @@
             const payload = {
                 name: document.getElementById('ai-client-name').value,
                 subscription_plan: document.getElementById('ai-client-plan').value,
-                messages_limit: parseInt(document.getElementById('ai-client-limit').value),
-                business_unit: 'ai_engine'
+                messages_limit: parseInt(document.getElementById('ai-client-limit').value) || 0,
+                business_unit: 'ai_engine',
+                messages_used: 0,
+                is_active: true
             };
 
             try {
-                const res = await fetch(`${API_BASE_URL}/api/admin/clients`, {
-                    method: 'POST',
-                    headers: { 
-                        'Authorization': `Bearer ${TOKEN}`,
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(payload)
-                });
-                if (!res.ok) throw new Error('Error en backend');
+                const { error } = await supabaseMaster.from('clients').insert([payload]);
+                if (error) throw error;
+                
                 showToast('Agente creado exitosamente', 'success');
                 e.target.reset();
                 loadAIData();
