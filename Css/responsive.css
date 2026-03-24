@@ -52,6 +52,27 @@ img {
     .container {
         padding: 0 var(--space-6);
     }
+
+    /* FIX: Habilitar Menú Hamburguesa desde 1024px debido al exceso de enlaces */
+    .nav__menu {
+        display: none;
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: #1e293b;
+        flex-direction: column;
+        padding: var(--space-6);
+        box-shadow: var(--shadow-xl);
+        border-top: 1px solid #334155;
+        z-index: 999;
+        animation: slideDown 0.3s ease-out;
+    }
+    .nav__menu.active { display: flex; }
+    .nav__menu li { width: 100%; text-align: center; padding: var(--space-2) 0; }
+    .nav__menu a { display: block; padding: var(--space-3) 0; width: 100%; }
+    .nav__toggle { display: flex; }
+    
     
     /* Hero Section */
     .hero {
@@ -89,8 +110,7 @@ img {
     }
     
     .floating-card {
-        transform: scale(0.9);
-        padding: var(--space-3) var(--space-5);
+        display: none; /* Se ocultan en tablet/modos simulados para evitar que choquen con el texto */
     }
     
     /* About Section */
