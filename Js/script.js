@@ -1,6 +1,6 @@
 // ===== LÓGICA DE ENRUTAMIENTO SaaS (SuperAdmin Router) =====
 // Este script verifica si la URL fue requerida con un Subdirectorio (Slug)
-// Ej: variedadesjym.online/chantilly -> Busca "chantilly" en Supabase Maestro y redirige a su URL real
+// Ej: jymtechsolutions.online/chantilly -> Busca "chantilly" en Supabase Maestro y redirige a su URL real
 (async function initSaaSRouter() {
     const path = window.location.pathname; // ej: "/chantilly" o "/"
 

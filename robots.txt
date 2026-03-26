@@ -1,11 +1,11 @@
-# Robots.txt para Manuel Madrid - Consultor en Automatización & IA
-# https://madfer93.github.io/Perfil-comercial-Manuel/
+# Robots.txt para JyM Tech Solutions - Consultoría en Automatización & IA
+# https://www.jymtechsolutions.online/
 
 User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://madfer93.github.io/Perfil-comercial-Manuel/sitemap.xml
+Sitemap: https://www.jymtechsolutions.online/sitemap.xml
 
 # Páginas principales
 Allow: /index.html

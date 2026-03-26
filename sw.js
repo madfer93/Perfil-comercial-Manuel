@@ -42,8 +42,14 @@ self.addEventListener('activate', (event) => {
 
 // Estrategia de Caché: Network First (intenta red, si falla usa caché)
 self.addEventListener('fetch', (event) => {
-  // Ignorar peticiones que no sean GET o que vayan a APIs externas (Supabase, ImgBB, etc.)
-  if (event.request.method !== 'GET' || event.request.url.includes('supabase.co') || event.request.url.includes('api.imgbb.com')) {
+  // Ignorar peticiones que no sean GET o que vayan a APIs externas y locales
+  if (
+    event.request.method !== 'GET' || 
+    event.request.url.includes('supabase.co') || 
+    event.request.url.includes('api.imgbb.com') ||
+    event.request.url.includes('/api/') ||
+    event.request.url.includes('localhost:')
+  ) {
     return; // El navegador maneja la petición nativamente
   }
 
