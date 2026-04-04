@@ -9,9 +9,15 @@ Sitemap: https://jymtechsolutions.online/sitemap.xml
 
 # Páginas principales
 Allow: /index.html
+Allow: /servicios.html
+Allow: /integraciones.html
+Allow: /marketing.html
+Allow: /faq.html
 Allow: /proyectos.html
 Allow: /demos.html
 Allow: /testimonios.html
+Allow: /sobre-mi.html
+Allow: /contacto.html
 
 # Recursos
 Allow: /assets/
