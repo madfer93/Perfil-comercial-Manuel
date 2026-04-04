@@ -1,11 +1,11 @@
 # Robots.txt para JyM Tech Solutions - Consultoría en Automatización & IA
-# https://www.jymtechsolutions.online/
+# https://jymtechsolutions.online/
 
 User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://www.jymtechsolutions.online/sitemap.xml
+Sitemap: https://jymtechsolutions.online/sitemap.xml
 
 # Páginas principales
 Allow: /index.html
