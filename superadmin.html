@@ -326,8 +326,12 @@
             <h2 style="margin-bottom: 10px;">🛡️ Hub Maestro</h2>
             <p style="color: #64748b; margin-bottom: 25px; font-size: 0.9rem;">Acceso restringido a Manuel Madrid</p>
             <div class="form-group" style="text-align: left;">
-                <label>Clave de Acceso</label>
-                <input type="password" id="admin-secret" placeholder="Ingresa tu clave maestra" onkeyup="if(event.key === 'Enter') attemptLogin()">
+                <label>Correo Electrónico</label>
+                <input type="email" id="admin-email" placeholder="tu@email.com">
+            </div>
+            <div class="form-group" style="text-align: left;">
+                <label>Contraseña</label>
+                <input type="password" id="admin-password" placeholder="••••••••" onkeyup="if(event.key === 'Enter') attemptLogin()">
             </div>
             <button class="btn" style="width: 100%;" onclick="attemptLogin()" id="login-btn">
                 <span>Ingresar al Hub</span>
@@ -515,6 +519,7 @@
                                         <th>Empresa</th>
                                         <th>Contacto</th>
                                         <th>Presupuesto</th>
+                                        <th>IP / Navegador</th>
                                         <th>Estado</th>
                                     </tr>
                                 </thead>
@@ -561,51 +566,50 @@
 
         // --- AUTENTICACIÓN ---
         async function attemptLogin() {
-            const secret = document.getElementById('admin-secret').value;
+            const email = document.getElementById('admin-email').value;
+            const password = document.getElementById('admin-password').value;
             const btn = document.getElementById('login-btn');
             
-            if (!secret) return showToast('Ingresa la clave', 'error');
+            if (!email || !password) return showToast('Completa todos los campos', 'error');
             
             btn.disabled = true;
             btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Verificando...';
 
             try {
-                // Usamos API_BASE_URL para conectar al puerto 3000 localmente
-                const res = await fetch(`${API_BASE_URL}/api/admin/verify`, {
-                    method: 'POST',
-                    headers: { 
-                        'Authorization': `Bearer ${secret}`,
-                        'Content-Type': 'application/json'
-                    }
+                const { data, error } = await supabaseMaster.auth.signInWithPassword({
+                    email: email,
+                    password: password,
                 });
 
-                if (res.ok) {
-                    TOKEN = secret;
-                    localStorage.setItem('master_hub_token', TOKEN);
+                if (error) throw error;
+
+                if (data.user) {
                     document.getElementById('auth-layer').style.display = 'none';
                     showToast('Bienvenido, Manuel', 'success');
                     initDashboard();
-                } else {
-                    showToast('Clave incorrecta o no autorizada', 'error');
                 }
             } catch (err) {
-                showToast('Error de conexión con el servidor', 'error');
+                showToast('Acceso denegado: ' + err.message, 'error');
             } finally {
                 btn.disabled = false;
                 btn.innerHTML = 'Ingresar al Hub';
             }
         }
 
-        function logout() {
-            localStorage.removeItem('master_hub_token');
+        async function logout() {
+            await supabaseMaster.auth.signOut();
             location.reload();
         }
 
         // --- INICIALIZACIÓN ---
-        if (TOKEN) {
-            document.getElementById('auth-layer').style.display = 'none';
-            initDashboard();
-        }
+        supabaseMaster.auth.onAuthStateChange((event, session) => {
+            if (session) {
+                document.getElementById('auth-layer').style.display = 'none';
+                initDashboard();
+            } else {
+                document.getElementById('auth-layer').style.display = 'flex';
+            }
+        });
 
         function initDashboard() {
             loadPortfolioData();
@@ -946,7 +950,7 @@
                 allLeads = data || [];
                 
                 if (allLeads.length === 0) {
-                    tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;">No hay leads recientes.</td></tr>';
+                    tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;">No hay leads recientes.</td></tr>';
                     return;
                 }
 
@@ -956,11 +960,20 @@
                         <td><strong>${l.empresa}</strong><br><small>${l.tamano_empresa}</small></td>
                         <td>${l.nombre}<br><a href="mailto:${l.email}">${l.email}</a></td>
                         <td><span class="badge ${l.presupuesto.includes('Más') ? 'badge--active' : 'badge--inactive'}">${l.presupuesto}</span></td>
+                        <td>
+                            <code style="font-size: 0.7rem;">${l.ip_address || 'N/A'}</code><br>
+                            <small title="${l.user_agent}" style="color: #64748b; font-size: 0.65rem; display: block; max-width: 150px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                                <i class="fas fa-globe"></i> ${l.user_agent || 'N/A'}
+                            </small>
+                            <small title="${l.referrer}" style="color: #64748b; font-size: 0.6rem; display: block; max-width: 150px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                                <i class="fas fa-link"></i> ${l.referrer || 'N/A'}
+                            </small>
+                        </td>
                         <td><span class="badge">${l.estado}</span></td>
                     </tr>
                 `).join('');
             } catch (err) {
-                tbody.innerHTML = '<tr><td colspan="5" style="color:red;">Error cargando leads.</td></tr>';
+                tbody.innerHTML = '<tr><td colspan="6" style="color:red;">Error cargando leads.</td></tr>';
             }
         }
 

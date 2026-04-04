@@ -33,6 +33,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google reCAPTCHA v3 -->
+    <script src="https://www.google.com/recaptcha/api.js?render=6LfEwaUsAAAAANUnklDI2UmRYLjYGYYzFtuOcqQ5"></script>
 </head>
 
 <body>
@@ -88,6 +91,12 @@
             <div class="contact-form-wrapper">
                 <h3>Formulario de Cualificación B2B</h3>
                 <form id="b2bContactForm" class="b2b-form">
+                    <!-- Honeypot Field (Invisible to humans) -->
+                    <div style="display:none;">
+                        <label>Si ves esto, no lo llenes</label>
+                        <input type="text" id="hp_field" name="hp_field" autocomplete="off">
+                    </div>
+
                     <div class="form-row">
                         <div class="form-group">
                             <label for="fullName">Nombre Completo *</label>

@@ -1,0 +1,16 @@
+# Archivos Sensibles y de Diagnóstico (Locales Only)
+Framework_Estrategico_OBS.md
+SAAS_INTERNAL_LOG.md
+DIAGNÓSTICO TECNOLÓGICO MANUEL.docx
+output_farm.txt
+*.docx
+*.pdf
+*.env
+node_modules/
+.DS_Store
+
+# Directorios de Despliegue
+dist/
+build/
+.next/
+.vercel
