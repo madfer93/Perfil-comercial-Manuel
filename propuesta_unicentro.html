@@ -10,15 +10,14 @@
         rel="stylesheet">
     <style>
         :root {
-            --primary: #2563EB;
-            /* Color corporativo J&M Tech Solutions */
-            --primary-glow: rgba(37, 99, 235, 0.4);
-            --bg-dark: #0B0E14;
-            --bg-surface: #151A22;
-            --text-light: #F8F9FA;
-            --text-muted: #A0AABF;
-            --glass-bg: rgba(21, 26, 34, 0.7);
-            --glass-border: rgba(255, 255, 255, 0.08);
+            --primary: #D48A1C;
+            --primary-glow: rgba(212, 138, 28, 0.2);
+            --bg-dark: #FFFFFF;
+            --bg-surface: #F8F9FA;
+            --text-light: #1E293B;
+            --text-muted: #64748B;
+            --glass-bg: rgba(255, 255, 255, 0.9);
+            --glass-border: rgba(0, 0, 0, 0.08);
         }
 
         * {
@@ -55,7 +54,7 @@
             left: -10%;
             width: 600px;
             height: 600px;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 60%);
+            background: radial-gradient(circle, rgba(0, 0, 0, 0.03) 0%, transparent 60%);
             border-radius: 50%;
             z-index: -1;
             filter: blur(60px);
@@ -94,14 +93,14 @@
 
         .hero-badge {
             display: inline-block;
-            background: rgba(37, 99, 235, 0.1);
+            background: rgba(212, 138, 28, 0.1);
             color: var(--primary);
             padding: 8px 16px;
             border-radius: 100px;
             font-weight: 600;
             font-size: 0.9rem;
             margin-bottom: 24px;
-            border: 1px solid rgba(37, 99, 235, 0.3);
+            border: 1px solid rgba(212, 138, 28, 0.3);
             text-transform: uppercase;
             letter-spacing: 1px;
         }
@@ -112,7 +111,7 @@
             font-weight: 900;
             line-height: 1.1;
             margin-bottom: 24px;
-            background: linear-gradient(to right, #fff, #a0aabf);
+            background: linear-gradient(to right, #1E293B, #64748B);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -143,7 +142,7 @@
 
         .cta-button:hover {
             transform: translateY(-2px);
-            background: #1D4ED8;
+            background: #B77516;
             box-shadow: 0 12px 40px var(--primary-glow);
         }
 
@@ -168,7 +167,7 @@
 
         .glass-card:hover {
             transform: translateY(-5px);
-            border-color: rgba(37, 99, 235, 0.3);
+            border-color: rgba(212, 138, 28, 0.3);
         }
 
         h2 {
@@ -201,7 +200,7 @@
             top: 0;
             color: var(--primary);
             font-weight: 900;
-            background: rgba(37, 99, 235, 0.1);
+            background: rgba(212, 138, 28, 0.1);
             width: 24px;
             height: 24px;
             border-radius: 50%;
@@ -282,12 +281,13 @@
                 <img src="favicon.ico" alt="J&M Tech Solutions" style="width: 40px; height: 40px; border-radius: 8px;">
                 <div>J&M <span>Tech Solutions</span></div>
             </div>
-            <a href="mailto:talentohumano@unicentrovillavicencio.com?subject=Propuesta%20Socio%20Tecnológico%20-%20Dirección%20Comercial"
+            <a href="mailto:madfer1993@gmail.com?subject=Propuesta%20Socio%20Tecnológico%20-%20Dirección%20Comercial"
                 class="cta-button" style="padding: 10px 20px; font-size: 0.9rem;">Contactar</a>
         </header>
 
         <section class="hero">
-            <img src="https://unicentrovillavicencio.com/wp-content/uploads/Logo-Unicentro-Villavicencio-2048x843.png" alt="Unicentro Villavicencio" style="max-height: 80px; margin-bottom: 24px; filter: brightness(0) invert(1); opacity: 0.9;">
+            <img src="https://unicentrovillavicencio.com/wp-content/uploads/Logo-Unicentro-Villavicencio-2048x843.png"
+                alt="Unicentro Villavicencio" style="max-height: 80px; margin-bottom: 24px; opacity: 1;">
             <br>
             <div class="hero-badge">Propuesta Estratégica Unicentro</div>
             <h1>Más que un Director, <br>un <span>Ecosistema de Innovación</span></h1>
@@ -326,7 +326,9 @@
                         integramente en un *Retainer Mensual*, libre de cargas prestacionales.</li>
                     <li><strong>Escalabilidad Inmediata:</strong> Implementación de agentes de IA para fidelizar a los
                         visitantes y conectar tiendas con clientes de forma automatizada.</li>
-                    <li><strong>Reingeniería y Ciberseguridad Web:</strong> Detectamos graves fallos de UX y seguridad (ej: botón "Pago Administración" expuesto al público). Crearemos un portal moderno separando lo corporativo de lo comercial.</li>
+                    <li><strong>Reingeniería y Ciberseguridad Web:</strong> Detectamos graves fallos de UX y seguridad
+                        (ej: botón "Pago Administración" expuesto al público). Crearemos un portal moderno separando lo
+                        corporativo de lo comercial.</li>
                 </ul>
             </div>
             <div class="glass-card">
@@ -334,17 +336,22 @@
                 <p style="color: var(--text-muted); margin-bottom: 30px;">Soluciones listas para implementar bajo el
                     cumplimiento de la Ley 1581 de protección de datos.</p>
 
-                <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 12px; margin-bottom: 16px;">
-                    <strong style="color: white; display: block; margin-bottom: 8px;">🛡️ Ciberseguridad & UX Web</strong>
-                    <span style="color: var(--text-muted); font-size: 0.9rem;">Cierre de vulnerabilidades y separación del tráfico de visitantes de las pasarelas de pago administrativo.</span>
+                <div
+                    style="background: #F1F5F9; border: 1px solid rgba(0,0,0,0.05); padding: 20px; border-radius: 12px; margin-bottom: 16px;">
+                    <strong style="color: #1E293B; display: block; margin-bottom: 8px;">🛡️ Ciberseguridad & UX
+                        Web</strong>
+                    <span style="color: var(--text-muted); font-size: 0.9rem;">Cierre de vulnerabilidades y separación
+                        del tráfico de visitantes de las pasarelas de pago administrativo.</span>
                 </div>
-                <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 12px; margin-bottom: 16px;">
-                    <strong style="color: white; display: block; margin-bottom: 8px;">📊 Planeación & Data</strong>
+                <div
+                    style="background: #F1F5F9; border: 1px solid rgba(0,0,0,0.05); padding: 20px; border-radius: 12px; margin-bottom: 16px;">
+                    <strong style="color: #1E293B; display: block; margin-bottom: 8px;">📊 Planeación & Data</strong>
                     <span style="color: var(--text-muted); font-size: 0.9rem;">Integración total de CRM para medir la
                         afluencia y conversión en campañas del centro comercial.</span>
                 </div>
-                <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 12px;">
-                    <strong style="color: white; display: block; margin-bottom: 8px;">🤖 Agentes de IA</strong>
+                <div
+                    style="background: #F1F5F9; border: 1px solid rgba(0,0,0,0.05); padding: 20px; border-radius: 12px;">
+                    <strong style="color: #1E293B; display: block; margin-bottom: 8px;">🤖 Agentes de IA</strong>
                     <span style="color: var(--text-muted); font-size: 0.9rem;">Servicio al cliente 24/7 vía WhatsApp
                         integrado con las campañas de Mercadeo digital.</span>
                 </div>
