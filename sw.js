@@ -12,7 +12,7 @@ const ASSETS_TO_CACHE = [
   './Js/script.js',
   './Js/animations.js',
   './Js/faq.js',
-  './assets/VariedadesJyM.jpg'
+  './android-chrome-512x512.png'
 ];
 
 // Instalación del Service Worker

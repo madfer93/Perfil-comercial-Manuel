@@ -992,7 +992,7 @@
             // Optional: Include context of leads
             const contextStr = allLeads.slice(0,5).map(l => `Empresa: ${l.empresa}, Caso: ${l.caso_uso}, Presupuesto: ${l.presupuesto}`).join(' | ');
 
-            const systemPrompt = "Eres un asistente B2B para Manuel Madrid (JyM Tech Solutions). Tienes este contexto de leads recientes: " + contextStr + ". Responde de forma concisa, profesional y en español.";
+            const systemPrompt = "Eres un asistente B2B para Manuel Madrid (J&M Tech Solutions). Tienes este contexto de leads recientes: " + contextStr + ". Responde de forma concisa, profesional y en español.";
 
             chatMessages.innerHTML += `<div class="message bot" id="loading-msg"><i class="fas fa-spinner fa-spin"></i> Escribiendo...</div>`;
             chatMessages.scrollTop = chatMessages.scrollHeight;

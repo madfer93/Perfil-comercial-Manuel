@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propuesta Estratégica - Unicentro Villavicencio | J&M Tech Solutions</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@400;700;900&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary: #F26E21;
+            /* Color principal extraído del anuncio de Unicentro */
+            --primary-glow: rgba(242, 110, 33, 0.4);
+            --bg-dark: #0B0E14;
+            --bg-surface: #151A22;
+            --text-light: #F8F9FA;
+            --text-muted: #A0AABF;
+            --glass-bg: rgba(21, 26, 34, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Ambient Background */
+        .ambient-light {
+            position: fixed;
+            top: -20%;
+            right: -10%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, var(--primary-glow) 0%, transparent 60%);
+            border-radius: 50%;
+            z-index: -1;
+            filter: blur(80px);
+            opacity: 0.6;
+        }
+
+        .ambient-light-2 {
+            position: fixed;
+            bottom: -20%;
+            left: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 60%);
+            border-radius: 50%;
+            z-index: -1;
+            filter: blur(60px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        header {
+            padding: 40px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-logo {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: -0.5px;
+        }
+
+        .brand-logo span {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(242, 110, 33, 0.1);
+            color: var(--primary);
+            padding: 8px 16px;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 24px;
+            border: 1px solid rgba(242, 110, 33, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 4rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            background: linear-gradient(to right, #fff, #a0aabf);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--primary);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 1.1rem;
+            box-shadow: 0 8px 30px var(--primary-glow);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            background: #E55B10;
+            box-shadow: 0 12px 40px var(--primary-glow);
+        }
+
+        /* Content Grid */
+        .split-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            padding: 80px 0;
+            align-items: center;
+        }
+
+        .glass-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 40px;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            transition: transform 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(242, 110, 33, 0.3);
+        }
+
+        h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        h2 span {
+            color: var(--primary);
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-top: 30px;
+        }
+
+        .feature-list li {
+            position: relative;
+            padding-left: 36px;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            color: var(--text-muted);
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--primary);
+            font-weight: 900;
+            background: rgba(242, 110, 33, 0.1);
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+        }
+
+        /* Stats Section */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        .stat-card {
+            background: var(--bg-surface);
+            padding: 40px 30px;
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid var(--glass-border);
+        }
+
+        .stat-value {
+            font-family: 'Outfit', sans-serif;
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 60px 0;
+            border-top: 1px solid var(--glass-border);
+            margin-top: 80px;
+        }
+
+        .signature {
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        @media (max-width: 900px) {
+            .split-section {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="ambient-light"></div>
+    <div class="ambient-light-2"></div>
+
+    <div class="container">
+        <header>
+            <div class="brand-logo" style="display: flex; align-items: center; gap: 12px;">
+                <img src="favicon.ico" alt="J&M Tech Solutions" style="width: 40px; height: 40px; border-radius: 8px;">
+                <div>J&M <span>Tech Solutions</span></div>
+            </div>
+            <a href="mailto:talentohumano@unicentrovillavicencio.com?subject=Propuesta%20Socio%20Tecnológico%20-%20Dirección%20Comercial"
+                class="cta-button" style="padding: 10px 20px; font-size: 0.9rem;">Contactar</a>
+        </header>
+
+        <section class="hero">
+            <img src="https://unicentrovillavicencio.com/wp-content/uploads/Logo-Unicentro-Villavicencio-2048x843.png" alt="Unicentro Villavicencio" style="max-height: 80px; margin-bottom: 24px; filter: brightness(0) invert(1); opacity: 0.9;">
+            <br>
+            <div class="hero-badge">Propuesta Estratégica Unicentro</div>
+            <h1>Más que un Director, <br>un <span>Ecosistema de Innovación</span></h1>
+            <p>Vimos su vacante para Director de Mercadeo y Comercial. Cumplimos con el perfil al 100%, pero queremos
+                proponerle algo mucho más poderoso: Integrar un socio tecnológico completo por el mismo presupuesto.</p>
+            <a href="#propuesta" class="cta-button">Ver el Modelo B2B</a>
+        </section>
+
+        <section class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value">IA</div>
+                <div class="stat-label">Automatización en WhatsApp</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">CRM</div>
+                <div class="stat-label">Ecosistema de Datos Omnicanal</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">KPI</div>
+                <div class="stat-label">Dashboards en Tiempo Real</div>
+            </div>
+        </section>
+
+        <section id="propuesta" class="split-section">
+            <div>
+                <h2>Por qué contratar una Agencia <span>B2B</span> en lugar de un Empleado</h2>
+                <p style="color: var(--text-muted); margin-top: 20px; font-size: 1.1rem; line-height: 1.8;">
+                    Sabemos que el sector de los centros comerciales requiere agilidad, campañas inmersivas y un control
+                    profundo de los KPI. Con Manuel Madrid y el equipo de J&M Tech Solutions, Unicentro Villavicencio no
+                    adquiere un individuo, adquiere transferencia tecnológica directa.
+                </p>
+                <ul class="feature-list">
+                    <li><strong>Tecnología Propietaria:</strong> Proveemos e instalamos nuestro propio software de
+                        atención con Inteligencia Artificial.</li>
+                    <li><strong>Eficiencia en el Presupuesto:</strong> El salario ofrecido ($7.6M) se transforma
+                        integramente en un *Retainer Mensual*, libre de cargas prestacionales.</li>
+                    <li><strong>Escalabilidad Inmediata:</strong> Implementación de agentes de IA para fidelizar a los
+                        visitantes y conectar tiendas con clientes de forma automatizada.</li>
+                </ul>
+            </div>
+            <div class="glass-card">
+                <h3 style="font-family: 'Outfit'; font-size: 1.8rem; margin-bottom: 20px;">Nuestra Promesa de Valor</h3>
+                <p style="color: var(--text-muted); margin-bottom: 30px;">Soluciones listas para implementar bajo el
+                    cumplimiento de la Ley 1581 de protección de datos.</p>
+
+                <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 12px; margin-bottom: 16px;">
+                    <strong style="color: white; display: block; margin-bottom: 8px;">📊 Planeación & Data</strong>
+                    <span style="color: var(--text-muted); font-size: 0.9rem;">Integración total de CRM para medir la
+                        afluencia y conversión en campañas del centro comercial.</span>
+                </div>
+                <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 12px;">
+                    <strong style="color: white; display: block; margin-bottom: 8px;">🤖 Agentes de IA</strong>
+                    <span style="color: var(--text-muted); font-size: 0.9rem;">Servicio al cliente 24/7 vía WhatsApp
+                        integrado con las campañas de Mercadeo digital.</span>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="signature">
+                Presentado por <strong>Manuel Madrid</strong><br>
+                Consultor en Automatización & Transformación Digital
+            </div>
+            <a href="mailto:madfer1993@gmail.com"
+                style="color: var(--primary); text-decoration: none; font-weight: 600;">madfer1993@gmail.com</a> | +57
+            304 578 8873
+        </footer>
+    </div>
+</body>
+
+</html>
