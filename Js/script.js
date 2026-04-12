@@ -124,19 +124,29 @@ function initNavigation() {
         });
     });
 
-    // Header con efecto scroll
+    // Header con efecto scroll mejorado (evita forced reflows)
     let lastScroll = 0;
+    let isScrolled = false;
+    let isMobile = window.innerWidth <= 768;
+
+    window.addEventListener('resize', () => {
+        isMobile = window.innerWidth <= 768;
+    });
+
     window.addEventListener('scroll', () => {
         const currentScroll = window.pageYOffset;
 
-        if (currentScroll > 100) {
+        // Sticky header logic
+        if (currentScroll > 100 && !isScrolled) {
             header.classList.add('scrolled');
-        } else {
+            isScrolled = true;
+        } else if (currentScroll <= 100 && isScrolled) {
             header.classList.remove('scrolled');
+            isScrolled = false;
         }
 
         // Auto-hide en scroll down (solo en móviles)
-        if (window.innerWidth <= 768) {
+        if (isMobile) {
             if (currentScroll > lastScroll && currentScroll > 500) {
                 header.style.transform = 'translateY(-100%)';
             } else {
@@ -144,12 +154,19 @@ function initNavigation() {
             }
         }
         lastScroll = currentScroll;
-    });
+    }, { passive: true });
 }
 
 // ===== SCROLL SUAVE =====
 function initSmoothScrolling() {
     const links = document.querySelectorAll('a[href^="#"]');
+    const header = document.querySelector('.header');
+    let headerHeight = header ? header.offsetHeight : 80;
+
+    // Actualizar altura del header al redimensionar
+    window.addEventListener('resize', () => {
+        if (header) headerHeight = header.offsetHeight;
+    });
 
     links.forEach(link => {
         link.addEventListener('click', function (e) {
@@ -160,7 +177,6 @@ function initSmoothScrolling() {
 
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
-                const headerHeight = document.querySelector('.header').offsetHeight;
                 const targetPosition = targetElement.offsetTop - headerHeight - 20;
 
                 window.scrollTo({
@@ -174,26 +190,29 @@ function initSmoothScrolling() {
 
 // ===== EFECTOS DE SCROLL =====
 function initScrollEffects() {
-    // Efecto parallax para elementos flotantes
+    // Efecto parallax para elementos flotantes (Cache selection)
+    const floatingCards = document.querySelectorAll('.floating-card');
+    if (floatingCards.length === 0) return;
+
     let ticking = false;
 
     window.addEventListener('scroll', function () {
         if (!ticking) {
             window.requestAnimationFrame(function () {
                 const scrolled = window.pageYOffset;
-                const floatingCards = document.querySelectorAll('.floating-card');
 
                 floatingCards.forEach((card, index) => {
                     const speed = 0.3 + (index * 0.1);
                     const yPos = -(scrolled * speed);
-                    card.style.transform = `translateY(${yPos}px)`;
+                    // Usar will-change: transform en CSS seria ideal complementando esto
+                    card.style.transform = `translate3d(0, ${yPos}px, 0)`;
                 });
 
                 ticking = false;
             });
             ticking = true;
         }
-    });
+    }, { passive: true });
 }
 
 // ===== LAZY LOADING DE IMÁGENES =====

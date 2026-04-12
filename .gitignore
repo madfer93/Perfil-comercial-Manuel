@@ -14,3 +14,12 @@ dist/
 build/
 .next/
 .vercel
+
+# Documentos de Clientes y Propuestas (Privados)
+hoja-ruta-brillafit.html
+contrato-brillafit.html
+propuesta_syspro_legal.html
+contrato-brillafit.html
+hoja-ruta-brillafit.html
+# Archivos de la IA
+.gemini/
