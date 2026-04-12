@@ -10,7 +10,7 @@ img {
     height: auto;
 }
 
-/* ===== FIX STATS COUNTERS - CRÍTICO ===== */
+/* ===== FIX STATS COUNTERS - CRÃTICO ===== */
 .hero__stats {
     display: flex;
     gap: var(--space-8);
@@ -41,8 +41,8 @@ img {
     white-space: nowrap;
 }
 
-/* ===== TABLETS Y DISPOSITIVOS MEDIANOS (768px - 1024px) ===== */
-@media (max-width: 1024px) {
+/* ===== TABLETS Y DISPOSITIVOS MEDIANOS (768px - 920px) ===== */
+@media (max-width: 920px) {
     :root {
         --space-20: 4rem;
         --space-16: 3rem;
@@ -76,7 +76,8 @@ img {
     
     /* Hero Section */
     .hero {
-        padding: 100px 0 60px;
+        min-height: auto;
+        padding: 140px 0 60px;
     }
     
     .hero__title {
@@ -105,8 +106,7 @@ img {
     }
     
     .hero__visual {
-        height: 300px;
-        order: -1;
+        display: none;
     }
     
     .floating-card {
@@ -225,7 +225,8 @@ img {
     
     /* Hero Section */
     .hero {
-        padding: 90px 0 50px;
+        min-height: auto;
+        padding: 130px 0 60px;
     }
     
     .hero__title {
@@ -248,7 +249,7 @@ img {
         padding: var(--space-3) var(--space-6);
     }
     
-    /* Stats en móvil - FIX CRÍTICO */
+    /* Stats en móvil - FIX CRÃTICO */
     .hero__stats {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -283,7 +284,7 @@ img {
     }
     
     .hero__visual {
-        height: 250px;
+        display: none;
     }
     
     /* Section Titles */
@@ -418,7 +419,7 @@ img {
     }
 }
 
-/* ===== MÓVILES PEQUEÑOS (hasta 576px) ===== */
+/* ===== MÓVILES PEQUEÃ‘OS (hasta 576px) ===== */
 @media (max-width: 576px) {
     :root {
         --space-20: 2.5rem;
@@ -444,7 +445,8 @@ img {
     
     /* Hero */
     .hero {
-        padding: 80px 0 40px;
+        min-height: auto;
+        padding: 120px 0 60px;
     }
     
     .hero__title {
@@ -466,7 +468,7 @@ img {
     }
     
     .hero__visual {
-        height: 200px;
+        display: none;
     }
     
     .floating-card {
@@ -494,7 +496,7 @@ img {
         left: 25%;
     }
     
-    /* Stats en móvil pequeño - FIX CRÍTICO */
+    /* Stats en móvil pequeño - FIX CRÃTICO */
     .hero__stats {
         display: flex;
         flex-direction: column;
@@ -607,7 +609,7 @@ img {
     }
 }
 
-/* ===== MÓVILES MUY PEQUEÑOS (hasta 375px) ===== */
+/* ===== MÓVILES MUY PEQUEÃ‘OS (hasta 375px) ===== */
 @media (max-width: 375px) {
     .hero__title {
         font-size: 1.5rem;
@@ -1193,7 +1195,7 @@ img {
     }
 }
 
-/* ===== MÓVILES PEQUEÑOS (hasta 576px) ===== */
+/* ===== MÓVILES PEQUEÃ‘OS (hasta 576px) ===== */
 @media (max-width: 576px) {
     .breadcrumb__list {
         gap: var(--space-1);

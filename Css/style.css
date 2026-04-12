@@ -14,10 +14,10 @@
   --gray-100: #f1f5f9;
   --gray-200: #e2e8f0;
   --gray-300: #cbd5e1;
-  --gray-400: #94a3b8;
-  --gray-500: #64748b;
-  --gray-600: #475569;
-  --gray-700: #334155;
+  --gray-400: #cbd5e1; /* Incrementado para contraste */
+  --gray-500: #94a3b8; /* Incrementado para contraste */
+  --gray-600: #64748b; /* Incrementado para contraste */
+  --gray-700: #475569;
   --gray-800: #1e293b;
   --gray-900: #0f172a;
 
@@ -154,8 +154,8 @@ body {
 
 .btn--outline {
   background: transparent;
-  color: var(--primary);
-  border: 2px solid var(--primary);
+  color: #3b82f6; /* Azul más vibrante para contraste */
+  border: 2px solid #3b82f6;
 }
 
 .btn--outline:hover {
@@ -217,12 +217,13 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  background: #1e293b;
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid #334155;
+  padding: var(--space-2) 0;
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   z-index: 1000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   transition: var(--transition);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
 }
 
 .nav {
@@ -310,7 +311,10 @@ body {
 
 /* ===== HERO SECTION ===== */
 .hero {
-  padding: 120px 0 80px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 120px 0 60px; /* Reducido para mejor centrado con min-height */
   background: #0f172a;
   position: relative;
   overflow: hidden;
@@ -345,10 +349,25 @@ body {
 .hero__content {
   position: relative;
   z-index: 2;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-wrap: wrap;
   gap: var(--space-16);
   align-items: center;
+  justify-content: space-between;
+}
+
+.hero__text {
+  flex: 1 1 500px;
+  max-width: 650px;
+}
+
+.hero__visual {
+  flex: 1 1 400px;
+  position: relative;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .hero__title {
@@ -413,17 +432,18 @@ body {
 
 .floating-card {
   position: absolute;
-  background: white;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
   padding: var(--space-4);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-xl);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: center;
   gap: var(--space-3);
   font-weight: 600;
-  color: var(--gray-700);
+  color: white;
   transition: var(--transition);
-  border: 1px solid var(--gray-200);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .floating-card i {
@@ -532,7 +552,7 @@ body {
 }
 
 .service__card li::before {
-  content: '✓';
+  content: 'âœ“';
   position: absolute;
   left: 0;
   color: var(--success);
@@ -950,7 +970,7 @@ body {
   opacity: 0.5;
 }
 
-/* Ícono fallback para demos sin imagen */
+/* Ãcono fallback para demos sin imagen */
 .demo__image i {
   font-size: 5rem;
   color: white;
@@ -1185,7 +1205,7 @@ body {
 }
 
 .certification__card li::before {
-  content: '•';
+  content: 'â€¢';
   position: absolute;
   left: 0;
   color: white;
@@ -1379,7 +1399,7 @@ body {
   background: var(--gray-500);
 }
 
-/* ===== DEMOS - IMÁGENES REALES ===== */
+/* ===== DEMOS - IMÃGENES REALES ===== */
 .demo__image img {
   width: 100%;
   height: 100%;
@@ -1415,7 +1435,7 @@ body {
   z-index: 20;
 }
 
-/* ===== BADGES MEJORADOS - MÁXIMO CONTRASTE ===== */
+/* ===== BADGES MEJORADOS - MÃXIMO CONTRASTE ===== */
 .demo__badge {
   position: absolute;
   top: 15px;
@@ -2626,6 +2646,7 @@ body {
     height: 40px;
   }
 }
+
 /* ===== INTEGRACIONES PREMIUM ===== */
 .service__card--premium {
   position: relative;
@@ -2650,7 +2671,7 @@ body {
   font-weight: 700;
   text-transform: uppercase;
   transform: rotate(45deg);
-  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   z-index: 5;
 }
 
@@ -2681,14 +2702,14 @@ body {
 }
 
 
-/* ===== SECCI�N MARKETING ===== */
+/* ===== SECCIÓN MARKETING ===== */
 .marketing-card {
   transition: var(--transition);
 }
 
 .marketing-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
   border-color: var(--primary) !important;
 }
 
@@ -2701,4 +2722,3 @@ body {
   opacity: 1;
   transform: scale(1.05);
 }
-
