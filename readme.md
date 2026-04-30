@@ -4,24 +4,23 @@ markdown
 ## Estructura del Proyecto
 manuel-madrid-portfolio/
 │
-├── index.html # Página principal
-├── proyectos.html # Casos de Estudio y Precios B2B
-├── marketing.html # Activos de marketing dinámicos
-├── contacto.html # Formulario de cualificación B2B
-├── superadmin.html # Dashboard y gestión CRM/IA
-├── css/
-│ ├── style.css # Estilos principales core
-│ ├── responsive.css # Media queries estructurales
-│ └── contacto.css # Estilos de formularios B2B
-├── js/
-│ ├── script.js # Interacción UI principal
-│ ├── contacto.js # Integración SDK backend forms
-│ └── supabase-master.js # SDK de conexión de Base de datos
-├── sw.js # Service Worker (PWA)
-├── assets/
-│ ├── logo-chantilly.jpg
-│ └── VariedadesJyM.jpg # Logo B2B
-└── README.md # Documentación
+├── index.html         # Página principal
+├── proyectos.html     # Casos de Estudio y Precios B2B
+├── marketing.html     # Activos de marketing dinámicos
+├── contacto.html      # Formulario de cualificación B2B
+├── superadmin.html    # Dashboard y gestión CRM/IA
+├── documentos/        # Hub de Documentos Centralizado
+│   ├── index.html     # Índice del Hub de Documentos
+│   ├── contratos/     # Contratos legales (Lala, BrillaFit, etc.)
+│   ├── propuestas/    # Propuestas comerciales (Unicentro, etc.)
+│   ├── hojas-ruta/    # Roadmap de proyectos
+│   └── estrategia/    # Frameworks y planes estratégicos
+├── css/               # Estilos modularizados
+├── js/                # Lógica y SDKs (Supabase, UI)
+├── assets/            # Multimedia optimizada (WebP/PNG)
+│   ├── favicons/      # Iconos, Manifest y PWA assets
+│   └── ...            # Otros activos (logos, imágenes)
+└── README.md          # Documentación del sistema
 
 text
 
@@ -87,7 +86,7 @@ Modifica el contenido en index.html según tus necesidades.
 Soporte
 Para soporte o preguntas, contacta a Manuel Madrid:
 
-Email: madfer1993@gmail.com
+Email: admin@jymtechsolutions.online
 
 WhatsApp: +57 304 578 8873
 

@@ -30,7 +30,7 @@
       "@context": "https://schema.org",
       "@type": "ProfessionalService",
       "name": "J&M Tech Solutions - Automatización & IA B2B",
-      "image": "https://jymtechsolutions.online/android-chrome-512x512.png",
+      "image": "https://jymtechsolutions.online/assets/favicons/android-chrome-512x512.png",
       "@id": "https://jymtechsolutions.online/#organization",
       "url": "https://jymtechsolutions.online/",
       "telephone": "+573045788873",
@@ -76,24 +76,25 @@
     <meta property="og:title" content="J&M Tech Solutions - Automatización & IA B2B">
     <meta property="og:description"
         content="Transformamos negocios corporativos con automatización inteligente, chatbots IA nativos e integraciones avanzadas de procesos operativos.">
-    <meta property="og:image" content="https://jymtechsolutions.online/android-chrome-512x512.png">
+    <meta property="og:image" content="https://jymtechsolutions.online/assets/favicons/android-chrome-512x512.png">
     <meta property="og:locale" content="es_CO">
     <meta property="og:site_name" content="J&M Tech Solutions - IA">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="J&M Tech Solutions - Consultoría B2B en IA">
-    <meta name="twitter:description" content="Automatización inteligente, integraciones API y chatbots IA para el sector corporativo.">
-    <meta name="twitter:image" content="https://jymtechsolutions.online/android-chrome-512x512.png">
+    <meta name="twitter:description"
+        content="Automatización inteligente, integraciones API y chatbots IA para el sector corporativo.">
+    <meta name="twitter:image" content="https://jymtechsolutions.online/assets/favicons/android-chrome-512x512.png">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/x-icon" href="assets/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicons/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicons/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/apple-touch-icon.png">
 
     <!-- PWA Manifest -->
-    <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="assets/favicons/manifest.json">
     <meta name="theme-color" content="#1e293b">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
@@ -103,21 +104,34 @@
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
-    
+
     <!-- Preload Fuentes Críticas -->
-    <link rel="preload" href="https://fonts.gstatic.com/s/inter/v13/UcCO3FwrX2bDNYZREvc38V0WPr26ny.woff2" as="font" type="font/woff2" crossorigin>
-    
-    <link rel="preload" href="Css/style.css" as="style">
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
-    
-    <!-- Carga de CSS -->
-    <link rel="stylesheet" href="Css/style.css">
-    <link rel="stylesheet" href="Css/responsive.css" media="print" onload="this.media='all'">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preload" href="https://fonts.gstatic.com/s/inter/v13/UcCO3FwrX2bDNYZREvc38V0WPr26ny.woff2" as="font"
+        type="font/woff2" crossorigin>
+
+    <!-- Estilos Críticos Inlined (Mejora LCP) -->
+    <style>
+        :root { --primary: #2563eb; --gray-900: #0f172a; --font-primary: 'Inter', sans-serif; }
+        body { font-family: var(--font-primary); background-color: var(--gray-900); color: #cbd5e1; margin: 0; overflow-x: hidden; }
+        .header { position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(15,23,42,0.8); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+        .hero { min-height: 100vh; display: flex; align-items: center; padding-top: 100px; }
+        .hero__title { font-size: 3rem; font-weight: 700; line-height: 1.1; color: #f8fafc; }
+        .text--gradient { background: linear-gradient(135deg, #2563eb, #7e22ce); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .logo { width: 80px; height: 80px; object-fit: contain; }
+    </style>
+
+    <!-- Carga Asíncrona de CSS No-Crítico -->
+    <link rel="stylesheet" href="Css/style.css" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    
     <noscript>
+        <link rel="stylesheet" href="Css/style.css">
         <link rel="stylesheet" href="Css/responsive.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     </noscript>
 </head>
 
@@ -128,7 +142,8 @@
         <nav class="nav container">
             <div class="nav__logo">
                 <div class="logo-container">
-                    <img src="android-chrome-512x512.png" alt="J&M Tech Solutions - IA B2B" class="logo" fetchpriority="high" width="80" height="80">
+                    <img src="assets/favicons/android-chrome-512x512.png" alt="J&M Tech Solutions - IA B2B" class="logo"
+                        fetchpriority="high" width="80" height="80">
                     <div class="logo-text">
                         <h2>J&M Tech Solutions</h2>
                         <span>Agencia B2B Automatización & IA</span>
@@ -181,16 +196,19 @@
                     </a>
                 </div>
                 <p class="hero__urgency">
-                    <i class="fas fa-fire-alt"></i> Solo <strong>3 cupos</strong> disponibles para consultoría este mes
+                    <i class="fas fa-fire-alt"></i> Disponibilidad limitada — <strong>agenda tu consultoría
+                        gratuita</strong> este mes
                 </p>
                 <div class="hero__stats">
                     <div class="stat">
                         <span class="stat__number" data-target="300">0</span><span class="stat__symbol">+%</span>
-                        <span class="stat__label">Leads Calificados</span>
+                        <span class="stat__label">Leads Calificados<br><small
+                                style="font-size: 0.6rem; opacity: 0.8;">(Caso Corp. Syspro, 2024)</small></span>
                     </div>
                     <div class="stat">
                         <span class="stat__number" data-target="40">0</span><span class="stat__symbol">%</span>
-                        <span class="stat__label">Menos Tiempo</span>
+                        <span class="stat__label">Menos Tiempo<br><small style="font-size: 0.6rem; opacity: 0.8;">(Caso
+                                Corp. Syspro, 2024)</small></span>
                     </div>
                     <div class="stat">
                         <span class="stat__number" data-target="24">0</span><span class="stat__symbol">/7</span>
@@ -322,7 +340,8 @@
     </section>
 
     <!-- Sección Integraciones (Resumen) -->
-    <section id="integraciones" class="services integrations-section" style="background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);">
+    <section id="integraciones" class="services integrations-section"
+        style="background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);">
         <div class="container" style="padding-top: var(--space-12); border-top: 1px solid rgba(255,255,255,0.05);">
             <h2 class="section__title">Integraciones de Alto Impacto</h2>
             <div class="services__grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
@@ -354,7 +373,8 @@
         <div class="container">
             <h2 class="section__title">Preguntas Frecuentes</h2>
             <div style="text-align: center; margin-bottom: var(--space-8);">
-                <p style="color: #94a3b8;">¿Tienes dudas sobre costos, tiempos o implementación? Hemos preparado un centro de respuestas para ti.</p>
+                <p style="color: #94a3b8;">¿Tienes dudas sobre costos, tiempos o implementación? Hemos preparado un
+                    centro de respuestas para ti.</p>
             </div>
             <div style="text-align: center;">
                 <a href="faq.html" class="btn btn--secondary btn--large">
@@ -372,7 +392,9 @@
                 <div class="about__text">
                     <h2 class="section__title">Manuel Madrid</h2>
                     <p style="margin-bottom: var(--space-6);">
-                        Consultor especializado en <strong>automatización B2B</strong> con certificaciones en <strong>OBS Business School</strong> y <strong>Britcham Academy</strong>. Mi misión es humanizar la tecnología para potenciar tu negocio.
+                        Consultor especializado en <strong>automatización B2B</strong> con certificaciones en
+                        <strong>OBS Business School</strong> y <strong>Britcham Academy</strong>. Mi misión es humanizar
+                        la tecnología para potenciar tu negocio.
                     </p>
                     <a href="sobre-mi.html" class="btn btn--primary">
                         Conocer mi trayectoria <i class="fas fa-user-tie" style="margin-left: 10px;"></i>
@@ -382,9 +404,77 @@
                     <div class="certification__card" data-animate="fade-right">
                         <i class="fas fa-shield-alt"></i>
                         <h4>Confianza & Legalidad</h4>
-                        <p style="color: #cbd5e1; font-size: 0.9rem;">Empresa formalmente registrada (Matrícula No. 495502) en Villavicencio, Colombia.</p>
+                        <p style="color: #cbd5e1; font-size: 0.9rem;">Empresa formalmente registrada (Matrícula No.
+                            495502) en Villavicencio, Colombia.</p>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Blog / Insights (NUEVO - Señal de Experiencia) -->
+    <section id="blog" class="blog-section" style="padding: var(--space-20) 0; background: #0f172a;">
+        <div class="container">
+            <h2 class="section__title">Insights & Casos de Uso</h2>
+            <div class="services__grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+                <article class="service__card"
+                    style="text-align: left; padding: 0; overflow: hidden; background: #1e293b;">
+                    <div
+                        style="height: 200px; background: linear-gradient(45deg, #3b82f6, #1d4ed8); display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem;">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <div style="padding: var(--space-6);">
+                        <span
+                            style="color: #3b82f6; font-size: 0.8rem; text-transform: uppercase; font-weight: 700;">Educación
+                            B2B</span>
+                        <h3 style="margin: var(--space-2) 0; font-size: 1.2rem;">Educación 24/7: El caso de éxito de
+                            Syspro</h3>
+                        <p style="font-size: 0.9rem; color: #94a3b8; margin-bottom: var(--space-4);">Cómo logramos
+                            automatizar la atención de 8 programas técnicos, reduciendo el tiempo de respuesta a 0
+                            segundos.</p>
+                        <a href="#"
+                            style="color: #3b82f6; text-decoration: none; font-weight: 600; font-size: 0.9rem;">Leer
+                            artículo completo <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                <article class="service__card"
+                    style="text-align: left; padding: 0; overflow: hidden; background: #1e293b;">
+                    <div
+                        style="height: 200px; background: linear-gradient(45deg, #10b981, #059669); display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem;">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <div style="padding: var(--space-6);">
+                        <span
+                            style="color: #10b981; font-size: 0.8rem; text-transform: uppercase; font-weight: 700;">HealthTech</span>
+                        <h3 style="margin: var(--space-2) 0; font-size: 1.2rem;">IA para adherencia en pacientes renales
+                        </h3>
+                        <p style="font-size: 0.9rem; color: #94a3b8; margin-bottom: var(--space-4);">Recordatorios
+                            inteligentes y monitoreo clínico automático para salvar vidas mediante tecnología de
+                            precisión.</p>
+                        <a href="#"
+                            style="color: #10b981; text-decoration: none; font-weight: 600; font-size: 0.9rem;">Leer
+                            artículo completo <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                <article class="service__card"
+                    style="text-align: left; padding: 0; overflow: hidden; background: #1e293b;">
+                    <div
+                        style="height: 200px; background: linear-gradient(45deg, #6366f1, #4338ca); display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem;">
+                        <i class="fas fa-boxes"></i>
+                    </div>
+                    <div style="padding: var(--space-6);">
+                        <span
+                            style="color: #6366f1; font-size: 0.8rem; text-transform: uppercase; font-weight: 700;">Retail
+                            Logística</span>
+                        <h3 style="margin: var(--space-2) 0; font-size: 1.2rem;">Sincronización multi-sucursal en tiempo
+                            real</h3>
+                        <p style="font-size: 0.9rem; color: #94a3b8; margin-bottom: var(--space-4);">El reto técnico de
+                            conectar inventarios físicos con ventas digitales vía WhatsApp para Moteros Sports Line.</p>
+                        <a href="#"
+                            style="color: #6366f1; text-decoration: none; font-weight: 600; font-size: 0.9rem;">Leer
+                            artículo completo <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
             </div>
         </div>
     </section>
@@ -417,8 +507,7 @@
                         <div class="contact__details">
                             <h4>Formulario Corporativo</h4>
                             <p>Evalúa el caso de uso de tu empresa</p>
-                            <a href="contacto.html"
-                                class="btn btn--primary">
+                            <a href="contacto.html" class="btn btn--primary">
                                 <i class="fas fa-file-signature"></i>
                                 Formulario B2B
                             </a>
@@ -432,9 +521,9 @@
                         <div class="contact__details">
                             <h4>Email Directo</h4>
                             <p>Respuesta en menos de 24 horas</p>
-                            <a href="mailto:madfer1993@gmail.com" class="btn btn--outline">
+                            <a href="mailto:admin@jymtechsolutions.online" class="btn btn--outline">
                                 <i class="fas fa-envelope"></i>
-                                madfer1993@gmail.com
+                                admin@jymtechsolutions.online
                             </a>
                         </div>
                     </div>
@@ -456,44 +545,65 @@
                 </div>
 
                 <!-- Google Reviews Block (Cuadro de Calificaciones) -->
-                <div class="google-reviews-block" data-animate="fade-up" style="margin-top: 3rem; text-align: center; background: #1e293b; padding: 2rem; border-radius: 12px; border: 1px solid #334155;">
-                    <h3 style="color: #f8fafc; margin-bottom: 1.5rem;"><i class="fab fa-google" style="color: #4285F4;"></i> Opiniones de Nuestros Clientes</h3>
-                    
-                    <div class="reviews-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; text-align: left; margin-bottom: 2rem;">
+                <div class="google-reviews-block" data-animate="fade-up"
+                    style="margin-top: 3rem; text-align: center; background: #1e293b; padding: 2rem; border-radius: 12px; border: 1px solid #334155;">
+                    <h3 style="color: #f8fafc; margin-bottom: 1.5rem;"><i class="fab fa-google"
+                            style="color: #4285F4;"></i> Opiniones de Nuestros Clientes</h3>
+
+                    <div class="reviews-grid"
+                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; text-align: left; margin-bottom: 2rem;">
                         <!-- Review 1: Nichy Suarez -->
-                        <div class="review-item" style="background: rgba(15, 23, 42, 0.5); padding: 1.5rem; border-radius: 10px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div class="review-item"
+                            style="background: rgba(15, 23, 42, 0.5); padding: 1.5rem; border-radius: 10px; border: 1px solid rgba(255,255,255,0.05);">
                             <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-                                <div style="width: 40px; height: 40px; border-radius: 50%; background: #3b82f6; display: flex; align-items: center; justify-content: center; color: white;">N</div>
+                                <div
+                                    style="width: 40px; height: 40px; border-radius: 50%; background: #3b82f6; display: flex; align-items: center; justify-content: center; color: white;">
+                                    N</div>
                                 <div>
                                     <h4 style="color: #f8fafc; font-size: 0.95rem;">Nichy Suarez</h4>
                                     <div style="color: #fbbc05; font-size: 0.8rem;">
-                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                            class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                            class="fas fa-star"></i>
                                     </div>
                                 </div>
                             </div>
-                            <p style="color: #cbd5e1; font-size: 0.85rem; line-height: 1.5;">"Excelente consultoría tecnológica aquí mismo en el Meta. Gran dominio de herramientas como chat bots y automatización de oficina."</p>
+                            <p style="color: #cbd5e1; font-size: 0.85rem; line-height: 1.5;">"La implementación del
+                                chatbot para agendar citas fue un cambio total. Redujimos las llamadas perdidas en un
+                                80% y mis clientes aman la rapidez con la que reciben información."</p>
                         </div>
 
                         <!-- Review 2: Juab -->
-                        <div class="review-item" style="background: rgba(15, 23, 42, 0.5); padding: 1.5rem; border-radius: 10px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div class="review-item"
+                            style="background: rgba(15, 23, 42, 0.5); padding: 1.5rem; border-radius: 10px; border: 1px solid rgba(255,255,255,0.05);">
                             <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-                                <div style="width: 40px; height: 40px; border-radius: 50%; background: #10b981; display: flex; align-items: center; justify-content: center; color: white;">J</div>
+                                <div
+                                    style="width: 40px; height: 40px; border-radius: 50%; background: #10b981; display: flex; align-items: center; justify-content: center; color: white;">
+                                    J</div>
                                 <div>
                                     <h4 style="color: #f8fafc; font-size: 0.95rem;">Juab</h4>
                                     <div style="color: #fbbc05; font-size: 0.8rem;">
-                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                            class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                            class="fas fa-star"></i>
                                     </div>
                                 </div>
                             </div>
-                            <p style="color: #cbd5e1; font-size: 0.85rem; line-height: 1.5;">"Excelente consultoría tecnológica aquí mismo en el Meta. Gran dominio de herramientas como chatbots y automatización de oficina."</p>
+                            <p style="color: #cbd5e1; font-size: 0.85rem; line-height: 1.5;">"La integración de APIs
+                                mediante Make.com ahorró semanas de trabajo manual en nuestro flujo corporativo. El
+                                dominio técnico de Manuel es excepcional para proyectos B2B."</p>
                         </div>
                     </div>
 
                     <div style="display: flex; flex-direction: column; align-items: center; gap: 1rem;">
-                        <a href="https://g.page/r/CTctZ6XMJtxFEBM/review" class="btn btn--primary" target="_blank" style="background: white; color: #1e293b;">
+                        <a href="https://g.page/r/CTctZ6XMJtxFEBM/review" class="btn btn--primary" target="_blank"
+                            style="background: white; color: #1e293b;">
                             <i class="fas fa-star" style="color: #fbbc05;"></i> Dejar Reseña en Google
                         </a>
-                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://g.page/r/CTctZ6XMJtxFEBM/review" alt="QR Code Reseñas Google" style="width: 120px; height: 120px; border-radius: 8px; border: 4px solid white;" loading="lazy" width="120" height="120">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://g.page/r/CTctZ6XMJtxFEBM/review"
+                            alt="QR Code Reseñas Google"
+                            style="width: 120px; height: 120px; border-radius: 8px; border: 4px solid white;"
+                            loading="lazy" width="120" height="120">
                         <span style="font-size: 0.8rem; color: #64748b;">Escanea para calificar</span>
                     </div>
                 </div>
@@ -535,7 +645,7 @@
                         <a href="https://wa.me/573045788873" aria-label="WhatsApp" target="_blank">
                             <i class="fab fa-whatsapp"></i>
                         </a>
-                        <a href="mailto:madfer1993+jymtechsolutions@gmail.com" aria-label="Email">
+                        <a href="mailto:admin@jymtechsolutions.online" aria-label="Email">
                             <i class="fas fa-envelope"></i>
                         </a>
                         <a href="https://www.tiktok.com/@dosis_de_conocimiento" aria-label="TikTok" target="_blank">
@@ -551,14 +661,18 @@
                     <p>— Manuel Fernando Madrid</p>
                 </div>
             </div>
-            <div class="footer__bottom" style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; margin-top: 2rem;">
-                <p style="color: #94a3b8; font-size: 0.85rem; max-width: 600px; text-align: center; margin-bottom: 0.5rem;">
-                    Empresa formalmente registrada ante la Cámara de Comercio de Villavicencio (CIIU 6201, 6312, 6202). <br>Matrícula Mercantil No. 495502.
+            <div class="footer__bottom"
+                style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; margin-top: 2rem;">
+                <p
+                    style="color: #94a3b8; font-size: 0.85rem; max-width: 600px; text-align: center; margin-bottom: 0.5rem;">
+                    Empresa formalmente registrada ante la Cámara de Comercio de Villavicencio (CIIU 6201, 6312, 6202).
+                    <br>Matrícula Mercantil No. 495502.
                 </p>
-                <p>&copy; 2025 J&M Tech Solutions. Todos los derechos reservados.</p>
+                <p>&copy; 2026 J&M Tech Solutions. Todos los derechos reservados.</p>
                 <div style="display: flex; gap: 1.5rem; font-size: 0.9rem; margin-top: 0.5rem;">
                     <a href="aviso-legal.html" style="color: #94a3b8; text-decoration: underline;">Aviso Legal</a>
-                    <a href="politica-privacidad.html" style="color: #94a3b8; text-decoration: underline;">Política de Privacidad</a>
+                    <a href="politica-privacidad.html" style="color: #94a3b8; text-decoration: underline;">Política de
+                        Privacidad</a>
                 </div>
                 <p style="color: #64748b; font-size: 0.85rem; margin-top: 0.5rem;">Villavicencio, Colombia</p>
             </div>

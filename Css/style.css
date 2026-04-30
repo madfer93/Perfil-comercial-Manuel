@@ -14,9 +14,12 @@
   --gray-100: #f1f5f9;
   --gray-200: #e2e8f0;
   --gray-300: #cbd5e1;
-  --gray-400: #cbd5e1; /* Incrementado para contraste */
-  --gray-500: #94a3b8; /* Incrementado para contraste */
-  --gray-600: #64748b; /* Incrementado para contraste */
+  --gray-400: #cbd5e1;
+  /* Incrementado para contraste */
+  --gray-500: #94a3b8;
+  /* Incrementado para contraste */
+  --gray-600: #64748b;
+  /* Incrementado para contraste */
   --gray-700: #475569;
   --gray-800: #1e293b;
   --gray-900: #0f172a;
@@ -154,7 +157,8 @@ body {
 
 .btn--outline {
   background: transparent;
-  color: #3b82f6; /* Azul más vibrante para contraste */
+  color: #3b82f6;
+  /* Azul más vibrante para contraste */
   border: 2px solid #3b82f6;
 }
 
@@ -314,7 +318,7 @@ body {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  padding: 120px 0 60px; /* Reducido para mejor centrado con min-height */
+  padding: 180px 0 80px;
   background: #0f172a;
   position: relative;
   overflow: hidden;
@@ -552,7 +556,7 @@ body {
 }
 
 .service__card li::before {
-  content: 'âœ“';
+  content: '\2713';
   position: absolute;
   left: 0;
   color: var(--success);
@@ -857,7 +861,7 @@ body {
   animation-delay: 0.3s;
 }
 
-/* ===== DEMOS FUNCIONALES SECTION - VERSIÓN MEJORADA ===== */
+/* ===== DEMOS FUNCIONALES SECTION - VERSIÃ“N MEJORADA ===== */
 .demos {
   padding: var(--space-20) 0;
   background: #0f172a;
@@ -937,7 +941,7 @@ body {
   animation: rotate 20s linear infinite;
 }
 
-/* Imágenes reales */
+/* ImÃ¡genes reales */
 .demo__image img {
   width: 100%;
   height: 100%;
@@ -987,7 +991,7 @@ body {
   flex: 1;
 }
 
-/* Título con mejor alineación */
+/* TÃ­tulo con mejor alineaciÃ³n */
 .demo__content h3 {
   font-size: var(--font-size-xl);
   font-weight: 700;
@@ -999,7 +1003,7 @@ body {
   gap: var(--space-2);
 }
 
-/* Descripción */
+/* DescripciÃ³n */
 .demo__description {
   color: #cbd5e1;
   line-height: 1.6;
@@ -1430,7 +1434,7 @@ body {
   opacity: 0.5;
 }
 
-/* Asegurar que el badge esté encima */
+/* Asegurar que el badge estÃ© encima */
 .demo__badge {
   z-index: 20;
 }
@@ -1463,7 +1467,7 @@ body {
   animation: pulse 2s ease-in-out infinite;
 }
 
-/* Badge PRÓXIMAMENTE - Azul con texto BLANCO FUERTE */
+/* Badge PRÃ“XIMAMENTE - Azul con texto BLANCO FUERTE */
 .demo__badge--proximamente {
   background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
   color: #ffffff;
@@ -1472,7 +1476,7 @@ body {
     0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-/* Animación pulse mejorada */
+/* AnimaciÃ³n pulse mejorada */
 @keyframes pulse {
 
   0%,
@@ -1491,7 +1495,7 @@ body {
   }
 }
 
-/* CORRECCIÓN: Botones demos sin cortes */
+/* CORRECCIÃ“N: Botones demos sin cortes */
 .demo__buttons {
   display: flex;
   gap: 0.75rem;
@@ -1549,7 +1553,7 @@ body {
 
 /* ===== DEMOS PREMIUM - ESTILOS ADICIONALES ===== */
 
-/* Breadcrumb - VERSIÓN MEJORADA */
+/* Breadcrumb - VERSIÃ“N MEJORADA */
 .breadcrumb {
   padding: var(--space-4) 0;
   background: rgba(30, 41, 59, 0.9);
@@ -1605,7 +1609,7 @@ body {
   cursor: pointer;
 }
 
-/* Link activo en navegación */
+/* Link activo en navegaciÃ³n */
 .nav__menu a.active {
   color: #60a5fa;
 }
@@ -1663,7 +1667,7 @@ body {
     0 0 80px rgba(96, 165, 250, 0.2);
 }
 
-/* Demo PRÓXIMO - Overlay */
+/* Demo PRÃ“XIMO - Overlay */
 .demo__card--coming-soon {
   position: relative;
 }
@@ -1843,7 +1847,7 @@ body {
   color: #60a5fa;
 }
 
-/* Descripción */
+/* DescripciÃ³n */
 .demo__description {
   color: #cbd5e1;
   line-height: 1.6;
@@ -2329,7 +2333,7 @@ body {
   margin-top: 2rem;
 }
 
-/* FAQ Acordeón - Estilos completos */
+/* FAQ AcordeÃ³n - Estilos completos */
 .faq__item {
   background: var(--gray-800);
   border-radius: 1rem;
@@ -2404,7 +2408,7 @@ body {
   margin-bottom: 1rem;
 }
 
-/* ===== BOTÓN FLOTANTE DE WHATSAPP ===== */
+/* ===== BOTÃ“N FLOTANTE DE WHATSAPP ===== */
 .whatsapp-float {
   position: fixed;
   bottom: 30px;

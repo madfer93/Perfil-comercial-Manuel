@@ -21,32 +21,79 @@
         content="Explora nuestras soluciones de vanguardia en IA y AgriTech. Resultados medibles y transformación digital para el campo y la empresa.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://jymtechsolutions.online/proyectos.html">
-    <meta property="og:image" content="https://jymtechsolutions.online/android-chrome-512x512.png">
+    <meta property="og:image" content="https://jymtechsolutions.online/assets/favicons/android-chrome-512x512.png">
     <meta property="og:locale" content="es_CO">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="apple-touch-icon" href="android-chrome-512x512.png">
+    <link rel="apple-touch-icon" href="assets/favicons/android-chrome-512x512.png">
 
-    <!-- Estilos Críticos -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="Css/style.css" as="style">
-    <link rel="preload" href="Css/proyectos.css" as="style">
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
-    
-    <!-- Carga de CSS -->
-    <link rel="stylesheet" href="Css/style.css">
-    <link rel="stylesheet" href="Css/proyectos.css">
+    <!-- Estilos Críticos Inlined (Mejora LCP) -->
+    <style>
+        :root { --primary: #2563eb; --gray-900: #0f172a; --font-primary: 'Inter', sans-serif; }
+        body { font-family: var(--font-primary); background-color: var(--gray-900); color: #cbd5e1; margin: 0; }
+        .header { position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(15,23,42,0.8); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+        .breadcrumb { margin-top: 120px; margin-bottom: 20px; }
+        .logo { width: 80px; height: 80px; object-fit: contain; }
+    </style>
+
+    <!-- Carga Asíncrona de CSS No-Crítico -->
+    <link rel="stylesheet" href="Css/style.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="Css/proyectos.css" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="Css/responsive.css" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="Css/responsive-proyectos.css" media="print" onload="this.media='all'">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    
     <noscript>
+        <link rel="stylesheet" href="Css/style.css">
+        <link rel="stylesheet" href="Css/proyectos.css">
         <link rel="stylesheet" href="Css/responsive.css">
         <link rel="stylesheet" href="Css/responsive-proyectos.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     </noscript>
+
+    <!-- Schema.org Projects -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "Corporación Syspro - Asistente IA Educativo",
+            "description": "Asistente virtual IA 24/7 integrado en WhatsApp para instituciones educativas.",
+            "author": { "@type": "Person", "name": "Manuel Madrid" }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "AgroTecnia IA - AgriTech SaaS",
+            "description": "Software SaaS para la transformación de datos del campo mediante IA y monitoreo satelital.",
+            "author": { "@type": "Person", "name": "Manuel Madrid" }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "Lala Chococup - Plataforma SaaS",
+            "description": "Ecosistema digital en React 19 para la gestión y automatización de contratos.",
+            "author": { "@type": "Person", "name": "Manuel Madrid" }
+          }
+        }
+      ]
+    }
+    </script>
 </head>
 
 <body>
@@ -56,7 +103,7 @@
         <nav class="nav container">
             <div class="nav__logo">
                 <a href="index.html" class="logo-container">
-                    <img src="android-chrome-512x512.png" alt="Manuel Madrid" class="logo" fetchpriority="high">
+                    <img src="assets/favicons/android-chrome-512x512.png" alt="Manuel Madrid" class="logo" fetchpriority="high" width="80" height="80">
                     <div class="logo-text">
                         <h2>J&M Tech Solutions</h2>
                         <span>Agencia B2B de IA & Automatización</span>
@@ -110,7 +157,7 @@
                 <div class="proyecto__card">
                     <div class="proyecto__badge proyecto__badge--completado">COMPLETADO</div>
                     <div class="proyecto__image">
-                        <img src="assets/syspro.png" alt="Asistente IA Educativo para Corporación Syspro - Automatización WhatsApp" loading="lazy">
+                        <img src="assets/syspro.png" alt="Asistente IA Educativo para Corporación Syspro - Automatización WhatsApp" loading="lazy" width="400" height="250">
                         <!-- Cambia por tu imagen real -->
                     </div>
                     <div class="proyecto__content">
@@ -186,7 +233,7 @@
                 <div class="proyecto__card">
                     <div class="proyecto__badge proyecto__badge--activo">ACTIVO</div>
                     <div class="proyecto__image">
-                        <img src="assets/nefrovital.jpg" alt="Nefro Vital - Plataforma de Gestión y Seguimiento de Salud Renal" loading="lazy">
+                        <img src="assets/nefrovital.jpg" alt="Nefro Vital - Plataforma de Gestión y Seguimiento de Salud Renal" loading="lazy" width="400" height="250">
                     </div>
                     <div class="proyecto__content">
                         <h3>Nefro Vital - Plataforma de Salud Renal</h3>
@@ -225,7 +272,7 @@
                 <div class="proyecto__card">
                     <div class="proyecto__badge proyecto__badge--activo">ACTIVO</div>
                     <div class="proyecto__image">
-                        <img src="assets/logo-agrotecnia.png" alt="Logo de AgroTecnia IA - Software SaaS Agrícola" loading="lazy">
+                        <img src="assets/logo-agrotecnia.png" alt="Logo de AgroTecnia IA - Software SaaS Agrícola" loading="lazy" width="400" height="250">
                     </div>
                     <div class="proyecto__content">
                         <h3>AgroTecnia IA - AgriTech SaaS</h3>
@@ -263,7 +310,7 @@
                 <div class="proyecto__card">
                     <div class="proyecto__badge proyecto__badge--completado">COMPLETADO</div>
                     <div class="proyecto__image">
-                        <img src="assets/moteros logo.jpg" alt="E-commerce para Moteros Sports Line - Gestión de Inventario Multi-sucursal" loading="lazy">
+                        <img src="assets/moteros logo.jpg" alt="E-commerce para Moteros Sports Line - Gestión de Inventario Multi-sucursal" loading="lazy" width="400" height="250">
                     </div>
                     <div class="proyecto__content">
                         <h3>Moteros Sports Line - E-commerce Multi-sucursal</h3>
@@ -298,7 +345,7 @@
                 <div class="proyecto__card">
                     <div class="proyecto__badge proyecto__badge--activo">ACTIVO</div>
                     <div class="proyecto__image">
-                        <img src="android-chrome-512x512.png" alt="SOFI - Sistema Inteligente de Captación y Cualificación de Leads" loading="lazy">
+                        <img src="assets/favicons/android-chrome-512x512.png" alt="SOFI - Sistema Inteligente de Captación y Cualificación de Leads" loading="lazy" width="400" height="250">
                     </div>
                     <div class="proyecto__content">
                         <h3>SOFI - Asistente Virtual Inteligente</h3>
@@ -333,7 +380,7 @@
                 <div class="proyecto__card">
                     <div class="proyecto__badge proyecto__badge--completado">COMPLETADO</div>
                     <div class="proyecto__image">
-                        <img src="assets/logo-dialystock.png" alt="DialyStock V4.0 - Sistema de Control de Inventario para Insumos Médicos" loading="lazy">
+                        <img src="assets/logo-dialystock.png" alt="DialyStock V4.0 - Sistema de Control de Inventario para Insumos Médicos" loading="lazy" width="400" height="250">
                     </div>
                     <div class="proyecto__content">
                         <h3>DialyStock V4.0 - Sistema de Inventario Médico</h3>
@@ -368,7 +415,7 @@
                 <div class="proyecto__card">
                     <div class="proyecto__badge proyecto__badge--completado">COMPLETADO</div>
                     <div class="proyecto__image">
-                        <img src="assets/gestor360.png" alt="Gestor Educativo 365 - Plataforma de Administración Académica Online" loading="lazy">
+                        <img src="assets/gestor360.png" alt="Gestor Educativo 365 - Plataforma de Administración Académica Online" loading="lazy" width="400" height="250">
                     </div>
                     <div class="proyecto__content">
                         <h3>Gestor Educativo 365</h3>
@@ -394,6 +441,41 @@
                                 Proyecto</a>
                             <button class="btn btn--outline proyecto__btn-contact"
                                 data-proyecto="Gestor Educativo 365">Más Detalles</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 8: Lala Chococup (SaaS React) -->
+                <div class="proyecto__card">
+                    <div class="proyecto__badge" style="background: #3b82f6;">SAAS ACTIVO</div>
+                    <div class="proyecto__image">
+                        <img src="assets/logo-lala.jpeg" alt="Lala Chococup - Plataforma SaaS en React" loading="lazy" width="400" height="250">
+                    </div>
+                    <div class="proyecto__content">
+                        <h3>Lala Chococup - Plataforma SaaS</h3>
+                        <p class="proyecto__description">
+                            Ecosistema digital completo desarrollado en <strong>React 19</strong> para la gestión, venta y automatización de contratos para la marca Lala Chococup.
+                        </p>
+                        <div class="proyecto__metrics">
+                            <span>React Architecture</span>
+                            <span>Gestión Contractual</span>
+                            <span>SaaS B2B</span>
+                        </div>
+                        <ul class="proyecto__features">
+                            <li>Desarrollado íntegramente con React 19</li>
+                            <li>Generación automática de contratos PDF con firma</li>
+                            <li>Flujo comercial automatizado vía WhatsApp API</li>
+                            <li>Panel de administración para gestión de clientes</li>
+                        </ul>
+                        <div class="proyecto__tech">
+                            <span class="tech-badge">React 19</span>
+                            <span class="tech-badge">Supabase</span>
+                            <span class="tech-badge">Node.js</span>
+                            <span class="tech-badge">Make.com</span>
+                        </div>
+                        <div class="proyecto__buttons">
+                            <a href="https://www.lalachococup.com/" class="btn btn--primary" target="_blank">Ver Proyecto <i class="fas fa-external-link-alt"></i></a>
+                            <button class="btn btn--outline proyecto__btn-contact" data-proyecto="Lala Chococup">Más Detalles</button>
                         </div>
                     </div>
                 </div>

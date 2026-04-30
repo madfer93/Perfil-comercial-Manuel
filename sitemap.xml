@@ -3,7 +3,7 @@
     <!-- Página Principal -->
     <url>
         <loc>https://jymtechsolutions.online/</loc>
-        <lastmod>2026-04-03</lastmod>
+        <lastmod>2026-04-30</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
@@ -11,7 +11,7 @@
     <!-- Nuestros Servicios -->
     <url>
         <loc>https://jymtechsolutions.online/servicios.html</loc>
-        <lastmod>2026-04-03</lastmod>
+        <lastmod>2026-04-30</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
@@ -19,15 +19,15 @@
     <!-- Integraciones B2B -->
     <url>
         <loc>https://jymtechsolutions.online/integraciones.html</loc>
-        <lastmod>2026-04-03</lastmod>
+        <lastmod>2026-04-30</lastmod>
         <changefreq>weekly</changefreq>
-        <priority>0.9</priority>priority>
+        <priority>0.9</priority>
     </url>
 
     <!-- Preguntas Frecuentes -->
     <url>
         <loc>https://jymtechsolutions.online/faq.html</loc>
-        <lastmod>2026-04-03</lastmod>
+        <lastmod>2026-04-30</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -35,7 +35,7 @@
     <!-- Perfil Manuel Madrid -->
     <url>
         <loc>https://jymtechsolutions.online/sobre-mi.html</loc>
-        <lastmod>2026-04-03</lastmod>
+        <lastmod>2026-04-30</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -43,7 +43,7 @@
     <!-- Marketing Digital IA -->
     <url>
         <loc>https://jymtechsolutions.online/marketing.html</loc>
-        <lastmod>2026-04-03</lastmod>
+        <lastmod>2026-04-30</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
@@ -51,32 +51,32 @@
     <!-- Página de Proyectos -->
     <url>
         <loc>https://jymtechsolutions.online/proyectos.html</loc>
-        <lastmod>2026-04-03</lastmod>
+        <lastmod>2026-04-30</lastmod>
         <changefreq>weekly</changefreq>
-        <priority>0.9</priority>priority>
+        <priority>0.9</priority>
     </url>
     
     <!-- Página de Demos -->
     <url>
         <loc>https://jymtechsolutions.online/demos.html</loc>
-        <lastmod>2026-04-03</lastmod>
+        <lastmod>2026-04-30</lastmod>
         <changefreq>weekly</changefreq>
-        <priority>0.9</priority>priority>
+        <priority>0.9</priority>
     </url>
     
     <!-- Página de Testimonios -->
     <url>
         <loc>https://jymtechsolutions.online/testimonios.html</loc>
-        <lastmod>2026-04-03</lastmod>
+        <lastmod>2026-04-30</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.8</priority>priority>
+        <priority>0.8</priority>
     </url>
 
     <!-- Contacto Corporativo -->
     <url>
         <loc>https://jymtechsolutions.online/contacto.html</loc>
-        <lastmod>2026-04-03</lastmod>
+        <lastmod>2026-04-30</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.8</priority>priority>
+        <priority>0.8</priority>
     </url>
 </urlset>

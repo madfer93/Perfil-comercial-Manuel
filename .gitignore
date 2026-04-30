@@ -1,25 +1,42 @@
-# Archivos Sensibles y de Diagnóstico (Locales Only)
-Framework_Estrategico_OBS.md
+# ==========================================
+# J&M Tech Solutions - GitHub Ignore Rules
+# ==========================================
+
+# --- Documentos Privados y Comerciales (LOCAL ONLY) ---
+documentos/
+*.pdf
+*.docx
+*.pptx
+
+# --- Archivos Sensibles y de Diagnóstico ---
+.env
+.env.local
+.env.*.local
 SAAS_INTERNAL_LOG.md
 DIAGNÓSTICO TECNOLÓGICO MANUEL.docx
 output_farm.txt
-*.docx
-*.pdf
-*.env
-node_modules/
-.DS_Store
+rendimiento google/
 
-# Directorios de Despliegue
+# --- Dependencias y Herramientas ---
+node_modules/
+.npm
+.eslintcache
+
+# --- IDEs y Sistemas Operativos ---
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Directorios de Despliegue / Build ---
 dist/
 build/
 .next/
 .vercel
+out/
 
-# Documentos de Clientes y Propuestas (Privados)
-hoja-ruta-brillafit.html
-contrato-brillafit.html
-propuesta_syspro_legal.html
-contrato-brillafit.html
-hoja-ruta-brillafit.html
-# Archivos de la IA
+# --- Archivos de IA y Configuración Específica ---
 .gemini/
+antigravity.json
+*.log

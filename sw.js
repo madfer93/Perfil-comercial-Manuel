@@ -12,7 +12,12 @@ const ASSETS_TO_CACHE = [
   './Js/script.js',
   './Js/animations.js',
   './Js/faq.js',
-  './android-chrome-512x512.png'
+  './assets/favicons/android-chrome-512x512.png',
+  './assets/favicons/android-chrome-192x192.png',
+  './assets/favicons/apple-touch-icon.png',
+  './assets/favicons/favicon-32x32.png',
+  './assets/favicons/favicon-16x16.png',
+  './assets/favicons/site.webmanifest'
 ];
 
 // Instalación del Service Worker
