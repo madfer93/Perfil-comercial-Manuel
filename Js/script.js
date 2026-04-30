@@ -127,10 +127,10 @@ function initNavigation() {
     // Header con efecto scroll mejorado (evita forced reflows)
     let lastScroll = 0;
     let isScrolled = false;
-    let isMobile = window.innerWidth <= 768;
+    let isMobile = window.innerWidth <= 1100;
 
     window.addEventListener('resize', () => {
-        isMobile = window.innerWidth <= 768;
+        isMobile = window.innerWidth <= 1100;
     });
 
     window.addEventListener('scroll', () => {

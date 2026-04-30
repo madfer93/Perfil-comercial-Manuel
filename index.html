@@ -109,20 +109,11 @@
     <link rel="preload" href="https://fonts.gstatic.com/s/inter/v13/UcCO3FwrX2bDNYZREvc38V0WPr26ny.woff2" as="font"
         type="font/woff2" crossorigin>
 
-    <!-- Estilos Críticos Inlined (Mejora LCP) -->
-    <style>
-        :root { --primary: #2563eb; --gray-900: #0f172a; --font-primary: 'Inter', sans-serif; }
-        body { font-family: var(--font-primary); background-color: var(--gray-900); color: #cbd5e1; margin: 0; overflow-x: hidden; }
-        .header { position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(15,23,42,0.8); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.05); }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
-        .hero { min-height: 100vh; display: flex; align-items: center; padding-top: 100px; }
-        .hero__title { font-size: 3rem; font-weight: 700; line-height: 1.1; color: #f8fafc; }
-        .text--gradient { background: linear-gradient(135deg, #2563eb, #7e22ce); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .logo { width: 80px; height: 80px; object-fit: contain; }
-    </style>
+
 
     <!-- Carga Asíncrona de CSS No-Crítico -->
     <link rel="stylesheet" href="Css/style.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="Css/responsive.css" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
