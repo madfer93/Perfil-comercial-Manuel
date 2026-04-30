@@ -5,7 +5,6 @@
 
 /* Breadcumb comienza aquí */
 .breadcrumb {
-  margin-top: 80px;
   padding: 2rem 0;
   background: var(--gray-800);
   border-bottom: 1px solid var(--gray-700);
@@ -29,7 +28,7 @@
   font-size: 3rem;
   text-align: center;
   color: white;
-  margin: 4rem 0 1rem;
+  margin: 1.5rem 0 1rem;
 }
 
 .proyectos__subtitle {

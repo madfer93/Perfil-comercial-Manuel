@@ -2767,3 +2767,35 @@ body {
   opacity: 1;
   transform: scale(1.05);
 }
+
+/* ===== BREADCRUMB GLOBAL ===== */
+.breadcrumb {
+  margin-top: 150px;
+  padding: 1rem 0;
+  background: rgba(30, 41, 59, 0.5);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.breadcrumb__list {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  list-style: none;
+  font-size: 0.9rem;
+  color: var(--gray-400);
+}
+
+.breadcrumb__list a {
+  color: var(--gray-400);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.breadcrumb__list a:hover {
+  color: var(--primary);
+}
+
+.breadcrumb__list li i {
+  font-size: 0.8rem;
+}
+
