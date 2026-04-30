@@ -27,9 +27,9 @@ document.addEventListener('DOMContentLoaded', () => {
             submitBtn.disabled = true;
 
             try {
-                // Ejecutar reCAPTCHA v3
-                grecaptcha.ready(function() {
-                    grecaptcha.execute('6LfEwaUsAAAAANUnklDI2UmRYLjYGYYzFtuOcqQ5', {action: 'submit_lead'}).then(async function(token) {
+                // Ejecutar reCAPTCHA Enterprise
+                grecaptcha.enterprise.ready(function() {
+                    grecaptcha.enterprise.execute('6LfEwaUsAAAAANUnklDI2UmRYLjYGYYzFtuOcqQ5', {action: 'submit_lead'}).then(async function(token) {
                         try {
                             // Insertar en Supabase.
                             const { data, error } = await supabaseMaster
