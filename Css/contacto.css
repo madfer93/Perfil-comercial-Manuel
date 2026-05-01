@@ -1,5 +1,5 @@
 .contact-page {
-    padding: 15rem 0 4rem;
+    padding: calc(var(--header-height) + 4rem) 0 4rem;
     background-color: #0f172a; /* Forced dark background */
     min-height: 80vh;
 }
@@ -194,7 +194,7 @@
 
 @media (max-width: 600px) {
     .contact-page {
-        padding: 5rem 0 2rem;
+        padding: calc(var(--header-height-mobile) + 5rem) 0 2rem;
     }
     .contact-container {
         gap: 1.5rem;

@@ -33,14 +33,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" href="Css/style.css" as="style">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
-    
+
     <!-- Carga de CSS -->
     <link rel="stylesheet" href="Css/style.css">
-    <link rel="stylesheet" href="Css/responsive.css" media="print" onload="this.media='all'">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <noscript>
-        <link rel="stylesheet" href="Css/responsive.css">
+
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     </noscript>
     <!-- Supabase -->
@@ -54,9 +55,10 @@
         <nav class="nav container">
             <div class="nav__logo">
                 <a href="index.html" class="logo-container">
-                    <img src="android-chrome-512x512.png" alt="J&M Tech Solutions" class="logo" fetchpriority="high">
+                    <img src="assets/favicons/android-chrome-512x512.png" alt="J&M Tech Solutions" class="logo"
+                        fetchpriority="high" width="80" height="80">
                     <div class="logo-text">
-                        <h2>Manuel Madrid</h2>
+                        <h2>J&M Tech Solutions</h2>
                         <span>Consultor en Automatización</span>
                     </div>
                 </a>
@@ -83,7 +85,7 @@
     </header>
 
     <!-- Breadcrumb -->
-    <div class="breadcrumb" >
+    <div class="breadcrumb">
         <div class="container">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb__list">
@@ -110,11 +112,14 @@
         <div class="container">
             <h1 class="section__title">Potencia tu Marca con IA</h1>
             <p class="section__subtitle" style="text-align: center; max-width: 800px; margin: 0 auto var(--space-12);">
-                La automatización de procesos es solo la mitad del éxito. La otra mitad es cómo te comunicas con tus clientes. 
-                Utilizamos inteligencia artificial generativa para crear contenido visual de alta calidad que escala con tu negocio.
+                La automatización de procesos es solo la mitad del éxito. La otra mitad es cómo te comunicas con tus
+                clientes.
+                Utilizamos inteligencia artificial generativa para crear contenido visual de alta calidad que escala con
+                tu negocio.
             </p>
 
-            <div id="marketing-container" class="marketing-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: var(--space-8);">
+            <div id="marketing-container" class="marketing-grid"
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: var(--space-8);">
                 <!-- Los activos se cargarán dinámicamente aquí -->
                 <div style="grid-column: 1/-1; text-align: center; padding: 50px;">
                     <i class="fas fa-circle-notch fa-spin" style="font-size: 2rem; color: #3b82f6;"></i>
@@ -122,31 +127,46 @@
                 </div>
             </div>
 
-            <div class="marketing-benefits" style="margin-top: var(--space-20); display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-8);">
-                <div style="text-align: center; padding: var(--space-8); background: rgba(30, 41, 59, 0.5); border-radius: var(--radius-lg);">
-                    <i class="fas fa-bolt" style="font-size: 2.5rem; color: #f59e0b; margin-bottom: var(--space-4);"></i>
+            <div class="marketing-benefits"
+                style="margin-top: var(--space-20); display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-8);">
+                <div
+                    style="text-align: center; padding: var(--space-8); background: rgba(30, 41, 59, 0.5); border-radius: var(--radius-lg);">
+                    <i class="fas fa-bolt"
+                        style="font-size: 2.5rem; color: #f59e0b; margin-bottom: var(--space-4);"></i>
                     <h4 style="color: #f8fafc;">Velocidad Extrema</h4>
-                    <p style="color: #94a3b8; font-size: 0.9rem;">De la idea al diseño final en minutos, permitiéndote reaccionar a las tendencias del mercado.</p>
+                    <p style="color: #94a3b8; font-size: 0.9rem;">De la idea al diseño final en minutos, permitiéndote
+                        reaccionar a las tendencias del mercado.</p>
                 </div>
-                <div style="text-align: center; padding: var(--space-8); background: rgba(30, 41, 59, 0.5); border-radius: var(--radius-lg);">
-                    <i class="fas fa-coins" style="font-size: 2.5rem; color: #10b981; margin-bottom: var(--space-4);"></i>
+                <div
+                    style="text-align: center; padding: var(--space-8); background: rgba(30, 41, 59, 0.5); border-radius: var(--radius-lg);">
+                    <i class="fas fa-coins"
+                        style="font-size: 2.5rem; color: #10b981; margin-bottom: var(--space-4);"></i>
                     <h4 style="color: #f8fafc;">Ahorro de Costos</h4>
-                    <p style="color: #94a3b8; font-size: 0.9rem;">Reduce drásticamente tus gastos en diseño gráfico tradicional mediante flujos de trabajo automatizados.</p>
+                    <p style="color: #94a3b8; font-size: 0.9rem;">Reduce drásticamente tus gastos en diseño gráfico
+                        tradicional mediante flujos de trabajo automatizados.</p>
                 </div>
-                <div style="text-align: center; padding: var(--space-8); background: rgba(30, 41, 59, 0.5); border-radius: var(--radius-lg);">
-                    <i class="fas fa-palette" style="font-size: 2.5rem; color: #3b82f6; margin-bottom: var(--space-4);"></i>
+                <div
+                    style="text-align: center; padding: var(--space-8); background: rgba(30, 41, 59, 0.5); border-radius: var(--radius-lg);">
+                    <i class="fas fa-palette"
+                        style="font-size: 2.5rem; color: #3b82f6; margin-bottom: var(--space-4);"></i>
                     <h4 style="color: #f8fafc;">Coherencia de Marca</h4>
-                    <p style="color: #94a3b8; font-size: 0.9rem;">Garantizamos que cada pieza visual siga fielmente la identidad y los colores de tu negocio.</p>
+                    <p style="color: #94a3b8; font-size: 0.9rem;">Garantizamos que cada pieza visual siga fielmente la
+                        identidad y los colores de tu negocio.</p>
                 </div>
             </div>
 
-            <div style="text-align: center; margin-top: var(--space-20); padding: var(--space-12); background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); border-radius: var(--radius-xl); border: 1px solid #334155;">
-                <h2 style="color: #f8fafc; margin-bottom: var(--space-4);">¿Listo para que tu negocio se vea increíble?</h2>
-                <p style="color: #cbd5e1; margin-bottom: var(--space-8); max-width: 600px; margin-left: auto; margin-right: auto;">
-                    Agenda una consultoría hoy mismo y descubre cómo la IA puede hacerse cargo de tu material publicitario mientras tú te enfocas en vender.
+            <div
+                style="text-align: center; margin-top: var(--space-20); padding: var(--space-12); background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); border-radius: var(--radius-xl); border: 1px solid #334155;">
+                <h2 style="color: #f8fafc; margin-bottom: var(--space-4);">¿Listo para que tu negocio se vea increíble?
+                </h2>
+                <p
+                    style="color: #cbd5e1; margin-bottom: var(--space-8); max-width: 600px; margin-left: auto; margin-right: auto;">
+                    Agenda una consultoría hoy mismo y descubre cómo la IA puede hacerse cargo de tu material
+                    publicitario mientras tú te enfocas en vender.
                 </p>
                 <div style="display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap;">
-                    <a href="https://wa.me/573045788873?text=Hola%20Manuel%2C%20me%20interesa%20integrar%20marketing%20con%20IA%20en%20mi%20negocio." class="btn btn--primary btn--large">
+                    <a href="https://wa.me/573045788873?text=Hola%20Manuel%2C%20me%20interesa%20integrar%20marketing%20con%20IA%20en%20mi%20negocio."
+                        class="btn btn--primary btn--large">
                         <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
                     </a>
                     <a href="index.html#contacto" class="btn btn--secondary btn--large">
@@ -193,11 +213,13 @@
         <div class="modal__overlay"></div>
         <div class="modal__content modal__content--image">
             <button class="modal__close" aria-label="Cerrar">&times;</button>
-            <img id="lightbox-img" src="" alt="Vista Previa" style="width: 100%; height: auto; border-radius: var(--radius-lg);">
+            <img id="lightbox-img" src="" alt="Vista Previa"
+                style="width: 100%; height: auto; border-radius: var(--radius-lg);">
             <div style="padding: var(--space-4); text-align: center;">
                 <h3 id="lightbox-title" style="color: #f8fafc; margin-bottom: var(--space-2);"></h3>
                 <p id="lightbox-desc" style="color: #94a3b8; font-size: 0.9rem; margin-bottom: var(--space-6);"></p>
-                <a id="lightbox-cta" href="#" target="_blank" class="btn btn--primary" style="display: none; padding: 12px 24px;"></a>
+                <a id="lightbox-cta" href="#" target="_blank" class="btn btn--primary"
+                    style="display: none; padding: 12px 24px;"></a>
             </div>
         </div>
     </div>
@@ -251,11 +273,11 @@
                         img.addEventListener('click', (e) => {
                             const card = e.target.closest('.marketing-card');
                             const asset = data.find(a => a.image_url === e.target.src);
-                            
+
                             lightboxImg.src = asset.image_url;
                             lightboxTitle.textContent = asset.title;
                             lightboxDesc.textContent = asset.description || '';
-                            
+
                             // Botón de lightbox
                             const lightboxBtn = document.getElementById('lightbox-cta');
                             if (asset.redirect_url) {
@@ -268,7 +290,7 @@
                             } else {
                                 lightboxBtn.style.display = 'none';
                             }
-                            
+
                             lightbox.classList.add('active');
                         });
                     });
@@ -285,7 +307,7 @@
 
             closeBtn.addEventListener('click', closeLightbox);
             overlay.addEventListener('click', closeLightbox);
-            
+
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape') closeLightbox();
             });
