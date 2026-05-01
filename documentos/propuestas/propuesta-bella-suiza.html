@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propuesta Comercial - J&M Tech Solutions</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
+            --accent: #10b981;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background-color: #f1f5f9;
+            color: #334155;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .proposal-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        /* Header */
+        .header {
+            background: var(--bg);
+            padding: 40px;
+            text-align: center;
+            color: white;
+        }
+
+        .logo {
+            width: 120px;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        /* Intro */
+        .section-intro {
+            padding: 40px;
+            text-align: center;
+        }
+
+        .section-intro h2 {
+            color: var(--bg);
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .section-intro p {
+            color: #64748b;
+            font-size: 16px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* Bento Grid */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            padding: 0 40px 40px;
+        }
+
+        .bento-item {
+            background: #f8fafc;
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .bento-item--full {
+            grid-column: 1 / -1;
+            background: var(--bg);
+            color: white;
+        }
+
+        .bento-item h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .bento-item p {
+            font-size: 14px;
+            color: #64748b;
+        }
+
+        .bento-item--full p {
+            color: #cbd5e1;
+        }
+
+        .icon {
+            font-size: 20px;
+        }
+
+        /* Solution Visual */
+        .solution-visual {
+            padding: 0 40px 40px;
+        }
+
+        .mockup-img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        /* Pricing */
+        .pricing-card {
+            margin: 0 40px 40px;
+            background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+            color: white;
+        }
+
+        .pricing-card .label {
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 1px;
+            background: rgba(255,255,255,0.2);
+            padding: 4px 12px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .pricing-card .price {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .pricing-card .badge {
+            font-weight: 600;
+            color: #93c5fd;
+        }
+
+        /* CTA */
+        .footer-cta {
+            padding: 0 40px 60px;
+            text-align: center;
+        }
+
+        .btn-cta {
+            display: inline-block;
+            background: var(--bg);
+            color: white;
+            padding: 18px 36px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+            transition: transform 0.2s;
+        }
+
+        .btn-cta:hover {
+            transform: scale(1.05);
+        }
+
+        .footer-note {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #94a3b8;
+        }
+
+        @media (max-width: 600px) {
+            .bento-grid {
+                grid-template-columns: 1fr;
+            }
+            .pricing-card .price {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="proposal-container">
+        <!-- Header -->
+        <div class="header">
+            <img src="https://jymtechsolutions.online/assets/favicons/android-chrome-192x192.png" alt="J&M Tech Solutions" class="logo">
+            <h1>J&M Tech Solutions</h1>
+        </div>
+
+        <!-- Intro -->
+        <div class="section-intro">
+            <h2>Hola Nicolás,</h2>
+            <p>Es un gusto saludarle nuevamente. Tras nuestra charla sobre el Hotel Bella Suiza, he preparado esta propuesta para transformar su activo digital en una máquina de reservas directa.</p>
+        </div>
+
+        <!-- Diagnosis & Solution (Bento) -->
+        <div class="bento-grid">
+            <div class="bento-item">
+                <h3><span class="icon">🔍</span> Diagnóstico</h3>
+                <p>Recuperando el control de su puerta digital. Actualmente, las altas comisiones y la dependencia de plataformas externas están frenando su margen de beneficio.</p>
+            </div>
+            <div class="bento-item">
+                <h3><span class="icon">🚀</span> El Activo</h3>
+                <p>Su página web no será un gasto, sino un activo que trabaja 24/7 para cerrar ventas sin intermediarios.</p>
+            </div>
+            <div class="bento-item bento-item--full">
+                <h3><span class="icon">💡</span> Ecosistema de Independencia</h3>
+                <p>Una solución integral que incluye una web ultra-rápida, un panel de administración intuitivo (CMS) para que usted gestione sus fotos y eventos, y un flujo de reservas optimizado directamente a su WhatsApp o sistema interno.</p>
+            </div>
+        </div>
+
+        <!-- Visual Mockup -->
+        <div class="solution-visual">
+            <img src="hotel_bella_suiza_mockup_1777599070644.png" alt="Vista previa de la solución" class="mockup-img">
+        </div>
+
+        <!-- Pricing Card -->
+        <div class="pricing-card">
+            <span class="label">Inversión Única</span>
+            <div class="price">3.000.000 COP</div>
+            <div class="badge">SIN MENSUALIDADES · SIN COMISIONES · PROPIEDAD TOTAL</div>
+        </div>
+
+        <!-- CTA -->
+        <div class="footer-cta">
+            <a href="https://wa.me/573045788873?text=Hola%20Manuel%2C%20acepto%20la%20propuesta%20para%20el%20Hotel%20Bella%20Suiza." class="btn-cta">Aceptar Propuesta</a>
+            <p class="footer-note">Propuesta válida por 15 días. Retorno de inversión estimado en menos de 4 meses eliminando comisiones externas.</p>
+        </div>
+    </div>
+</body>
+</html>

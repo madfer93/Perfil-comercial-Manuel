@@ -4,6 +4,7 @@
 
 # --- Documentos Privados y Comerciales (LOCAL ONLY) ---
 documentos/
+!documentos/propuestas/
 *.pdf
 *.docx
 *.pptx
