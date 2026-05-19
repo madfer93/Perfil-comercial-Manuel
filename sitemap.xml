@@ -79,4 +79,44 @@
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
+
+    <!-- Landing: Facturacion Electronica DIAN Villavicencio -->
+    <url>
+        <loc>https://jymtechsolutions.online/facturacion-electronica-villavicencio.html</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+    </url>
+
+    <!-- Landing: Automatizacion WhatsApp Empresas -->
+    <url>
+        <loc>https://jymtechsolutions.online/automatizacion-whatsapp-empresas.html</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+    </url>
+
+    <!-- Landing: Integracion Addi y Sistecredito Colombia -->
+    <url>
+        <loc>https://jymtechsolutions.online/integracion-addi-sistecredito-colombia.html</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+    </url>
+
+    <!-- Landing: Automatizacion Chatbots Colegios Colombia -->
+    <url>
+        <loc>https://jymtechsolutions.online/automatizacion-chatbots-colegios-colombia.html</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+    </url>
+
+    <!-- Landing: Automatizacion Chatbots Salud Colombia -->
+    <url>
+        <loc>https://jymtechsolutions.online/automatizacion-chatbots-salud-colombia.html</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+    </url>
 </urlset>
