@@ -48,7 +48,7 @@ self.addEventListener('activate', (event) => {
 // Estrategia de Caché: Network First (intenta red, si falla usa caché)
 self.addEventListener('fetch', (event) => {
   // Ignorar esquemas no soportados por Cache (por ejemplo, chrome-extension://)
-  if (!event.request.url.startsWith('http')) {
+  if (!event.request.url.startsWith('http://') && !event.request.url.startsWith('https://')) {
     return;
   }
 
@@ -71,10 +71,12 @@ self.addEventListener('fetch', (event) => {
           return response;
         }
         const responseToCache = response.clone();
-        caches.open(CACHE_NAME)
-          .then((cache) => {
-            cache.put(event.request, responseToCache);
-          });
+        if (event.request.url.startsWith('http://') || event.request.url.startsWith('https://')) {
+          caches.open(CACHE_NAME)
+            .then((cache) => {
+              cache.put(event.request, responseToCache);
+            });
+        }
         return response;
       })
       .catch((error) => {
