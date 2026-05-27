@@ -236,16 +236,20 @@ html, body {
   background: var(--gray-800);
   border-bottom: 1px solid var(--gray-700);
 }
+.logo-text h2,
+.logo-container h2,
 .nav__logo h2 {
   font-size: 1.15rem;
   font-weight: 800;
-  color: #f8fafc;
+  color: #ffffff !important;
   margin-bottom: 2px;
   white-space: nowrap;
 }
+.logo-text span,
+.logo-container span,
 .nav__logo span {
   font-size: 0.75rem;
-  color: #64748b;
+  color: #94a3b8 !important;
   display: block;
 }
 @media (max-width: 480px) {

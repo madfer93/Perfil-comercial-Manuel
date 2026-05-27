@@ -47,6 +47,11 @@ self.addEventListener('activate', (event) => {
 
 // Estrategia de Caché: Network First (intenta red, si falla usa caché)
 self.addEventListener('fetch', (event) => {
+  // Ignorar esquemas no soportados por Cache (por ejemplo, chrome-extension://)
+  if (!event.request.url.startsWith('http')) {
+    return;
+  }
+
   // Ignorar peticiones que no sean GET o que vayan a APIs externas y locales
   if (
     event.request.method !== 'GET' || 
