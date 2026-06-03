@@ -1,0 +1,422 @@
+<!--
+    Copyright 2026 J&M Tech Solutions
+    Licensed under the Apache License, Version 2.0
+-->
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selección de Dirección | J&M Tech Solutions</title>
+    <!-- Google Fonts & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+      :root {
+        --primary: #2563eb;
+        --primary-dark: #1d4ed8;
+        --success: #10b981;
+        --success-dark: #059669;
+        --gray-50: #f8fafc;
+        --gray-100: #f1f5f9;
+        --gray-800: #1e293b;
+        --gray-900: #0f172a;
+        --radius-lg: 12px;
+        --radius-md: 8px;
+        --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      body {
+        margin: 0;
+        font-family: 'Inter', sans-serif;
+        background-color: #0f172a;
+        color: #cbd5e1;
+        overflow-x: hidden;
+      }
+
+      /* Split Layout Override styling */
+      gmpx-split-layout {
+        height: 100vh;
+        width: 100vw;
+      }
+
+      gmpx-split-layout:not(:defined) {
+        visibility: hidden;
+      }
+
+      .panel {
+        background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+        box-sizing: border-box;
+        height: 100%;
+        width: 100%;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 20px;
+        border-right: 1px solid rgba(255, 255, 255, 0.05);
+        overflow-y: auto;
+      }
+
+      .brand-header {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 10px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .brand-logo {
+        width: 50px;
+        height: 50px;
+        border-radius: var(--radius-md);
+        object-fit: cover;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      }
+
+      .brand-text h2 {
+        margin: 0;
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #ffffff;
+      }
+
+      .brand-text span {
+        font-size: 0.8rem;
+        color: #94a3b8;
+      }
+
+      .form-title {
+        font-size: 1rem;
+        font-weight: 600;
+        color: #f8fafc;
+        margin: 5px 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .form-title i {
+        color: var(--primary);
+      }
+
+      .input-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .input-wrapper label {
+        font-size: 0.8rem;
+        font-weight: 500;
+        color: #94a3b8;
+      }
+
+      input {
+        background: rgba(15, 23, 42, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: var(--radius-md);
+        height: 44px;
+        padding: 0 16px;
+        font-size: 14px;
+        color: #f8fafc;
+        font-family: 'Inter', sans-serif;
+        box-sizing: border-box;
+        transition: var(--transition);
+        outline: none;
+      }
+
+      input:focus {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.25);
+        background: rgba(15, 23, 42, 0.8);
+      }
+
+      input::placeholder {
+        color: #475569;
+      }
+
+      .half-input-container {
+        display: flex;
+        gap: 15px;
+        width: 100%;
+      }
+
+      .half-input-container .input-wrapper {
+        flex: 1;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        height: 48px;
+        border-radius: var(--radius-md);
+        font-weight: 700;
+        font-size: 0.95rem;
+        text-decoration: none;
+        cursor: pointer;
+        transition: var(--transition);
+        border: none;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        margin-top: 10px;
+      }
+
+      .btn--whatsapp {
+        background-color: var(--success);
+        color: white;
+      }
+
+      .btn--whatsapp:hover {
+        background-color: var(--success-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(16, 185, 129, 0.3);
+      }
+
+      .btn--whatsapp:active {
+        transform: translateY(0);
+      }
+
+      /* Customizing map view panel */
+      gmp-map {
+        height: 100%;
+        width: 100%;
+      }
+
+      /* Custom styling for autocomplete dropdown predictions */
+      .pac-container {
+        background-color: #1e293b !important;
+        border: 1px solid rgba(255, 255, 255, 0.08) !important;
+        border-radius: var(--radius-md) !important;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5) !important;
+        font-family: 'Inter', sans-serif !important;
+        margin-top: 5px !important;
+      }
+
+      .pac-item {
+        border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
+        padding: 10px 15px !important;
+        color: #94a3b8 !important;
+        font-size: 13px !important;
+        cursor: pointer;
+        transition: var(--transition);
+      }
+
+      .pac-item:hover {
+        background-color: rgba(255, 255, 255, 0.05) !important;
+      }
+
+      .pac-item-query {
+        color: #f8fafc !important;
+        font-size: 14px !important;
+      }
+
+      .pac-matched {
+        color: var(--primary) !important;
+      }
+
+      .pac-icon {
+        filter: invert(1) brightness(0.8) contrast(1.2);
+      }
+    </style>
+
+    <script type="module">
+      "use strict";
+
+      // Extended Component Library Loader
+      import {APILoader} from 'https://ajax.googleapis.com/ajax/libs/@googlemaps/extended-component-library/0.6.11/index.min.js';
+
+      const CONFIGURATION = {
+        "ctaTitle": "whatsapp",
+        "mapOptions": {
+          "center": {"lat": 4.142, "lng": -73.626}, // Centered on Villavicencio
+          "fullscreenControl": true,
+          "mapTypeControl": false,
+          "streetViewControl": true,
+          "zoom": 13,
+          "zoomControl": true,
+          "maxZoom": 22,
+          "mapId": "DEMO_MAP_ID"
+        },
+        "mapsApiKey": "AIzaSyBz_G8rHVw7bLrF_QnMG50_Au0YcQlKZuk",
+        "capabilities": {
+          "addressAutocompleteControl": true,
+          "mapDisplayControl": true,
+          "ctaControl": true
+        }
+      };
+
+      const SHORT_NAME_ADDRESS_COMPONENT_TYPES =
+          new Set(['street_number', 'administrative_area_level_1', 'postal_code']);
+
+      const ADDRESS_COMPONENT_TYPES_IN_FORM = [
+        'location',
+        'locality',
+        'administrative_area_level_1',
+        'postal_code',
+        'country',
+      ];
+
+      function getFormInputElement(componentType) {
+        return document.getElementById(`${componentType}-input`);
+      }
+
+      function fillInAddress(place) {
+        function getComponentName(componentType) {
+          for (const component of place.address_components || []) {
+            if (component.types[0] === componentType) {
+              return SHORT_NAME_ADDRESS_COMPONENT_TYPES.has(componentType) ?
+                  component.short_name :
+                  component.long_name;
+            }
+          }
+          return '';
+        }
+
+        function getComponentText(componentType) {
+          return (componentType === 'location') ?
+              `${getComponentName('street_number')} ${getComponentName('route')}`.trim() :
+              getComponentName(componentType);
+        }
+
+        for (const componentType of ADDRESS_COMPONENT_TYPES_IN_FORM) {
+          getFormInputElement(componentType).value = getComponentText(componentType);
+        }
+      }
+
+      function renderAddress(place) {
+        const mapEl = document.querySelector('gmp-map');
+        const markerEl = document.querySelector('gmp-advanced-marker');
+
+        if (place.geometry && place.geometry.location) {
+          mapEl.center = place.geometry.location;
+          markerEl.position = place.geometry.location;
+          mapEl.zoom = 17; // Zoom closer when address is selected
+        } else {
+          markerEl.position = null;
+        }
+      }
+
+      async function initMap() {
+        const {Autocomplete} = await APILoader.importLibrary('places');
+
+        const mapOptions = CONFIGURATION.mapOptions;
+        mapOptions.mapId = mapOptions.mapId || 'DEMO_MAP_ID';
+
+        await customElements.whenDefined('gmp-map');
+        document.querySelector('gmp-map').innerMap.setOptions(mapOptions);
+        
+        const autocomplete = new Autocomplete(getFormInputElement('location'), {
+          fields: ['address_components', 'geometry', 'name'],
+          types: ['address'],
+        });
+
+        autocomplete.addListener('place_changed', () => {
+          const place = autocomplete.getPlace();
+          if (!place.geometry) {
+            window.alert(`No hay detalles disponibles para: '${place.name}'`);
+            return;
+          }
+          renderAddress(place);
+          fillInAddress(place);
+        });
+      }
+
+      // WhatsApp redirection logic
+      function sendToWhatsApp() {
+        const locationVal = getFormInputElement('location').value;
+        const aptVal = document.getElementById('apt-input').value;
+        const cityVal = getFormInputElement('locality').value;
+        const stateVal = getFormInputElement('administrative_area_level_1').value;
+        const zipVal = getFormInputElement('postal_code').value;
+        const countryVal = getFormInputElement('country').value;
+
+        if (!locationVal) {
+          alert('Por favor, busca y selecciona una dirección válida en el mapa primero.');
+          return;
+        }
+
+        let fullAddress = locationVal;
+        if (aptVal) fullAddress += `, ${aptVal}`;
+        if (cityVal) fullAddress += `, ${cityVal}`;
+        if (stateVal) fullAddress += `, ${stateVal}`;
+        if (zipVal) fullAddress += `, CP ${zipVal}`;
+        if (countryVal) fullAddress += `, ${countryVal}`;
+
+        const text = `Hola Manuel, he seleccionado mi dirección en el mapa interactivo:\n📍 *Dirección:* ${fullAddress}`;
+        const whatsappUrl = `https://wa.me/573045788873?text=${encodeURIComponent(text)}`;
+        window.open(whatsappUrl, '_blank');
+      }
+
+      window.addEventListener('DOMContentLoaded', () => {
+        document.getElementById('whatsapp-btn').addEventListener('click', sendToWhatsApp);
+      });
+
+      initMap();
+    </script>
+  </head>
+  <body>
+    <!-- GMP Loader with User API Key -->
+    <gmpx-api-loader key="AIzaSyBz_G8rHVw7bLrF_QnMG50_Au0YcQlKZuk" solution-channel="GMP_QB_addressselection_v4_cABC">
+    </gmpx-api-loader>
+    
+    <gmpx-split-layout row-layout-min-width="600">
+      <div class="panel" slot="fixed">
+        <div class="brand-header">
+          <img class="brand-logo" src="https://jymtechsolutions.online/assets/favicons/android-chrome-192x192.png" alt="J&M Logo">
+          <div class="brand-text">
+            <h2>J&M Tech Solutions</h2>
+            <span>Localizador e Inteligencia de Direcciones</span>
+          </div>
+        </div>
+
+        <div class="form-title">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>Buscador de Dirección</span>
+        </div>
+        
+        <div class="input-wrapper">
+          <label for="location-input">Buscar Dirección *</label>
+          <input type="text" placeholder="Escribe tu calle, número o ciudad..." id="location-input" required autocomplete="off"/>
+        </div>
+        
+        <div class="input-wrapper">
+          <label for="apt-input">Apto, Suite, Casa, Oficina (Opcional)</label>
+          <input type="text" placeholder="Ej: Apto 302, Torre B" id="apt-input"/>
+        </div>
+        
+        <div class="input-wrapper">
+          <label for="locality-input">Ciudad</label>
+          <input type="text" placeholder="Ciudad" id="locality-input" readonly/>
+        </div>
+        
+        <div class="half-input-container">
+          <div class="input-wrapper">
+            <label for="administrative_area_level_1-input">Estado/Provincia</label>
+            <input type="text" placeholder="Departamento" id="administrative_area_level_1-input" readonly/>
+          </div>
+          <div class="input-wrapper">
+            <label for="postal_code-input">Código Postal</label>
+            <input type="text" placeholder="C.P." id="postal_code-input" readonly/>
+          </div>
+        </div>
+        
+        <div class="input-wrapper">
+          <label for="country-input">País</label>
+          <input type="text" placeholder="País" id="country-input" readonly/>
+        </div>
+        
+        <button class="btn btn--whatsapp" id="whatsapp-btn">
+          <i class="fab fa-whatsapp"></i> Enviar por WhatsApp
+        </button>
+      </div>
+      
+      <gmp-map slot="main">
+        <gmp-advanced-marker></gmp-advanced-marker>
+      </gmp-map>
+    </gmpx-split-layout>
+  </body>
+</html>
