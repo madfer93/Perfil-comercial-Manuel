@@ -3,18 +3,19 @@
  * ---------------------------------------------------
  * This script is fully self-contained. It injects its own CSS styles,
  * creates the floating accessibility controls panel (glassmorphism),
- * and manages persistence of state via localStorage.
+ * manages persistence of state via localStorage, and includes
+ * automatic translation and text-to-speech capabilities.
  */
 (function () {
     "use strict";
 
     // 1. CSS Injections for Panel and Custom Accessibility Overrides
     const css = `
-        /* --- Floating Action Button & Panel CSS --- */
+        /* --- Floating Action Button & Panel CSS (Bottom-Left to avoid overlapping WhatsApp) --- */
         .a11y-widget-fab {
             position: fixed;
             bottom: 24px;
-            right: 24px;
+            left: 24px;
             width: 56px;
             height: 56px;
             border-radius: 50%;
@@ -42,10 +43,10 @@
         .a11y-widget-panel {
             position: fixed;
             bottom: 92px;
-            right: 24px;
+            left: 24px;
             width: 320px;
             max-height: calc(100vh - 120px);
-            background: rgba(15, 23, 42, 0.85);
+            background: rgba(15, 23, 42, 0.9);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -237,6 +238,47 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+        /* --- Google Translate custom styles --- */
+        #google_translate_element {
+            margin-top: 4px;
+            width: 100%;
+        }
+        .goog-te-gadget {
+            font-family: inherit !important;
+            font-size: 0 !important;
+            color: transparent !important;
+        }
+        .goog-te-gadget span {
+            display: none !important;
+        }
+        .goog-te-gadget .goog-te-combo {
+            width: 100% !important;
+            background: rgba(255, 255, 255, 0.06) !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            color: #cbd5e1 !important;
+            padding: 8px 12px !important;
+            border-radius: 8px !important;
+            font-size: 13px !important;
+            font-family: inherit !important;
+            outline: none !important;
+            box-sizing: border-box !important;
+            cursor: pointer !important;
+            transition: all 0.2s !important;
+        }
+        .goog-te-combo:hover {
+            background: rgba(255, 255, 255, 0.1) !important;
+            color: #ffffff !important;
+        }
+        .goog-logo-link {
+            display: none !important;
+        }
+        .goog-te-banner-frame {
+            display: none !important;
+        }
+        body {
+            top: 0px !important;
+        }
+
         /* --- Global Accessibility Overrides CSS --- */
         
         /* Grayscale Filter */
@@ -326,10 +368,16 @@
         highlightLinks: false,
         highlightTitles: false,
         readingGuide: false,
-        textSize: 100 // percentages: 100, 110, 120, 130
+        textSize: 100, // percentages: 100, 110, 120, 130
+        hoverReader: false
     };
 
     let state = { ...defaultState };
+    
+    // TTS states
+    let currentUtterance = null;
+    let isReadingPage = false;
+    let lastHoveredElement = null;
 
     // Load state from localStorage
     function loadState() {
@@ -379,6 +427,11 @@
             guide.style.display = state.readingGuide ? "block" : "none";
         }
 
+        // Handle text to speech state
+        if (!state.hoverReader) {
+            stopSpeaking();
+        }
+
         // Sync panel button visual active states
         updateButtonUI();
     }
@@ -391,7 +444,8 @@
             "readableFont": document.getElementById("a11y-toggle-font"),
             "highlightLinks": document.getElementById("a11y-toggle-links"),
             "highlightTitles": document.getElementById("a11y-toggle-titles"),
-            "readingGuide": document.getElementById("a11y-toggle-guide")
+            "readingGuide": document.getElementById("a11y-toggle-guide"),
+            "hoverReader": document.getElementById("a11y-toggle-hover-reader")
         };
 
         for (const [key, btn] of Object.entries(buttons)) {
@@ -429,11 +483,96 @@
         applyAccessibility();
     }
 
+    // Speech Synthesis Core Logic
+    function speakText(text) {
+        if (!window.speechSynthesis) return;
+        window.speechSynthesis.cancel(); // cancel any active reading
+        if (!text) return;
+
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = "es-ES";
+        
+        const voices = window.speechSynthesis.getVoices();
+        const spanishVoice = voices.find(voice => voice.lang.startsWith("es"));
+        if (spanishVoice) {
+            utterance.voice = spanishVoice;
+        }
+        
+        currentUtterance = utterance;
+        window.speechSynthesis.speak(utterance);
+    }
+
+    // Load voices proactively
+    if (window.speechSynthesis) {
+        window.speechSynthesis.getVoices();
+        if (window.speechSynthesis.onvoiceschanged !== undefined) {
+            window.speechSynthesis.onvoiceschanged = window.speechSynthesis.getVoices;
+        }
+    }
+
+    function stopSpeaking() {
+        if (!window.speechSynthesis) return;
+        window.speechSynthesis.cancel();
+        isReadingPage = false;
+        
+        const btn = document.getElementById("a11y-read-page");
+        if (btn) {
+            btn.innerHTML = `<span class="a11y-btn-icon">🔊 Leer Página Completa</span>`;
+            btn.classList.remove("active");
+        }
+    }
+
+    function readFullPage() {
+        if (isReadingPage) {
+            stopSpeaking();
+            return;
+        }
+
+        const elements = document.querySelectorAll(
+            "h1:not(.a11y-widget-panel *), h2:not(.a11y-widget-panel *), h3:not(.a11y-widget-panel *), h4:not(.a11y-widget-panel *), h5:not(.a11y-widget-panel *), h6:not(.a11y-widget-panel *), p:not(.a11y-widget-panel *), li:not(.a11y-widget-panel *)"
+        );
+        let fullText = "";
+        elements.forEach(el => {
+            if (el.offsetWidth > 0 && el.offsetHeight > 0) {
+                fullText += el.innerText + ". ";
+            }
+        });
+
+        if (!fullText.trim()) return;
+
+        isReadingPage = true;
+        const btn = document.getElementById("a11y-read-page");
+        if (btn) {
+            btn.innerHTML = `<span class="a11y-btn-icon">⏹️ Detener Lectura</span>`;
+            btn.classList.add("active");
+        }
+
+        speakText(fullText);
+
+        currentUtterance.onend = function () {
+            stopSpeaking();
+        };
+        currentUtterance.onerror = function () {
+            stopSpeaking();
+        };
+    }
+
     // Reset all settings
     function resetAll() {
         state = { ...defaultState };
+        stopSpeaking();
         saveState();
         applyAccessibility();
+        
+        // Reset Google Translate dropdown
+        const combo = document.querySelector(".goog-te-combo");
+        if (combo) {
+            combo.value = "";
+            // Trigger change event to restore original language
+            const event = document.createEvent("HTMLEvents");
+            event.initEvent("change", true, false);
+            combo.dispatchEvent(event);
+        }
     }
 
     // Initialize Widget elements
@@ -452,6 +591,31 @@
         document.addEventListener("mousemove", function (e) {
             if (state.readingGuide) {
                 guideLine.style.top = `${e.clientY - 2}px`;
+            }
+        });
+
+        // Hover Screen Reader Listener
+        document.addEventListener("mouseover", function (e) {
+            if (!state.hoverReader) return;
+
+            if (e.target.closest(".a11y-widget-panel") || e.target.closest(".a11y-widget-fab")) {
+                return;
+            }
+
+            const target = e.target;
+            const tags = ["H1", "H2", "H3", "H4", "H5", "H6", "P", "LI", "A", "BUTTON"];
+            if (tags.includes(target.tagName) || target.getAttribute("alt")) {
+                let text = "";
+                if (target.getAttribute("alt")) {
+                    text = "Imagen: " + target.getAttribute("alt");
+                } else {
+                    text = target.innerText || target.textContent;
+                }
+                
+                if (text.trim() && target !== lastHoveredElement) {
+                    lastHoveredElement = target;
+                    speakText(text);
+                }
             }
         });
 
@@ -481,6 +645,12 @@
             </div>
             <div class="a11y-panel-body">
                 
+                <!-- Google Translate Dropdown Widget -->
+                <div class="a11y-control-group">
+                    <span class="a11y-control-label">Idioma / Language</span>
+                    <div id="google_translate_element"></div>
+                </div>
+
                 <div class="a11y-control-group">
                     <span class="a11y-control-label">Tamaño de Texto</span>
                     <div class="a11y-size-controls">
@@ -488,6 +658,18 @@
                         <button class="a11y-size-btn" id="a11y-size-inc" aria-label="Aumentar texto">A+</button>
                     </div>
                     <div class="a11y-size-display" id="a11y-size-val">100%</div>
+                </div>
+
+                <!-- Text-to-Speech Controls -->
+                <div class="a11y-control-group">
+                    <span class="a11y-control-label">Lector de Voz (TTS)</span>
+                    <button class="a11y-btn" id="a11y-read-page">
+                        <span class="a11y-btn-icon">🔊 Leer Página Completa</span>
+                    </button>
+                    <button class="a11y-btn" id="a11y-toggle-hover-reader">
+                        <span class="a11y-btn-icon">🗣️ Leer al pasar cursor</span>
+                        <div class="a11y-btn-toggle"></div>
+                    </button>
                 </div>
 
                 <div class="a11y-control-group">
@@ -551,11 +733,26 @@
         document.getElementById("a11y-toggle-links").addEventListener("click", () => toggleSetting("highlightLinks"));
         document.getElementById("a11y-toggle-titles").addEventListener("click", () => toggleSetting("highlightTitles"));
         document.getElementById("a11y-toggle-guide").addEventListener("click", () => toggleSetting("readingGuide"));
+        document.getElementById("a11y-toggle-hover-reader").addEventListener("click", () => toggleSetting("hoverReader"));
+        
+        document.getElementById("a11y-read-page").addEventListener("click", readFullPage);
 
         document.getElementById("a11y-size-inc").addEventListener("click", () => changeTextSize(true));
         document.getElementById("a11y-size-dec").addEventListener("click", () => changeTextSize(false));
         
         document.getElementById("a11y-reset").addEventListener("click", resetAll);
+
+        // Inject Google Translate script dynamically
+        window.googleTranslateElementInit = function() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'es',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        };
+        const gtScript = document.createElement("script");
+        gtScript.type = "text/javascript";
+        gtScript.src = "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+        document.head.appendChild(gtScript);
 
         // Initial apply
         applyAccessibility();
