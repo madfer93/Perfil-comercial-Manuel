@@ -211,3 +211,20 @@
         font-size: 1.8rem;
     }
 }
+
+.channel-map {
+    border-color: rgba(37, 99, 235, 0.3);
+    background: linear-gradient(145deg, #1e293b 0%, rgba(37, 99, 235, 0.05) 100%);
+}
+.channel-map i {
+    color: #60a5fa !important;
+}
+.channel-map p a {
+    color: #60a5fa !important;
+    text-decoration: underline;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+.channel-map p a:hover {
+    color: #3b82f6 !important;
+}
