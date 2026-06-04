@@ -356,6 +356,28 @@
             display: none;
             transition: top 0.05s ease-out;
         }
+
+        /* Responsive Mobile styling */
+        @media (max-width: 480px) {
+            .a11y-widget-fab {
+                bottom: 16px;
+                left: 16px;
+                width: 48px;
+                height: 48px;
+            }
+            .a11y-widget-fab svg {
+                width: 24px;
+                height: 24px;
+            }
+            .a11y-widget-panel {
+                bottom: 76px;
+                left: 12px;
+                right: 12px;
+                width: auto;
+                max-height: calc(100vh - 100px);
+                padding: 16px;
+            }
+        }
     `;
 
     // 2. State & Storage Management
