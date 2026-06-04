@@ -267,7 +267,7 @@
       function fillInAddress(place) {
         function getComponentName(componentType) {
           for (const component of place.address_components || []) {
-            if (component.types[0] === componentType) {
+            if (component.types.includes(componentType)) {
               return SHORT_NAME_ADDRESS_COMPONENT_TYPES.has(componentType) ?
                   component.short_name :
                   component.long_name;
@@ -346,7 +346,7 @@
         if (zipVal) fullAddress += `, CP ${zipVal}`;
         if (countryVal) fullAddress += `, ${countryVal}`;
 
-        const text = `Hola Manuel, he seleccionado mi dirección en el mapa interactivo:\n📍 *Dirección:* ${fullAddress}`;
+        const text = `Hola Manuel, he seleccionado mi dirección en el mapa interactivo:\n\n*Dirección:* ${fullAddress}`;
         const whatsappUrl = `https://wa.me/573045788873?text=${encodeURIComponent(text)}`;
         window.open(whatsappUrl, '_blank');
       }
@@ -390,23 +390,23 @@
         
         <div class="input-wrapper">
           <label for="locality-input">Ciudad</label>
-          <input type="text" placeholder="Ciudad" id="locality-input" readonly/>
+          <input type="text" placeholder="Ciudad" id="locality-input"/>
         </div>
         
         <div class="half-input-container">
           <div class="input-wrapper">
             <label for="administrative_area_level_1-input">Estado/Provincia</label>
-            <input type="text" placeholder="Departamento" id="administrative_area_level_1-input" readonly/>
+            <input type="text" placeholder="Departamento" id="administrative_area_level_1-input"/>
           </div>
           <div class="input-wrapper">
             <label for="postal_code-input">Código Postal</label>
-            <input type="text" placeholder="C.P." id="postal_code-input" readonly/>
+            <input type="text" placeholder="C.P." id="postal_code-input"/>
           </div>
         </div>
         
         <div class="input-wrapper">
           <label for="country-input">País</label>
-          <input type="text" placeholder="País" id="country-input" readonly/>
+          <input type="text" placeholder="País" id="country-input"/>
         </div>
         
         <button class="btn btn--whatsapp" id="whatsapp-btn">
