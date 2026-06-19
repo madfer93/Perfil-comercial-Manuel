@@ -4,7 +4,10 @@
 
 # --- Documentos Privados y Comerciales (LOCAL ONLY) ---
 documentos/
-!documentos/propuestas/
+propuestas/
+Cuenta_de_Cobro_Fundetec.*
+firma.html
+*.zip
 *.pdf
 *.docx
 *.pptx
